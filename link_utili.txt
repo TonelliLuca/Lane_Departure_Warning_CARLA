@@ -1,0 +1,5 @@
+https://github.com/Erendrgnl/Carla-Ros-Lane-Keeping-System/tree/master
+
+https://medium.com/@diazoangga/implementing-lane-detection-in-carla-using-lanenet-330d8fd8720c
+
+https://github.com/MaybeShewill-CV/lanenet-lane-detection
