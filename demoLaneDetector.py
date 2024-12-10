@@ -95,13 +95,20 @@ def detect(image):
     ll_seg_mask = lane_line_mask(ll)
 
     show_seg_result(img0, (da_seg_mask,ll_seg_mask), is_demo=True)
-    plt.imshow(img0)
-    plt.axis('off')  # Hide axes
-    plt.show()
+    return img0
 
 
 if __name__ == '__main__':
     with torch.no_grad():
             #HERE SHOULD GO THE IMAGE FROM CARLA
             random_image = np.random.randint(0, 256, size=(3, 600, 800), dtype=np.uint8)
-            detect(random_image)
+            
+            start_time = time.time()
+            img = detect(random_image)
+            end_time = time.time()
+            
+            elapsed_time = end_time - start_time
+            print(f"Elapsed time: {elapsed_time} seconds")
+            plt.imshow(img)
+            plt.axis('off')  # Hide axes
+            plt.show()
