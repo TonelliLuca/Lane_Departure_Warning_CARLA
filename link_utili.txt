@@ -7,3 +7,5 @@ https://github.com/MaybeShewill-CV/lanenet-lane-detection
 https://github.com/Xiaohong-Deng/CarND-Advanced-Lane-Lines
 
 python -m pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu117
+
+https://github.com/CAIC-AD/YOLOPv2/releases/download/V0.0.1/yolopv2.pt
