@@ -78,29 +78,44 @@ model.eval()
 if device.type != 'cpu':
     model(torch.zeros(1, 3, imgsz, imgsz).to(device).type_as(next(model.parameters())))
 
+# Define the desired crop size
+define_crop_size = 320
+
 def detect(image):
+    """Modified detect function to handle dynamic crop sizes."""
     with torch.no_grad():
-        random_bgr = np.transpose(image, (1, 2, 0))
-        img0 = cv2.resize(random_bgr, (1280, 720), interpolation=cv2.INTER_LINEAR)
-        img = letterbox(img0)[0]
-        img = img[:, :, ::-1].transpose(2, 0, 1)  # BGR to RGB, to 3x416x416
+        # Adjust input image dimensions and preprocessing
+        img0 = image.transpose(1, 2, 0)  # CHW to HWC
+        img = letterbox(img0, new_shape=img0.shape[:2])[0]
+        img = img[:, :, ::-1].transpose(2, 0, 1)  # BGR to RGB, HWC to CHW
         img = np.ascontiguousarray(img)
+
         img = torch.from_numpy(img).to(device)
         img = img.half() if half else img.float()  # uint8 to fp16/32
-        img /= 255.0  # 0 - 255 to 0.0 - 1.0
+        img /= 255.0  # Normalize to 0.0 - 1.0
         if img.ndimension() == 3:
             img = img.unsqueeze(0)
+
         # Inference
         t1 = time_synchronized()
         [pred, anchor_grid], seg, ll = model(img)
         t2 = time_synchronized()
+
         # Apply NMS
         pred = split_for_trace_model(pred, anchor_grid)
         pred = non_max_suppression(pred, 0.3, 0.45, classes=None, agnostic=False)
         da_seg_mask = driving_area_mask(seg)
         ll_seg_mask = lane_line_mask(ll)
-        show_seg_result(img0, (da_seg_mask, ll_seg_mask), is_demo=True)
+
+        # Resize segmentation masks to match input image size
+        da_seg_mask_resized = cv2.resize(da_seg_mask, img0.shape[:2][::-1], interpolation=cv2.INTER_NEAREST)
+        ll_seg_mask_resized = cv2.resize(ll_seg_mask, img0.shape[:2][::-1], interpolation=cv2.INTER_NEAREST)
+
+        # Display or save segmentation results
+        show_seg_result(img0, (da_seg_mask_resized, ll_seg_mask_resized), is_demo=True)
         return img0
+
+
 
 def spawn_camera(attach_to=None, transform=carla.Transform(carla.Location(x=1.2, z=2), carla.Rotation(pitch=-10)), width=640, height=640):
     camera_bp = world.get_blueprint_library().find('sensor.camera.rgb')
@@ -113,36 +128,40 @@ vehicle = spawn_vehicle()
 camera = spawn_camera(attach_to=vehicle)
 
 video_output = np.zeros((640, 640, 4), dtype=np.uint8)
-video_output_seg = np.zeros((1280, 720, 3), dtype=np.uint8)
+video_output_seg = np.zeros((720, 1280, 3), dtype=np.uint8)
+
+
 
 def camera_callback(image):
     global video_output
-    
+
+    # Convert raw image data to a numpy array
     video_output = np.reshape(np.copy(image.raw_data), (image.height, image.width, 4))
     image_to_analyze = video_output[:, :, :3]
-    image_to_analyze = np.transpose(image_to_analyze, (2, 0, 1))
 
-    pil_image = Image.fromarray(image_to_analyze.transpose(1, 2, 0))  # Convert to PIL image
- 
-    # Define the size of the square to crop (e.g., 200x200)
-    square_size = 450
- 
-    # Calculate the crop box for the square in the bottom center
-    left = (pil_image.width - square_size) // 2  # Center horizontally
-    upper = pil_image.height - square_size  # Align to the bottom
-    right = left + square_size  # Width of the square
-    lower = upper + square_size  # Height of the squareq
- 
-    # Crop the image
-    crop_box = (left, upper, right, lower)
-    cropped_image = pil_image.crop(crop_box)
-    cropped_image.save('tone3.png')
-    cropped_not_transposed = np.array(cropped_image)
-    cropped_image_np = np.transpose(cropped_image, (2, 0, 1))
-    print(cropped_not_transposed.shape)
+    # Convert the numpy array to a PIL image
+    pil_image = Image.fromarray(image_to_analyze)
 
-    Thread(target=run_inference, args=(cropped_image_np,)).start()
-    # Start a new thread for the detect function
+    # Define the size and position for cropping
+    crop_size = define_crop_size
+    width, height = pil_image.size
+    left = (width - crop_size) // 2
+    top = height - crop_size
+    right = left + crop_size
+    bottom = height
+
+    # Crop the image using PIL
+    cropped_image = pil_image.crop((left, top, right, bottom))
+
+    # Save the cropped image for debugging
+    cropped_image.save("cropped_debug.png")
+
+    # Convert the cropped image back to a numpy array for analysis
+    image_to_analyze = np.array(cropped_image).transpose(2, 0, 1)  # HWC to CHW
+
+    # Start a new thread for inference
+    Thread(target=run_inference, args=(image_to_analyze,)).start()
+
 
 def run_inference(image_to_analyze):
     global video_output_seg
