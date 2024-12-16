@@ -1,6 +1,7 @@
 import carla, time, pygame, math, random, cv2
 import numpy as np
 import matplotlib.pyplot as plt
+from PIL import Image
 import torch
 from utils.utils import \
     time_synchronized,select_device, increment_path,\
@@ -9,6 +10,23 @@ from utils.utils import \
     AverageMeter,\
     LoadImages,\
     letterbox
+
+from threading import Thread
+
+def cleanup():
+    """Ensure proper cleanup of resources upon termination."""
+    try:
+        if camera is not None:
+            camera.destroy()
+            print("Camera destroyed")
+        if vehicle is not None:
+            vehicle.destroy()
+            print("Vehicle destroyed")
+        pygame.quit()
+        cv2.destroyAllWindows()
+        print("Resources cleaned up successfully")
+    except Exception as e:
+        print(f"Error during cleanup: {e}")
 
 client = carla.Client('localhost', 2000)
 client.set_timeout(10.0)
@@ -41,18 +59,6 @@ def spawn_vehicle(vehicle_index=0, spawn_index=0, pattern='vehicle.*'):
 def draw_on_screen(world, transform, content='O', color=carla.Color(0, 255, 0), life_time=20):
     world.debug.draw_string(transform.location, content, color=color, life_time=life_time)
 
-
-import carla, time, pygame, math, random, cv2
-import numpy as np
-import matplotlib.pyplot as plt
-import torch
-from utils.utils import (
-    time_synchronized, select_device, increment_path,
-    scale_coords, xyxy2xywh, non_max_suppression, split_for_trace_model,
-    driving_area_mask, lane_line_mask, plot_one_box, show_seg_result,
-    AverageMeter, LoadImages, letterbox
-)
-from threading import Thread
 
 # Initialize Pygame
 pygame.init()
@@ -107,19 +113,41 @@ vehicle = spawn_vehicle()
 camera = spawn_camera(attach_to=vehicle)
 
 video_output = np.zeros((640, 640, 4), dtype=np.uint8)
-video_output_seg = np.zeros((720, 1280, 3), dtype=np.uint8)
+video_output_seg = np.zeros((1280, 720, 3), dtype=np.uint8)
 
 def camera_callback(image):
     global video_output
+    
     video_output = np.reshape(np.copy(image.raw_data), (image.height, image.width, 4))
     image_to_analyze = video_output[:, :, :3]
     image_to_analyze = np.transpose(image_to_analyze, (2, 0, 1))
+
+    pil_image = Image.fromarray(image_to_analyze.transpose(1, 2, 0))  # Convert to PIL image
+ 
+    # Define the size of the square to crop (e.g., 200x200)
+    square_size = 450
+ 
+    # Calculate the crop box for the square in the bottom center
+    left = (pil_image.width - square_size) // 2  # Center horizontally
+    upper = pil_image.height - square_size  # Align to the bottom
+    right = left + square_size  # Width of the square
+    lower = upper + square_size  # Height of the squareq
+ 
+    # Crop the image
+    crop_box = (left, upper, right, lower)
+    cropped_image = pil_image.crop(crop_box)
+    cropped_image.save('tone3.png')
+    cropped_not_transposed = np.array(cropped_image)
+    cropped_image_np = np.transpose(cropped_image, (2, 0, 1))
+    print(cropped_not_transposed.shape)
+
+    Thread(target=run_inference, args=(cropped_image_np,)).start()
     # Start a new thread for the detect function
-    Thread(target=run_inference, args=(image_to_analyze,)).start()
 
 def run_inference(image_to_analyze):
     global video_output_seg
     video_output_seg = detect(image_to_analyze)
+    
 
 camera.listen(lambda image: camera_callback(image))
 
