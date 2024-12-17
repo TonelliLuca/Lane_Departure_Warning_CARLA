@@ -14,6 +14,7 @@ client = carla.Client('localhost', 2000)
 client.set_timeout(10.0)
 
 world = client.get_world()
+
 spectator = world.get_spectator()
 
 
@@ -110,8 +111,8 @@ def detect(image):
         contours, _ = cv2.findContours(red_lane_mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 
         # Filter bounding boxes based on size
-        MIN_BOX_WIDTH = 30   # Imposta una larghezza minima
-        MIN_BOX_HEIGHT = 30  # Imposta un'altezza minima
+        MIN_BOX_WIDTH = 40   # Imposta una larghezza minima
+        MIN_BOX_HEIGHT = 40  # Imposta un'altezza minima
         red_boxes = [
             cv2.boundingRect(cnt) 
             for cnt in contours 
@@ -130,7 +131,7 @@ def detect(image):
             img_center_x = combined.shape[1] // 2
 
             # Controllo centratura
-            if abs(lane_center_x - img_center_x) < 20:
+            if abs(lane_center_x - img_center_x) < 22:
                 alignment_status = "Car is CENTERED in the lane"
                 print("Car is CENTERED in the lane")
             elif lane_center_x > img_center_x:
@@ -200,7 +201,8 @@ camera.listen(lambda image: camera_callback(image))
 
 vehicle.set_autopilot(False)
 
-cv2.namedWindow('RGB analyzed output', cv2.WINDOW_AUTOSIZE)
+cv2.namedWindow('Original RGB feed', cv2.WINDOW_AUTOSIZE)
+cv2.namedWindow('RGB Camera output', cv2.WINDOW_AUTOSIZE)
 
 running = True
 
@@ -227,7 +229,7 @@ try:
         if cv2.waitKey(1) == ord('q'):
             running = False
             break
-        
+        cv2.imshow('Original RGB feed', video_output)
         cv2.imshow('RGB analyzed output', video_output_seg)
 finally:
     cv2.destroyAllWindows()
