@@ -4,29 +4,11 @@ import matplotlib.pyplot as plt
 from PIL import Image
 import torch
 from utils.utils import \
-    time_synchronized,select_device, increment_path,\
-    scale_coords,xyxy2xywh,non_max_suppression,split_for_trace_model,\
-    driving_area_mask,lane_line_mask,plot_one_box,show_seg_result,\
-    AverageMeter,\
-    LoadImages,\
+    time_synchronized,select_device,non_max_suppression,split_for_trace_model,\
+    driving_area_mask,lane_line_mask,show_seg_result,\
     letterbox
 
 from threading import Thread
-
-def cleanup():
-    """Ensure proper cleanup of resources upon termination."""
-    try:
-        if camera is not None:
-            camera.destroy()
-            print("Camera destroyed")
-        if vehicle is not None:
-            vehicle.destroy()
-            print("Vehicle destroyed")
-        pygame.quit()
-        cv2.destroyAllWindows()
-        print("Resources cleaned up successfully")
-    except Exception as e:
-        print(f"Error during cleanup: {e}")
 
 client = carla.Client('localhost', 2000)
 client.set_timeout(10.0)
@@ -66,7 +48,7 @@ screen = pygame.display.set_mode((800, 600))
 
 # Load the model once
 weights = 'data/weights/yolopv2.pt'
-imgsz = 640
+imgsz = 352
 device = select_device('0')
 model = torch.jit.load(weights).to(device)
 half = device.type != 'cpu'  # half precision only supported on CUDA
@@ -79,7 +61,7 @@ if device.type != 'cpu':
     model(torch.zeros(1, 3, imgsz, imgsz).to(device).type_as(next(model.parameters())))
 
 # Define the desired crop size
-define_crop_size = 320
+define_crop_size = 352
 
 def detect(image):
     """Modified detect function to handle dynamic crop sizes."""
@@ -104,6 +86,7 @@ def detect(image):
         # Apply NMS
         pred = split_for_trace_model(pred, anchor_grid)
         pred = non_max_suppression(pred, 0.3, 0.45, classes=None, agnostic=False)
+
         da_seg_mask = driving_area_mask(seg)
         ll_seg_mask = lane_line_mask(ll)
 
@@ -131,7 +114,6 @@ video_output = np.zeros((640, 640, 4), dtype=np.uint8)
 video_output_seg = np.zeros((720, 1280, 3), dtype=np.uint8)
 
 
-
 def camera_callback(image):
     global video_output
 
@@ -143,18 +125,14 @@ def camera_callback(image):
     pil_image = Image.fromarray(image_to_analyze)
 
     # Define the size and position for cropping
-    crop_size = define_crop_size
+    crop_size = min(define_crop_size, pil_image.width, pil_image.height)
     width, height = pil_image.size
     left = (width - crop_size) // 2
     top = height - crop_size
     right = left + crop_size
     bottom = height
 
-    # Crop the image using PIL
     cropped_image = pil_image.crop((left, top, right, bottom))
-
-    # Save the cropped image for debugging
-    cropped_image.save("cropped_debug.png")
 
     # Convert the cropped image back to a numpy array for analysis
     image_to_analyze = np.array(cropped_image).transpose(2, 0, 1)  # HWC to CHW
