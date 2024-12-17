@@ -94,9 +94,56 @@ def detect(image):
         da_seg_mask_resized = cv2.resize(da_seg_mask, img0.shape[:2][::-1], interpolation=cv2.INTER_NEAREST)
         ll_seg_mask_resized = cv2.resize(ll_seg_mask, img0.shape[:2][::-1], interpolation=cv2.INTER_NEAREST)
 
-        # Display or save segmentation results
-        show_seg_result(img0, (da_seg_mask_resized, ll_seg_mask_resized), is_demo=True)
-        return img0
+         # Overlay segmentation masks on the original image
+        mask = np.zeros_like(img0, dtype=np.uint8)
+        mask[da_seg_mask_resized == 1] = (0, 255, 0)  # Green for drivable area
+        mask[ll_seg_mask_resized == 1] = (0, 0, 255)  # Red for lane lines
+        
+        # Merge segmentation mask with the original image
+        combined = cv2.addWeighted(img0, 0.7, mask, 0.3, 0)
+
+        # Process the lane line mask for red line detection
+        red_lane_mask = cv2.inRange(ll_seg_mask_resized, 1, 255)
+
+        # Clean up noise with morphological operationsq
+        kernel = np.ones((5, 5), np.uint8)
+        red_lane_mask = cv2.morphologyEx(red_lane_mask, cv2.MORPH_CLOSE, kernel)
+
+        # Find contours of red lines
+        contours, _ = cv2.findContours(red_lane_mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+
+        # Draw bounding boxes and alignment information
+        red_boxes = [cv2.boundingRect(cnt) for cnt in contours]
+        for (x, y, w, h) in red_boxes:
+            cv2.rectangle(combined, (x, y), (x + w, y + h), (0, 255, 0), 2)  # Draw bounding box
+
+        # Lane alignment analysis
+        if red_boxes:
+            leftmost_red = min([x for x, y, w, h in red_boxes])
+            rightmost_red = max([x + w for x, y, w, h in red_boxes])
+            lane_center_x = (leftmost_red + rightmost_red) // 2
+            img_center_x = combined.shape[1] // 2
+
+            # Alignment status
+            if abs(lane_center_x - img_center_x) < 20:
+                alignment_status = "Car is CENTERED in the lane"
+                print("Car is CENTERED in the lane")
+            elif lane_center_x > img_center_x:
+                alignment_status = "Car is CROSSING to the LEFT lane"
+                print("Car is CROSSING to the LEFT lane")
+            else:
+                alignment_status = "Car is CROSSING to the RIGHT lane"
+                print("Car is CROSSING to the RIGHT lane")
+
+            # Draw alignment lines and text
+            cv2.line(combined, (lane_center_x, 0), (lane_center_x, combined.shape[0]), (0, 0, 255), 2)
+            cv2.line(combined, (img_center_x, 0), (img_center_x, combined.shape[0]), (255, 0, 0), 2)
+            cv2.putText(combined, alignment_status, (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2)
+
+        # Display segmentation mask for debugging
+        cv2.imshow("Lane Line Mask", red_lane_mask)
+
+        return combined
 
 
 
