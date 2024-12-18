@@ -24,9 +24,48 @@ def initializeYOLOPModel(weights='data/weights/yolopv2.pt', imgsz=320):
     if device.type != 'cpu':
         model(torch.zeros(1, 3, imgsz, imgsz).to(device).type_as(next(model.parameters())))
 
+def filter_nested_boxes(boxes, iou_threshold=0.8):
+    """Remove nested bounding boxes, keeping only the largest."""
+    def calculate_iou(box1, box2):
+        x1, y1, w1, h1 = box1
+        x2, y2, w2, h2 = box2
+
+        # Coordinates of the intersection rectangle
+        xi1 = max(x1, x2)
+        yi1 = max(y1, y2)
+        xi2 = min(x1 + w1, x2 + w2)
+        yi2 = min(y1 + h1, y2 + h2)
+
+        # Compute intersection area
+        intersection_area = max(0, xi2 - xi1) * max(0, yi2 - yi1)
+
+        # Compute areas of both boxes
+        box1_area = w1 * h1
+        box2_area = w2 * h2
+
+        # Compute union area
+        union_area = box1_area + box2_area - intersection_area
+
+        # Return IoU
+        return intersection_area / union_area if union_area > 0 else 0
+
+    # Sort boxes by area in descending order
+    boxes = sorted(boxes, key=lambda b: b[2] * b[3], reverse=True)
+
+    filtered_boxes = []
+    for i, box in enumerate(boxes):
+        keep = True
+        for j in range(i):
+            if calculate_iou(box, boxes[j]) > iou_threshold:
+                keep = False
+                break
+        if keep:
+            filtered_boxes.append(box)
+
+    return filtered_boxes
 
 def analyzeImage(image):
-    """Modified detect function with size filtering for bounding boxes."""
+    """Improved detect function to filter horizontal lines and handle central alignment."""
 
     with torch.no_grad():
         img0 = image.transpose(1, 2, 0)  # CHW to HWC
@@ -72,38 +111,52 @@ def analyzeImage(image):
         # Find contours of red lines
         contours, _ = cv2.findContours(red_lane_mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 
-        # Filter bounding boxes based on size
-        MIN_BOX_WIDTH = 40   # Imposta una larghezza minima
-        MIN_BOX_HEIGHT = 40  # Imposta un'altezza minima
-        red_boxes = [
-            cv2.boundingRect(cnt) 
-            for cnt in contours 
-            if cv2.boundingRect(cnt)[2] > MIN_BOX_WIDTH and cv2.boundingRect(cnt)[3] > MIN_BOX_HEIGHT
-        ]
+        # Filter bounding boxes based on size and orientation
+        MIN_BOX_WIDTH = 35   # Minimum box width
+        MIN_BOX_HEIGHT = 35  # Minimum box height
+        ORIENTATION_THRESHOLD = 4.0  # Threshold for detecting horizontal boxes
+
+        red_boxes = []
+        for cnt in contours:
+            x, y, w, h = cv2.boundingRect(cnt)
+            if w > MIN_BOX_WIDTH and h > MIN_BOX_HEIGHT:
+                aspect_ratio = w / h  # Calculate width-to-height ratio
+                if aspect_ratio < ORIENTATION_THRESHOLD:  # Avoid horizontal boxes
+                    red_boxes.append((x, y, w, h))
+
+        # Remove nested boxes, keeping only the largest
+        red_boxes = filter_nested_boxes(red_boxes)
 
         for (x, y, w, h) in red_boxes:
             cv2.rectangle(combined, (x, y), (x + w, y + h), (0, 255, 0), 2)  # Draw bounding box
 
         # Lane alignment analysis
         if red_boxes:
-            # Calcolo della posizione centrale
+            # Calculate lane center
             leftmost_red = min([x for x, y, w, h in red_boxes])
             rightmost_red = max([x + w for x, y, w, h in red_boxes])
             lane_center_x = (leftmost_red + rightmost_red) // 2
             img_center_x = combined.shape[1] // 2
 
-            # Controllo centratura
-            if abs(lane_center_x - img_center_x) < 22:
-                alignment_status = "Car is CENTERED in the lane"
-                print("Car is CENTERED in the lane")
-            elif lane_center_x > img_center_x:
-                alignment_status = "Car is CROSSING to the LEFT lane"
-                print("Car is CROSSING to the LEFT lane")
+            # Check alignment
+            if len(red_boxes) == 1:  # Single box scenario
+                if abs(lane_center_x - img_center_x) < 30:
+                    alignment_status = "Single box: Car likely BETWEEN two lanes"
+                    print("Single box: Car likely BETWEEN two lanes")
+                else:
+                    alignment_status = "Single box detected: Check alignment"
             else:
-                alignment_status = "Car is CROSSING to the RIGHT lane"
-                print("Car is CROSSING to the RIGHT lane")
+                if abs(lane_center_x - img_center_x) < 22:
+                    alignment_status = "Car is CENTERED in the lane"
+                    print("Car is CENTERED in the lane")
+                elif lane_center_x > img_center_x:
+                    alignment_status = "Car is CROSSING to the LEFT lane"
+                    print("Car is CROSSING to the LEFT lane")
+                else:
+                    alignment_status = "Car is CROSSING to the RIGHT lane"
+                    print("Car is CROSSING to the RIGHT lane")
 
-            # Disegna linee di riferimento e testo
+            # Draw reference lines and text
             cv2.line(combined, (lane_center_x, 0), (lane_center_x, combined.shape[0]), (0, 0, 255), 2)
             cv2.line(combined, (img_center_x, 0), (img_center_x, combined.shape[0]), (255, 0, 0), 2)
             cv2.putText(combined, alignment_status, (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2)

@@ -1,6 +1,6 @@
 import carla, pygame, cv2
 import numpy as np
-
+q
 from utils.carla import spawn_vehicle, spawn_camera
 from utils.image_cropper import process_image
 from utils.YOLOPModel import initializeYOLOPModel, analyzeImage
