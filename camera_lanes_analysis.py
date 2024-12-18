@@ -5,8 +5,9 @@ from PIL import Image
 import torch
 from utils.utils import \
     time_synchronized,select_device,non_max_suppression,split_for_trace_model,\
-    driving_area_mask,lane_line_mask,show_seg_result,\
+    driving_area_mask,lane_line_mask,\
     letterbox
+
 
 from threading import Thread
 
