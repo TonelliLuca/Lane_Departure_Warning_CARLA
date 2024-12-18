@@ -7,6 +7,8 @@ from utils.YOLOPModel import initializeYOLOPModel, analyzeImage
 
 from threading import Thread
 
+pygame.init()
+screen = pygame.display.set_mode((800, 600))
 # Try to connect to the CARLA server
 try:
     client = carla.Client('localhost', 2000)
@@ -36,8 +38,10 @@ def camera_callback(image):
     Callback function for the camera. Processes the image and starts a new thread for inference.
     """
     global video_output
+    video_output = np.reshape(np.copy(image.raw_data), (image.height, image.width, 4))
 
-    image_to_analyze = process_image(image, define_crop_size)
+
+    image_to_analyze = process_image(video_output, define_crop_size)
 
     # Start a new thread for inference
     Thread(target=run_analysis, args=(image_to_analyze,)).start()
@@ -55,7 +59,7 @@ camera.listen(lambda image: camera_callback(image))
 vehicle.set_autopilot(False)
 
 cv2.namedWindow('Original RGB feed', cv2.WINDOW_AUTOSIZE)
-cv2.namedWindow('RGB Camera output', cv2.WINDOW_AUTOSIZE)
+cv2.namedWindow('RGB analyzed output', cv2.WINDOW_AUTOSIZE)
 
 running = True
 

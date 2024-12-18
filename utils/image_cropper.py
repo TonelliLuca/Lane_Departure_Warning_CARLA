@@ -1,9 +1,8 @@
 import numpy as np
 from PIL import Image
 
-def process_image(image, define_crop_size):
+def process_image(video_output, define_crop_size):
     # Convert raw image data to a numpy array
-    video_output = np.reshape(np.copy(image.raw_data), (image.height, image.width, 4))
     image_to_analyze = video_output[:, :, :3]
 
     # Convert the numpy array to a PIL image

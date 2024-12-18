@@ -6,7 +6,12 @@ from utils.utils import \
     driving_area_mask,lane_line_mask,\
     letterbox
 
+device = None
+model = None
+half = False
+
 def initializeYOLOPModel(weights='data/weights/yolopv2.pt', imgsz=320):
+    global device, model, half
     # Load the model once
     device = select_device('0')
     model = torch.jit.load(weights).to(device)
