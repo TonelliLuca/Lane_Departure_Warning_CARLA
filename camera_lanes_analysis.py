@@ -13,6 +13,9 @@ screen = pygame.display.set_mode((800, 600))
 try:
     client = carla.Client('localhost', 2000)
     client.set_timeout(10.0)
+    #town04 - highway
+    #town06 long highways with lane exit
+    client.load_world('Town05')
     world = client.get_world()
     spectator = world.get_spectator()
 except Exception as e:
@@ -42,9 +45,9 @@ def camera_callback(image):
 
 
     image_to_analyze = process_image(video_output, define_crop_size)
-
+    run_analysis(image_to_analyze)
     # Start a new thread for inference
-    Thread(target=run_analysis, args=(image_to_analyze,)).start()
+    #Thread(target=run_analysis, args=(image_to_analyze,)).start()
 
 def run_analysis(image_to_analyze):
     """
@@ -64,24 +67,96 @@ cv2.namedWindow('RGB analyzed output', cv2.WINDOW_AUTOSIZE)
 running = True
 
 try:
+    # Initialize controller support
+    pygame.joystick.init()
+    joystick = None
+    if pygame.joystick.get_count() > 0:
+        joystick = pygame.joystick.Joystick(0)
+        joystick.init()
+        print(f"Controller connected: {joystick.get_name()}")
+
+    # Control state variables
+    throttle_val = 0.0
+    brake_val = 0.0
+    steer_val = 0.0
+
     while running:
+        # Process events
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
+
+            # Keyboard controls
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_w:
-                    vehicle.apply_control(carla.VehicleControl(throttle=1.0))
+                    throttle_val = 1.0
+                    brake_val = 0.0
                 elif event.key == pygame.K_s:
-                    vehicle.apply_control(carla.VehicleControl(brake=1.0))
+                    brake_val = 1.0
+                    throttle_val = 0.0
                 elif event.key == pygame.K_a:
-                    vehicle.apply_control(carla.VehicleControl(steer=-1.0))
+                    steer_val = -1.0
                 elif event.key == pygame.K_d:
-                    vehicle.apply_control(carla.VehicleControl(steer=1.0))
+                    steer_val = 1.0
             elif event.type == pygame.KEYUP:
-                if event.key == pygame.K_w or event.key == pygame.K_s:
-                    vehicle.apply_control(carla.VehicleControl(throttle=0.0, brake=0.0))
-                elif event.key == pygame.K_a or event.key == pygame.K_d:
-                    vehicle.apply_control(carla.VehicleControl(steer=0.0))
+                if event.key == pygame.K_w:
+                    throttle_val = 0.0
+                elif event.key == pygame.K_s:
+                    brake_val = 0.0
+                elif event.key == pygame.K_a and steer_val < 0:
+                    steer_val = 0.0
+                elif event.key == pygame.K_d and steer_val > 0:
+                    steer_val = 0.0
+
+        if joystick:
+            # Get controller name to handle different mappings
+            controller_name = joystick.get_name().lower()
+
+            # Handle trigger inputs (varies between controller drivers)
+            # Xbox One triggers are typically on axes 2 (LT) and 5 (RT)
+            # Some drivers map them to -1 (released) to 1 (pressed)
+            # Others map them to 0 (released) to 1 (pressed)
+
+            # Left trigger (brake)
+            left_trigger = joystick.get_axis(2)
+            # Convert from [-1, 1] to [0, 1] if needed
+            if left_trigger < -0.5:  # If resting position is -1
+                brake_val = (left_trigger + 1) / 2
+            else:  # If resting position is 0
+                brake_val = max(0, left_trigger)
+
+            # Right trigger (throttle)
+            right_trigger = joystick.get_axis(5)
+            # Convert from [-1, 1] to [0, 1] if needed
+            if right_trigger < -0.5:  # If resting position is -1
+                throttle_val = (right_trigger + 1) / 2
+            else:  # If resting position is 0
+                throttle_val = max(0, right_trigger)
+
+            # Left stick for steering (horizontal axis)
+            raw_steer = joystick.get_axis(0)
+
+            # Apply deadzone and smoothing to steering
+            deadzone = 0.1
+            if abs(raw_steer) < deadzone:
+                steer_val = 0.0
+            else:
+                # Apply progressive steering for better control
+                # Rescale from deadzone to 1.0
+                steer_direction = 1.0 if raw_steer > 0 else -1.0
+                steer_amount = (abs(raw_steer) - deadzone) / (1.0 - deadzone)
+                # Make steering more precise by applying a curve
+                steer_val = steer_direction * (steer_amount ** 1.5)
+
+            # Optional: Check for handbrake (B button on Xbox controller)
+            handbrake = 1.0 if joystick.get_button(1) else 0.0
+
+        # Apply combined control values
+        vehicle.apply_control(carla.VehicleControl(
+            throttle=throttle_val,
+            brake=brake_val,
+            steer=steer_val
+        ))
 
         if cv2.waitKey(1) == ord('q'):
             running = False
