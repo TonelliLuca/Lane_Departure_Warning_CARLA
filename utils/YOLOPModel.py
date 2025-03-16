@@ -82,6 +82,7 @@ def get_smoothed_status(new_status):
 
 def analyzeImage(image):
     """Improved detect function to filter horizontal lines and handle central alignment."""
+    crossing = False
     try:
         with torch.no_grad():
             img0 = image.transpose(1, 2, 0)  # CHW to HWC
@@ -116,8 +117,6 @@ def analyzeImage(image):
             # Process segmentation masks
             da_seg_mask = driving_area_mask(seg)
             ll_seg_mask = lane_line_mask(ll)
-            da_seg_mask_resized = cv2.resize(da_seg_mask, img0.shape[:2][::-1], interpolation=cv2.INTER_NEAREST)
-            ll_seg_mask_resized = cv2.resize(ll_seg_mask, img0.shape[:2][::-1], interpolation=cv2.INTER_NEAREST)
 
             # Clean up GPU memory
             del seg, ll, pred
@@ -148,8 +147,8 @@ def analyzeImage(image):
             contours, _ = cv2.findContours(red_lane_mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 
             # Filter bounding boxes based on size and orientation
-            MIN_BOX_WIDTH = 35   # Minimum box width
-            MIN_BOX_HEIGHT = 35  # Minimum box height
+            MIN_BOX_WIDTH = 30   # Minimum box width
+            MIN_BOX_HEIGHT = 30  # Minimum box height
             ORIENTATION_THRESHOLD = 4.0  # Threshold for detecting horizontal boxes
 
             red_boxes = []
@@ -183,31 +182,28 @@ def analyzeImage(image):
                 # Add state tracking
                 if len(red_boxes) == 1:  # Single box scenario
                     alignment_status = "Single box: Car likely BETWEEN two lanes"
-                    alignment_status = get_smoothed_status(alignment_status)
+                    crossing = True
                     print(alignment_status)
                 else:
                     if abs(center_distance) < CENTERED_THRESHOLD:
                         alignment_status = "Car is CENTERED in the lane"
-                        alignment_status = get_smoothed_status(alignment_status)
                         print(alignment_status)
                     elif abs(center_distance) < CROSSING_THRESHOLD:
                         if center_distance > 0:
                             alignment_status = "Car is SLIGHTLY LEFT of center"
-                            alignment_status = get_smoothed_status(alignment_status)
                             print(alignment_status)
                         else:
                             alignment_status = "Car is SLIGHTLY RIGHT of center"
-                            alignment_status = get_smoothed_status(alignment_status)
                             print(alignment_status)
                     else:
                         if center_distance > 0:
+
                             alignment_status = "Car is CROSSING to the LEFT lane"
-                            alignment_status = get_smoothed_status(alignment_status)
                             print("Car is CROSSING to the LEFT lane")
                         else:
                             alignment_status = "Car is CROSSING to the RIGHT lane"
-                            alignment_status = get_smoothed_status(alignment_status)
                             print("Car is CROSSING to the RIGHT lane")
+                        crossing = True
 
                 # Draw reference lines and text
                 cv2.line(combined, (lane_center_x, 0), (lane_center_x, combined.shape[0]), (0, 0, 255), 2)
@@ -215,7 +211,7 @@ def analyzeImage(image):
                 cv2.putText(combined, alignment_status, (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2,
                             cv2.LINE_AA)
 
-            return combined
+            return combined, crossing
 
     except Exception as e:
         print(f"Error in analyzeImage: {str(e)}")

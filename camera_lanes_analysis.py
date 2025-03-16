@@ -19,6 +19,8 @@ try:
     client.load_world('Town04')
     world = client.get_world()
     spectator = world.get_spectator()
+
+
 except Exception as e:
     print(f"Failed to connect to CARLA server: {e}")
     exit(1)
@@ -67,86 +69,7 @@ def lane_invasion_callback(event):
     if yolop_lane_invasion_detected:
         print("Both systems detected lane crossing - HIGH CONFIDENCE")
 
-def detect_lane_crossing(seg_output):
-    """
-    More accurate lane crossing detection with temporal consistency
-    Returns True if crossing detected, False otherwise
-    """
-    global yolop_lane_invasion_detected, yolop_lane_invasion_timestamp
-    global last_detection_frames, detection_threshold
 
-    try:
-        # Check if input is valid
-        if seg_output is None or seg_output.size == 0:
-            return False
-
-        # Get the lane line mask from segmentation output
-        if len(seg_output.shape) == 3:
-            height, width = seg_output.shape[:2]
-
-            if height <= 0 or width <= 0:
-                return False
-
-            # Extract regions where lane lines are detected (red in segmentation)
-            lane_mask = np.zeros((height, width), dtype=np.uint8)
-            red_pixels = (seg_output[:, :, 2] > 200) & (seg_output[:, :, 0] < 50) & (seg_output[:, :, 1] < 50)
-            lane_mask[red_pixels] = 255
-
-            # Define the center area where vehicle is
-            bottom_half = height // 2
-            center_width = width // 3
-
-            # Make sure indices are valid
-            center_start = max(0, (width - center_width) // 2)
-            center_end = min(width, (width + center_width) // 2)
-
-            # Get vehicle area safely
-            if bottom_half < height and center_end > center_start:
-                vehicle_area = lane_mask[bottom_half:, center_start:center_end]
-
-                # Count lane pixels in vehicle area
-                lane_pixels = cv2.countNonZero(vehicle_area)
-
-                # Pixel-based detection with minimum threshold
-                if lane_pixels > 150:  # Higher threshold to avoid false positives
-                    last_detection_frames += 1
-                else:
-                    last_detection_frames = max(0, last_detection_frames - 1)
-
-                # Only trigger after consecutive detections to avoid flickering
-                if last_detection_frames >= detection_threshold:
-                    if not yolop_lane_invasion_detected:
-                        print("YOLOP detected lane crossing")
-                        yolop_lane_invasion_detected = True
-                        yolop_lane_invasion_timestamp = datetime.now()
-                    return True
-
-        # Reset detection after timeout
-        if yolop_lane_invasion_detected and (datetime.now() - yolop_lane_invasion_timestamp).total_seconds() > 3:
-            yolop_lane_invasion_detected = False
-            last_detection_frames = 0
-
-    except Exception as e:
-        print(f"Error in lane crossing detection: {str(e)}")
-        # Reset detection on error
-        last_detection_frames = 0
-
-    return yolop_lane_invasion_detected
-
-def spawn_top_down_camera(world, attach_to=None):
-    """Spawn a top-down camera to view car position relative to lanes"""
-    camera_bp = world.get_blueprint_library().find('sensor.camera.rgb')
-    camera_bp.set_attribute('image_size_x', '640')
-    camera_bp.set_attribute('image_size_y', '480')
-
-    # Position the camera high above the car looking down
-    camera_transform = carla.Transform(
-        carla.Location(x=0, y=0, z=15),  # 15 meters above car
-        carla.Rotation(pitch=-90)  # Looking straight down
-    )
-
-    top_camera = world.spawn_actor(camera_bp, camera_transform, attach_to=attach_to)
-    return top_camera
 
 def top_camera_callback(image):
     """Callback for the top-down camera"""
@@ -222,14 +145,12 @@ def camera_callback(image):
             return
 
         # Perform image analysis with error handling
-        result = analyzeImage(image_to_analyze)
+        result, crossing = analyzeImage(image_to_analyze)
 
-        # Update global only if valid result returned
         if result is not None and result.size > 0:
             video_output_seg = result
-
-            # Check for lane crossing in the segmentation output
-            detect_lane_crossing(video_output_seg)
+            # Set the global YOLOP flag directly from the crossing result
+            yolop_lane_invasion_detected = crossing
 
     except Exception as e:
         print(f"Error in camera callback: {str(e)}")
@@ -240,13 +161,15 @@ try:
     # Set up camera with callback
     camera.listen(lambda image: camera_callback(image))
 
-    # Create and set up top-down camera
-    top_camera = spawn_top_down_camera(world, attach_to=vehicle)
-    top_camera.listen(lambda image: top_camera_callback(image))
 
     # Create and attach the lane invasion sensor
     lane_invasion_sensor = spawn_lane_invasion_sensor(world, attach_to=vehicle)
     lane_invasion_sensor.listen(lambda event: lane_invasion_callback(event))
+    # Create and set up top-down camera
+    top_camera = top_camera = spawn_camera(world, attach_to=vehicle,
+                                           transform=carla.Transform(carla.Location(x=0, y=0, z=15),
+                                                                     carla.Rotation(pitch=-90)), width=640, height=480)
+    top_camera.listen(lambda image: top_camera_callback(image))
 
     # Set up display windows
     cv2.namedWindow('Original RGB feed', cv2.WINDOW_AUTOSIZE)
@@ -365,6 +288,9 @@ try:
         if cv2.waitKey(1) == ord('q'):
             running = False
             break
+
+
+
 finally:
     # Clean up resources
     cv2.destroyAllWindows()
