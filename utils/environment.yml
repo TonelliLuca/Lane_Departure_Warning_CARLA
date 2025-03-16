@@ -1,0 +1,11 @@
+name: carla-env
+channels:
+  - https://repo.anaconda.com/pkgs/main
+  - https://repo.anaconda.com/pkgs/r
+  - https://repo.anaconda.com/pkgs/msys2
+dependencies:
+  - python=3.7
+  - pillow
+  - notebook
+  - matplotlib
+prefix: C:\Users\erag0\anaconda3\envs\carla-env
