@@ -127,7 +127,7 @@ def get_actor_display_name(actor, truncate=250):
 
 
 class World(object):
-    def __init__(self, carla_world, hud, actor_filter):
+    def __init__(self, carla_world, hud, actor_filter, test):
         self.world = carla_world
         self.hud = hud
         self.player = None
@@ -138,10 +138,10 @@ class World(object):
         self._weather_presets = find_weather_presets()
         self._weather_index = 0
         self._actor_filter = actor_filter
-        self.restart()
+        self.restart(test)
         self.world.on_tick(hud.on_world_tick)
 
-    def restart(self):
+    def restart(self, test=False):
         # Keep same camera config if the camera manager exists.
         cam_index = self.camera_manager.index if self.camera_manager is not None else 0
         cam_pos_index = self.camera_manager.transform_index if self.camera_manager is not None else 0
@@ -168,8 +168,14 @@ class World(object):
             self.destroy()
             self.player = self.world.try_spawn_actor(blueprint, spawn_point)
         while self.player is None:
-            spawn_points = self.world.get_map().get_spawn_points()
-            spawn_point = random.choice(spawn_points) if spawn_points else carla.Transform()
+            if test:
+                spawn_point = carla.Transform(
+                    carla.Location(x=-13.0, y=-180.0, z=2.0),
+                    carla.Rotation(yaw=90.0)
+                )
+            else:
+                spawn_points = self.world.get_map().get_spawn_points()
+                spawn_point = random.choice(spawn_points) if spawn_points else carla.Transform()
             self.player = self.world.try_spawn_actor(blueprint, spawn_point)
         # Set up the sensors.
         self.collision_sensor = CollisionSensor(self.player, self.hud)
@@ -211,7 +217,30 @@ class World(object):
 # ==============================================================================
 # -- DualControl -----------------------------------------------------------
 # ==============================================================================
-
+commands = [
+    (1, 0.0, 0.0),
+    (1, 0.0, 0.0),
+    (1, 0.0, 0.0),
+    (1, 0.0, 0.0),
+    (1, 0.0, 0.0),
+    (1, 0.0, 0.0),
+    (1, 0.0, 0.0),
+    (1, 0.0, 0.0),
+    (1, 0.0, 0.0),
+    (1, 0.0, 0.0),
+    (1, 0.0, 0.0),
+    (1, 0.0, 0.0),
+    (1, 0.0, 0.0),
+    (1, 0.0, 0.0),
+    (1, 0.0, 0.0),
+    (1, 0.0, 0.0),
+    (1, 0.0, 0.0),
+    (1, 0.0, 0.0),
+    (1, 0.0, 0.0),
+    (1, 0.0, 0.0),
+    (1, 0.0, 0.0),
+    (1, 0.0, 0.0)
+]
 
 class DualControl(object):
     def __init__(self, world, start_in_autopilot):
@@ -249,8 +278,28 @@ class DualControl(object):
         self._reverse_idx = int(self._parser.get('G29 Racing Wheel', 'reverse'))
         self._handbrake_idx = int(
             self._parser.get('G29 Racing Wheel', 'handbrake'))
+        self._step_counter = 0
 
-    def parse_events(self, world, clock):
+    def parse_events(self, world, clock, test):
+        if test:
+            # Only handle QUIT events
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    return True
+
+            # If we have not reached the end of commands, apply them
+            if self._step_counter < len(commands):
+                t_val, b_val, s_val = commands[self._step_counter]
+                self._control.throttle = t_val
+                self._control.brake = b_val
+                self._control.steer = s_val
+                self._step_counter += 1
+
+            # Apply control
+            if isinstance(self._control, carla.VehicleControl):
+                world.player.apply_control(self._control)
+            return False
+
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return True
@@ -938,7 +987,8 @@ def game_loop(args):
         initializeYOLOPModel()
 
 
-        world = World(client.get_world(), hud, args.filter)
+        world = World(client.get_world(), hud, args.filter, args.test)
+
         controller = DualControl(world, args.autopilot)
         
         # Spawn the vehicle and camera in the CARLA world
@@ -956,7 +1006,7 @@ def game_loop(args):
         lane_invasion_sensor = spawn_lane_invasion_sensor(client.get_world(), attach_to=world.player)
         lane_invasion_sensor.listen(lambda event: lane_invasion_callback(event))
         # Create and set up top-down camera
-        top_camera = top_camera = spawn_camera(client.get_world(), attach_to=world.player,
+        top_camera = spawn_camera(client.get_world(), attach_to=world.player,
                                             transform=carla.Transform(carla.Location(x=0, y=0, z=15),
                                                                         carla.Rotation(pitch=-90)), width=640, height=480)
         top_camera.listen(lambda image: top_camera_callback(image))
@@ -967,10 +1017,16 @@ def game_loop(args):
         cv2.namedWindow('Top-down View', cv2.WINDOW_AUTOSIZE)
 
         clock = pygame.time.Clock()
+
+
+
+        index = 0
         while True:
             clock.tick_busy_loop(120)
-            if controller.parse_events(world, clock):
+            if controller.parse_events(world, clock, args.test):
                 return
+
+
             world.tick(clock)
             world.render(display)
             pygame.display.flip()
@@ -1004,6 +1060,8 @@ def game_loop(args):
 
             if top_view_output.shape[2] >= 3:
                 cv2.imshow('Top-down View', top_view_output)
+
+
 
 
     finally:
@@ -1052,6 +1110,11 @@ def main():
         metavar='PATTERN',
         default='vehicle.*',
         help='actor filter (default: "vehicle.*")')
+    argparser.add_argument(
+        '--test',
+        action='store_true',
+        default=False,
+        help='Run in test mode without controller')
     args = argparser.parse_args()
 
     args.width, args.height = [int(x) for x in args.res.split('x')]
