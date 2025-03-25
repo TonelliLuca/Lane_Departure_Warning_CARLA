@@ -8,6 +8,7 @@ data/weights/yolopv2.pt
 # C extensions
 *.so
 
+launcher_config.json
 # Distribution / packaging
 .Python
 build/
