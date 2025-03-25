@@ -170,14 +170,10 @@ class World(object):
             self.destroy()
             self.player = self.world.try_spawn_actor(blueprint, spawn_point)
         while self.player is None:
-            if test:
-                spawn_point = carla.Transform(
-                    carla.Location(x=-13.0, y=-180.0, z=2.0),
-                    carla.Rotation(yaw=90.0)
-                )
-            else:
-                spawn_points = self.world.get_map().get_spawn_points()
-                spawn_point = random.choice(spawn_points) if spawn_points else carla.Transform()
+            spawn_point = carla.Transform(
+                carla.Location(x=-13.0, y=-180.0, z=2.0),
+                carla.Rotation(yaw=90.0)
+            )
             self.player = self.world.try_spawn_actor(blueprint, spawn_point)
         # Set up the sensors.
         self.collision_sensor = CollisionSensor(self.player, self.hud)
@@ -234,8 +230,10 @@ def read_json_file(file_path):
 
 
 class DualControl(object):
-    def __init__(self, world, start_in_autopilot):
+    def __init__(self, world, start_in_autopilot, controller_type='wheel'):
         self._autopilot_enabled = start_in_autopilot
+        self.controller_type = controller_type
+
         if isinstance(world.player, carla.Vehicle):
             self._control = carla.VehicleControl()
             world.player.set_autopilot(self._autopilot_enabled)
@@ -252,23 +250,34 @@ class DualControl(object):
         pygame.joystick.init()
 
         joystick_count = pygame.joystick.get_count()
-        if joystick_count > 1:
-            raise ValueError("Please Connect Just One Joystick")
+        if joystick_count < 1:
+            raise ValueError("No controller detected")
 
         self._joystick = pygame.joystick.Joystick(0)
         self._joystick.init()
 
-        self._parser = ConfigParser()
+        # Get controller name
+        self._controller_name = self._joystick.get_name()
+        print(f"Detected controller: {self._controller_name}")
 
-        self._parser.read('.\wheel_config.ini')
-        self._steer_idx = int(
-            self._parser.get('G29 Racing Wheel', 'steering_wheel'))
-        self._throttle_idx = int(
-            self._parser.get('G29 Racing Wheel', 'throttle'))
-        self._brake_idx = int(self._parser.get('G29 Racing Wheel', 'brake'))
-        self._reverse_idx = int(self._parser.get('G29 Racing Wheel', 'reverse'))
-        self._handbrake_idx = int(
-            self._parser.get('G29 Racing Wheel', 'handbrake'))
+        if self.controller_type == 'wheel':
+            self._parser = ConfigParser()
+
+            self._parser.read('.\wheel_config.ini')
+            self._steer_idx = int(
+                self._parser.get('G29 Racing Wheel', 'steering_wheel'))
+            self._throttle_idx = int(
+                self._parser.get('G29 Racing Wheel', 'throttle'))
+            self._brake_idx = int(self._parser.get('G29 Racing Wheel', 'brake'))
+            self._reverse_idx = int(self._parser.get('G29 Racing Wheel', 'reverse'))
+            self._handbrake_idx = int(
+                self._parser.get('G29 Racing Wheel', 'handbrake'))
+        else:
+            self._xbox_steer_axis = 0  # Left stick horizontal
+            self._xbox_throttle_axis = 5  # Right trigger
+            self._xbox_brake_axis = 2  # Left trigger
+            self._xbox_handbrake_button = 0  # A button
+
         self._step_counter = 0
 
     def parse_events(self, world, clock, test):
@@ -367,8 +376,11 @@ class DualControl(object):
 
         if not self._autopilot_enabled:
             if isinstance(self._control, carla.VehicleControl):
-                self._parse_vehicle_keys(pygame.key.get_pressed(), clock.get_time())
-                self._parse_vehicle_wheel()
+                if self.controller_type == 'wheel':
+                    self._parse_vehicle_wheel()
+                else:  # xbox controller
+                    self._parse_vehicle_xbox()
+                #self._parse_vehicle_keys(pygame.key.get_pressed(), clock.get_time())
                 self._control.reverse = self._control.gear < 0
 
                 # Record the current inputs if recording is active
@@ -381,6 +393,35 @@ class DualControl(object):
             elif isinstance(self._control, carla.WalkerControl):
                 self._parse_walker_keys(pygame.key.get_pressed(), clock.get_time())
             world.player.apply_control(self._control)
+
+    def _parse_vehicle_xbox(self):
+        """Parse input from Xbox controller"""
+        numAxes = self._joystick.get_numaxes()
+        jsInputs = [float(self._joystick.get_axis(i)) for i in range(numAxes)]
+
+        # Debug output
+        print(f"Xbox axes values: {jsInputs}")
+
+        # Xbox One controller typically uses:
+        # - Right trigger (axis 5): -1 (not pressed) to 1 (fully pressed)
+        # - Left trigger (axis 2): -1 (not pressed) to 1 (fully pressed)
+        # - Left stick horizontal (axis 0): -1 (left) to 1 (right)
+
+        # Map trigger values from [-1,1] to [0,1]
+        self._control.throttle = max(0, (jsInputs[self._xbox_throttle_axis] + 1) / 2)
+        #self._control.brake = max(0, (jsInputs[self._xbox_brake_axis] + 1) / 2)
+        self._control.brake = 0
+        # Apply deadzone to steering
+        steer_raw = jsInputs[self._xbox_steer_axis]
+        deadzone = 0.1
+        if abs(steer_raw) < deadzone:
+            self._control.steer = 0
+        else:
+            self._control.steer = steer_raw
+
+        # Print control values for debugging
+        print(
+            f"Control values - Throttle: {self._control.throttle}, Brake: {self._control.brake}, Steer: {self._control.steer}")
 
     def _parse_vehicle_keys(self, keys, milliseconds):
         self._control.throttle = 1.0 if keys[K_UP] or keys[K_w] else 0.0
@@ -1060,24 +1101,15 @@ def game_loop(args):
 
         hud = HUD(args.width, args.height)
         client.load_world('Town04')
-
-
-        
-
         initializeYOLOPModel()
-
 
         world = World(client.get_world(), hud, args.filter, args.test)
 
-        controller = DualControl(world, args.autopilot)
+        controller = DualControl(world, args.autopilot, args.controller)
         
         # Spawn the vehicle and camera in the CARLA world
         camera = spawn_camera(client.get_world(), attach_to=world.player)
 
-        
-        
-
-       
         # Set up camera with callback
         camera.listen(lambda image: camera_callback(image))
 
@@ -1099,7 +1131,7 @@ def game_loop(args):
         clock = pygame.time.Clock()
 
         while True:
-            clock.tick_busy_loop(120)
+            clock.tick_busy_loop(60)
             if controller.parse_events(world, clock, args.test):
                 return
 
@@ -1171,6 +1203,12 @@ def game_loop(args):
 def main():
     argparser = argparse.ArgumentParser(
         description='CARLA Manual Control Client')
+    argparser.add_argument(
+        '--controller',
+        default='wheel',
+        choices=['wheel', 'xbox'],
+        help='Control method: wheel (Logitech G29) or xbox (Xbox controller) (default: wheel)'
+    )
     argparser.add_argument(
         '-v', '--verbose',
         action='store_true',
