@@ -48,6 +48,7 @@ except IndexError:
 import carla
 
 from carla import ColorConverter as cc
+from utils.DetectionLogger import DetectionLogger
 
 import argparse
 import collections
@@ -95,6 +96,7 @@ try:
     from pygame.locals import K_r
     from pygame.locals import K_s
     from pygame.locals import K_w
+    from pygame.locals import K_z
 except ImportError:
     raise RuntimeError('cannot import pygame, make sure pygame package is installed')
 
@@ -217,30 +219,16 @@ class World(object):
 # ==============================================================================
 # -- DualControl -----------------------------------------------------------
 # ==============================================================================
-commands = [
-    (1, 0.0, 0.0),
-    (1, 0.0, 0.0),
-    (1, 0.0, 0.0),
-    (1, 0.0, 0.0),
-    (1, 0.0, 0.0),
-    (1, 0.0, 0.0),
-    (1, 0.0, 0.0),
-    (1, 0.0, 0.0),
-    (1, 0.0, 0.0),
-    (1, 0.0, 0.0),
-    (1, 0.0, 0.0),
-    (1, 0.0, 0.0),
-    (1, 0.0, 0.0),
-    (1, 0.0, 0.0),
-    (1, 0.0, 0.0),
-    (1, 0.0, 0.0),
-    (1, 0.0, 0.0),
-    (1, 0.0, 0.0),
-    (1, 0.0, 0.0),
-    (1, 0.0, 0.0),
-    (1, 0.0, 0.0),
-    (1, 0.0, 0.0)
-]
+
+import json
+
+def read_json_file(file_path):
+    with open(file_path, 'r') as file:
+        commands = json.load(file)
+    return commands
+
+commands = read_json_file('commands.json')
+print('Loaded commands:', commands)
 
 class DualControl(object):
     def __init__(self, world, start_in_autopilot):
@@ -281,6 +269,9 @@ class DualControl(object):
         self._step_counter = 0
 
     def parse_events(self, world, clock, test):
+        if not hasattr(self, '_recording'):
+            self._recording = False
+            self._recorded_inputs = []
         if test:
             # Only handle QUIT events
             for event in pygame.event.get():
@@ -289,17 +280,18 @@ class DualControl(object):
 
             # If we have not reached the end of commands, apply them
             if self._step_counter < len(commands):
+                print(f"Step: {self._step_counter}")
                 t_val, b_val, s_val = commands[self._step_counter]
                 self._control.throttle = t_val
                 self._control.brake = b_val
                 self._control.steer = s_val
+                print(f"Throttle: {t_val}, Brake: {b_val}, Steer: {s_val}")
                 self._step_counter += 1
 
             # Apply control
             if isinstance(self._control, carla.VehicleControl):
                 world.player.apply_control(self._control)
             return False
-
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return True
@@ -338,6 +330,20 @@ class DualControl(object):
                     world.camera_manager.set_sensor(event.key - 1 - K_0)
                 elif event.key == K_r:
                     world.camera_manager.toggle_recording()
+                elif event.key == K_z:
+                    self._recording = not self._recording
+                    if self._recording:
+                        self._recorded_inputs = []  # Clear previous recordings
+                        world.hud.notification('Recording inputs started')
+                    else:
+                        if self._recorded_inputs:
+                            # Save recorded inputs to a JSON file
+                            with open('recorded_inputs.json', 'w') as f:
+                                json.dump(self._recorded_inputs, f)
+                            world.hud.notification(
+                                f'Recording saved to recorded_inputs.json ({len(self._recorded_inputs)} frames)')
+                        else:
+                            world.hud.notification('Recording stopped (no inputs recorded)')
                 if isinstance(self._control, carla.VehicleControl):
                     if event.key == K_q:
                         self._control.gear = 1 if self._control.reverse else -1
@@ -360,6 +366,14 @@ class DualControl(object):
                 self._parse_vehicle_keys(pygame.key.get_pressed(), clock.get_time())
                 self._parse_vehicle_wheel()
                 self._control.reverse = self._control.gear < 0
+
+                # Record the current inputs if recording is active
+                if self._recording:
+                    self._recorded_inputs.append([
+                        float(self._control.throttle),
+                        float(self._control.brake),
+                        float(self._control.steer)
+                    ])
             elif isinstance(self._control, carla.WalkerControl):
                 self._parse_walker_keys(pygame.key.get_pressed(), clock.get_time())
             world.player.apply_control(self._control)
@@ -851,6 +865,7 @@ blink_state = False
 blink_timer = 0
 last_detection_frames = 0
 detection_threshold = 3  # Require consecutive detections to reduce false positives
+detection_logger = DetectionLogger()
 
 
 def spawn_lane_invasion_sensor(world, attach_to=None):
@@ -867,6 +882,8 @@ def lane_invasion_callback(event):
     lane_types = set(x.type for x in event.crossed_lane_markings)
     text = ['%r' % str(x).split()[-1] for x in lane_types]
     print('Carla detected lane crossing: %s' % ', '.join(text))
+    # Log the detection
+    detection_logger.log_detection("CARLA", True)
 
     # Cross-validate with YOLOP detection
     if yolop_lane_invasion_detected:
@@ -951,12 +968,65 @@ def camera_callback(image):
         result, crossing = analyzeImage(image_to_analyze)
 
         if result is not None and result.size > 0:
+            if crossing != yolop_lane_invasion_detected:
+                detection_logger.log_detection("YOLOP", crossing)
             video_output_seg = result
             # Set the global YOLOP flag directly from the crossing result
             yolop_lane_invasion_detected = crossing
 
     except Exception as e:
         print(f"Error in camera callback: {str(e)}")
+
+
+def setup_test_window():
+    """Set up a dedicated window for displaying test results"""
+    cv2.namedWindow('Test Results', cv2.WINDOW_AUTOSIZE)
+    # Create a blank canvas for the test results
+    test_display = np.ones((400, 600, 3), dtype=np.uint8) * 240  # Light gray background
+    return test_display
+
+
+def update_test_display(test_display):
+    """Update the test results display with current statistics"""
+    # Start with a clean slate
+    test_display.fill(240)
+
+    # Get statistics from the detector logger
+    stats = detection_logger.get_stats()
+
+    # Add title
+    cv2.putText(test_display, "Lane Detection Comparison",
+                (20, 40), cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 0, 0), 2, cv2.LINE_AA)
+
+    # Add statistics
+    cv2.putText(test_display, f"Total events: {stats['events']}",
+                (30, 90), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 0), 1, cv2.LINE_AA)
+
+    # Agreement rate with color coding
+    agreement_rate = stats.get('agreement_rate', 0) * 100
+    color = (0, 100, 0) if agreement_rate > 70 else (0, 0, 200) if agreement_rate < 50 else (0, 150, 150)
+    cv2.putText(test_display, f"Agreement rate: {agreement_rate:.1f}%",
+                (30, 130), cv2.FONT_HERSHEY_SIMPLEX, 0.7, color, 2, cv2.LINE_AA)
+
+    # Detection counts
+    cv2.putText(test_display, f"YOLOP only: {stats.get('yolop_only', 0)}",
+                (30, 170), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 128, 0), 1, cv2.LINE_AA)
+    cv2.putText(test_display, f"CARLA only: {stats.get('carla_only', 0)}",
+                (30, 210), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 1, cv2.LINE_AA)
+    cv2.putText(test_display,
+                f"Both systems: {stats.get('events', 0) - stats.get('yolop_only', 0) - stats.get('carla_only', 0)}",
+                (30, 250), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 0), 1, cv2.LINE_AA)
+
+    # Add time information
+    time_now = datetime.now().strftime("%H:%M:%S")
+    cv2.putText(test_display, f"Time: {time_now}",
+                (30, 350), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (100, 100, 100), 1, cv2.LINE_AA)
+
+    # Draw a border
+    cv2.rectangle(test_display, (10, 10), (590, 390), (0, 0, 0), 2)
+
+    return test_display
+
 
 # ==============================================================================
 # -- game_loop() ---------------------------------------------------------------
@@ -968,7 +1038,11 @@ def game_loop(args):
     pygame.init()
     pygame.font.init()
     world = None
-
+    # Initialize test display if in test mode
+    test_display = None
+    if args.test:
+        test_display = setup_test_window()
+        stats_display_counter = 0
     try:
         client = carla.Client(args.host, args.port)
         client.set_timeout(10.0)
@@ -1018,9 +1092,6 @@ def game_loop(args):
 
         clock = pygame.time.Clock()
 
-
-
-        index = 0
         while True:
             clock.tick_busy_loop(120)
             if controller.parse_events(world, clock, args.test):
@@ -1061,7 +1132,21 @@ def game_loop(args):
             if top_view_output.shape[2] >= 3:
                 cv2.imshow('Top-down View', top_view_output)
 
+            # Update and show test display if in test mode
+            if args.test:
+                stats_display_counter += 1
+                if stats_display_counter >= 30:  # Update every 30 frames (0.25 sec at 120fps)
+                    test_display = update_test_display(test_display)
+                    stats_display_counter = 0
 
+                cv2.imshow('Test Results', test_display)
+
+                # Save results periodically or on key press
+                key = cv2.waitKey(1)
+                if key == ord('s'):  # Press 's' to save current stats
+                    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+                    cv2.imwrite(f'test_results_{timestamp}.png', test_display)
+                    print(f"Test results saved as test_results_{timestamp}.png")
 
 
     finally:
