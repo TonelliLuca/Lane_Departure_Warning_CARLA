@@ -223,12 +223,15 @@ class World(object):
 import json
 
 def read_json_file(file_path):
-    with open(file_path, 'r') as file:
-        commands = json.load(file)
-    return commands
+    try:
+        with open(file_path, 'r') as file:
+            commands = json.load(file)
+        print(f'Loaded commands from {file_path}:', commands)
+        return commands
+    except Exception as e:
+        print(f"Error loading commands file: {e}")
+        return []
 
-commands = read_json_file('commands.json')
-print('Loaded commands:', commands)
 
 class DualControl(object):
     def __init__(self, world, start_in_autopilot):
@@ -273,6 +276,7 @@ class DualControl(object):
             self._recording = False
             self._recorded_inputs = []
         if test:
+            global commands
             # Only handle QUIT events
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -1041,6 +1045,8 @@ def game_loop(args):
     # Initialize test display if in test mode
     test_display = None
     if args.test:
+        global commands
+        commands = read_json_file(args.test_file)
         test_display = setup_test_window()
         stats_display_counter = 0
     try:
@@ -1200,6 +1206,11 @@ def main():
         action='store_true',
         default=False,
         help='Run in test mode without controller')
+    argparser.add_argument(
+        '--test-file',
+        type=str,
+        default='commands.json',
+        help='Specify the JSON file with commands for test mode')
     args = argparser.parse_args()
 
     args.width, args.height = [int(x) for x in args.res.split('x')]
