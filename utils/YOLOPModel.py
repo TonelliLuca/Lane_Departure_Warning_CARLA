@@ -183,26 +183,26 @@ def analyzeImage(image):
                 if len(red_boxes) == 1:  # Single box scenario
                     alignment_status = "Single box: Car likely BETWEEN two lanes"
                     crossing = True
-                    print(alignment_status)
+                    #print(alignment_status)
                 else:
                     if abs(center_distance) < CENTERED_THRESHOLD:
                         alignment_status = "Car is CENTERED in the lane"
-                        print(alignment_status)
+                        #print(alignment_status)
                     elif abs(center_distance) < CROSSING_THRESHOLD:
                         if center_distance > 0:
                             alignment_status = "Car is SLIGHTLY LEFT of center"
-                            print(alignment_status)
+                            #print(alignment_status)
                         else:
                             alignment_status = "Car is SLIGHTLY RIGHT of center"
-                            print(alignment_status)
+                            #print(alignment_status)
                     else:
                         if center_distance > 0:
 
                             alignment_status = "Car is CROSSING to the LEFT lane"
-                            print("Car is CROSSING to the LEFT lane")
+                            #print("Car is CROSSING to the LEFT lane")
                         else:
                             alignment_status = "Car is CROSSING to the RIGHT lane"
-                            print("Car is CROSSING to the RIGHT lane")
+                            #print("Car is CROSSING to the RIGHT lane")
                         crossing = True
 
                 # Draw reference lines and text

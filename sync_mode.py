@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-
+import argparse
 # Copyright (c) 2019 Computer Vision Center (CVC) at the Universitat Autonoma de
 # Barcelona (UAB).
 #
@@ -7,6 +7,7 @@
 # For a copy, see <https://opensource.org/licenses/MIT>.
 
 import glob
+import json
 import os
 import sys
 from datetime import datetime
@@ -162,7 +163,7 @@ def carla_img_to_opencv(carla_img):
     array = np.reshape(array, (carla_img.height, carla_img.width, 4))
     return cv2.cvtColor(array, cv2.COLOR_RGB2BGR)
 
-def main():
+def main(args):
     actor_list = []
     pygame.init()
 
@@ -176,6 +177,21 @@ def main():
     client.set_timeout(5.0)
     client.load_world('Town04')
     world = client.get_world()
+
+    # Load playback data if in playback mode
+    playback_data = []
+    playback_index = 0
+    if args.playback:
+        try:
+            with open('control_log.json', 'r') as f:
+                playback_data = json.load(f)
+            print(f"Loaded {len(playback_data)} control records for playback")
+        except FileNotFoundError:
+            print("Error: control_log.json not found. Run with --record first.")
+            return
+        except json.JSONDecodeError:
+            print("Error: control_log.json is not a valid JSON file.")
+            return
 
     try:
         m = world.get_map()
@@ -206,7 +222,7 @@ def main():
         control.throttle = 0
         control.steer = 0
         control.brake = 0
-
+        data_log = []  # List to store the recorded data
         #camera.listen(lambda image: camera_callback(image))
 
         # Create a synchronous mode context.
@@ -218,25 +234,36 @@ def main():
                     return
                 clock.tick()
 
-                keys = pygame.key.get_pressed()
+                # Control logic - either from keyboard or playback
+                if args.playback and playback_index < len(playback_data):
+                    # Use controls from playback data
+                    control.throttle = playback_data[playback_index]["throttle"]
+                    control.brake = playback_data[playback_index]["brake"]
+                    control.steer = playback_data[playback_index]["steer"]
+                    playback_index += 1
 
-                # Control logic
-                if keys[pygame.K_w]:  # Accelerate
-                    control.throttle = min(control.throttle + 0.05, 1.0)
-                else:
-                    control.throttle = max(control.throttle - 0.05, 0.0)
+                    # Display playback status
+                    print(f"Playback: {playback_index}/{len(playback_data)}", end="\r")
+                elif not args.playback:
+                    # Use keyboard controls if not in playback mode
+                    keys = pygame.key.get_pressed()
 
-                if keys[pygame.K_s]:  # Brake
-                    control.brake = min(control.brake + 0.05, 1.0)
-                else:
-                    control.brake = max(control.brake - 0.05, 0.0)
+                    if keys[pygame.K_w]:  # Accelerate
+                        control.throttle = min(control.throttle + 0.05, 1.0)
+                    else:
+                        control.throttle = max(control.throttle - 0.05, 0.0)
 
-                if keys[pygame.K_a]:  # Turn left
-                    control.steer = max(control.steer - 0.05, -1.0)
-                elif keys[pygame.K_d]:  # Turn right
-                    control.steer = min(control.steer + 0.05, 1.0)
-                else:
-                    control.steer = 0  # Straighten wheel if no input
+                    if keys[pygame.K_s]:  # Brake
+                        control.brake = min(control.brake + 0.05, 1.0)
+                    else:
+                        control.brake = max(control.brake - 0.05, 0.0)
+
+                    if keys[pygame.K_a]:  # Turn left
+                        control.steer = max(control.steer - 0.05, -1.0)
+                    elif keys[pygame.K_d]:  # Turn right
+                        control.steer = min(control.steer + 0.05, 1.0)
+                    else:
+                        control.steer = 0  # Straighten wheel if no input
 
                 vehicle.apply_control(control)
 
@@ -250,6 +277,14 @@ def main():
                 camera_callback(camera_image)
 
                 fps = round(1.0 / snapshot.timestamp.delta_seconds)
+
+                if args.record:
+                    data_log.append({
+                        "timestamp": snapshot.timestamp.elapsed_seconds,
+                        "throttle": control.throttle,
+                        "brake": control.brake,
+                        "steer": control.steer
+                    })
                 # Use this:
                 if video_output.shape[2] == 4:
                     # Convert from RGBA to BGR format
@@ -273,20 +308,26 @@ def main():
 
 
     finally:
+        if args.record:
+            print('Saving recorded data...')
+            with open('control_log.json', 'w') as f:
+                json.dump(data_log, f, indent=4)
 
-        print('destroying actors.')
+        print('Destroying actors.')
         for actor in actor_list:
             actor.destroy()
 
         pygame.quit()
-        print('done.')
+        print('Done.')
 
 
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description='CARLA Autonomous Driving Simulation')
+    parser.add_argument('--record', action='store_true', help='Enable recording of control data')
+    parser.add_argument('--playback', action='store_true', help='Play back recorded control data from control_log.json')
+    args = parser.parse_args()
 
     try:
-
-        main()
-
+        main(args)
     except KeyboardInterrupt:
         print('\nCancelled by user. Bye!')
