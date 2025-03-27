@@ -63,7 +63,7 @@ class CarlaSyncMode(object):
         self.world = world
         self.sensors = sensors
         self.frame = None
-        self.delta_seconds = 1.0 / kwargs.get('fps', 20)
+        self.delta_seconds = 1.0 / kwargs.get('fps', 30)
         self._queues = []
         self._settings = None
 
@@ -134,10 +134,6 @@ def camera_callback(image):
     """
     global video_output, video_output_seg, yolop_lane_invasion_detected
     try:
-        print("image shape", image.height, image.width)
-        print("image class", image.__class__)
-        cv2.imwrite('saved_image.png', video_output)
-        print("image saved")
         # Copy image data safely
         video_output = np.reshape(np.copy(image.raw_data), (image.height, image.width, 4))
 
@@ -183,16 +179,15 @@ def main():
 
     try:
         m = world.get_map()
-        start_pose = random.choice(m.get_spawn_points())
-        waypoint = m.get_waypoint(start_pose.location)
+        spawn_point = world.get_map().get_spawn_points()[0]
 
         blueprint_library = world.get_blueprint_library()
 
         vehicle = world.spawn_actor(
             random.choice(blueprint_library.filter('vehicle.audi.a2')),
-            start_pose)
+            spawn_point)
         actor_list.append(vehicle)
-        vehicle.set_simulate_physics(False)
+        vehicle.set_simulate_physics(True)
 
         camera_rgb = world.spawn_actor(
             blueprint_library.find('sensor.camera.rgb'),
@@ -207,6 +202,11 @@ def main():
 
         yolop_lane_invasion_detected = False
 
+        control = carla.VehicleControl()
+        control.throttle = 0
+        control.steer = 0
+        control.brake = 0
+
         #camera.listen(lambda image: camera_callback(image))
 
         # Create a synchronous mode context.
@@ -218,22 +218,38 @@ def main():
                     return
                 clock.tick()
 
+                keys = pygame.key.get_pressed()
+
+                # Control logic
+                if keys[pygame.K_w]:  # Accelerate
+                    control.throttle = min(control.throttle + 0.05, 1.0)
+                else:
+                    control.throttle = max(control.throttle - 0.05, 0.0)
+
+                if keys[pygame.K_s]:  # Brake
+                    control.brake = min(control.brake + 0.05, 1.0)
+                else:
+                    control.brake = max(control.brake - 0.05, 0.0)
+
+                if keys[pygame.K_a]:  # Turn left
+                    control.steer = max(control.steer - 0.05, -1.0)
+                elif keys[pygame.K_d]:  # Turn right
+                    control.steer = min(control.steer + 0.05, 1.0)
+                else:
+                    control.steer = 0  # Straighten wheel if no input
+
+                vehicle.apply_control(control)
+
                 # Get data from all sensors
                 out = sync_mode.tick(timeout=2.0)
-                print("out: ", out)
                 snapshot, image_rgb= out[0], out[1]
                 camera_image = out[2]
-                print("camera_image: ", camera_image)
 
                 # Choose the next waypoint and update the car location.
                 # Process camera data directly here
                 camera_callback(camera_image)
-                waypoint = random.choice(waypoint.next(1.5))
-                vehicle.set_transform(waypoint.transform)
 
                 fps = round(1.0 / snapshot.timestamp.delta_seconds)
-                print("video output shape: ", video_output.shape)
-                print("video output seg shape: ", video_output_seg.shape)
                 # Use this:
                 if video_output.shape[2] == 4:
                     # Convert from RGBA to BGR format
