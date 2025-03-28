@@ -249,14 +249,14 @@ def main(args):
                     keys = pygame.key.get_pressed()
 
                     if keys[pygame.K_w]:  # Accelerate
-                        control.throttle = min(control.throttle + 0.05, 1.0)
+                        control.throttle = min(control.throttle + 0.20, 1.0)
                     else:
-                        control.throttle = max(control.throttle - 0.05, 0.0)
+                        control.throttle = max(control.throttle - 0.20, 0.0)
 
                     if keys[pygame.K_s]:  # Brake
-                        control.brake = min(control.brake + 0.05, 1.0)
+                        control.brake = min(control.brake + 0.20, 1.0)
                     else:
-                        control.brake = max(control.brake - 0.05, 0.0)
+                        control.brake = max(control.brake - 0.20, 0.0)
 
                     if keys[pygame.K_a]:  # Turn left
                         control.steer = max(control.steer - 0.05, -1.0)

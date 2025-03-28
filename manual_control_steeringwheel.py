@@ -58,6 +58,8 @@ import math
 import random
 import re
 import weakref
+import threading
+import queue
 
 if sys.version_info >= (3, 0):
 
@@ -105,7 +107,10 @@ try:
 except ImportError:
     raise RuntimeError('cannot import numpy, make sure numpy package is installed')
 
-
+# Log file path
+log_file_path = "frame_performance_log.txt"
+# Queue to buffer frame data for logging
+log_queue = queue.Queue()
 # ==============================================================================
 # -- Global functions ----------------------------------------------------------
 # ==============================================================================
@@ -991,6 +996,27 @@ def draw_warning_triangle(image, blinking=False):
         return image_copy
 
     return image
+# Function to write data to the log file
+def log_frame_data(frame_data):
+    with open(log_file_path, "a") as log_file:
+        log_file.write(frame_data + "\n")
+
+# Logging thread function
+def logging_thread():
+    while True:
+        # Wait until there's frame data in the queue
+        frame_data = log_queue.get()  # Blocks until data is available
+        if frame_data == "STOP":
+            break  # Exit the logging thread when "STOP" signal is received
+        log_frame_data(frame_data)
+        log_queue.task_done()
+
+# Start the logging thread
+log_thread = threading.Thread(target=logging_thread)
+log_thread.daemon = True  # Daemonize the thread so it will exit when the main program ends
+log_thread.start()
+
+import time
 
 def camera_callback(image):
     """
@@ -998,6 +1024,7 @@ def camera_callback(image):
     """
     global video_output, video_output_seg, yolop_lane_invasion_detected
     try:
+        start_time = time.time()
         # Copy image data safely
         video_output = np.reshape(np.copy(image.raw_data), (image.height, image.width, 4))
 
@@ -1018,6 +1045,25 @@ def camera_callback(image):
             video_output_seg = result
             # Set the global YOLOP flag directly from the crossing result
             yolop_lane_invasion_detected = crossing
+
+        # Record the end time and calculate elapsed time
+        end_time = time.time()
+        elapsed_time = end_time - start_time
+
+        # Collect relevant frame data to log
+        frame_data = (
+            f"Frame Data:\n"
+            f"Time taken for image processing and analysis: {elapsed_time:.4f} seconds\n"
+            f"Image Height: {image.height}, Image Width: {image.width}\n"
+            f"Image Size (after processing): {image_to_analyze.shape if image_to_analyze.size > 0 else 'Invalid'}\n"
+            f"Max value in processed image: {np.max(image_to_analyze) if image_to_analyze.size > 0 else 'N/A'}\n"
+            f"Result: {'Detected' if result is not None and result.size > 0 else 'No result'}\n"
+            f"Crossing: {'Yes' if yolop_lane_invasion_detected else 'No'}\n"
+            f"{'---' * 20}\n"
+        )
+
+        # Push the frame data into the queue to be logged by the logging thread
+        log_queue.put(frame_data)
 
     except Exception as e:
         print(f"Error in camera callback: {str(e)}")
@@ -1131,7 +1177,7 @@ def game_loop(args):
         clock = pygame.time.Clock()
 
         while True:
-            clock.tick_busy_loop(60)
+            clock.tick_busy_loop(300)
             if controller.parse_events(world, clock, args.test):
                 return
 
