@@ -6,6 +6,8 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+.idea/
+
 data/weights/yolopv2.pt
 
 # C extensions

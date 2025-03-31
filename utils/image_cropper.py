@@ -39,7 +39,7 @@ def process_image(video_output, define_crop_size):
                         cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 0, 0), 2)
 
         # Save the visualization
-        cv2.imwrite('trapezoid_visualization.png', cv2.cvtColor(visualization, cv2.COLOR_RGB2BGR))
+        cv2.imwrite('./log/untracked/trapezoid_visualization.png', cv2.cvtColor(visualization, cv2.COLOR_RGB2BGR))
         print("Trapezoid visualization saved to 'trapezoid_visualization.png'")
 
         _trapezoid_saved = True
