@@ -14,6 +14,7 @@ from datetime import datetime
 
 import cv2
 
+from utils.DetectionLogger import DetectionLogger
 from utils.YOLOPModel import initializeYOLOPModel, analyzeImage
 from utils.carla import spawn_camera
 from utils.image_cropper import process_image
@@ -48,6 +49,9 @@ except ImportError:
 # Initialize the video output
 video_output = np.zeros((640, 640, 4), dtype=np.uint8)
 video_output_seg = np.zeros((720, 1280, 3), dtype=np.uint8)
+detection_logger = DetectionLogger()
+yolop_lane_invasion_detected = False  # Our YOLOP detection
+
 
 class CarlaSyncMode(object):
     """
@@ -148,20 +152,94 @@ def camera_callback(image):
 
         # Perform image analysis with error handling
         result, crossing = analyzeImage(image_to_analyze)
-
         if result is not None and result.size > 0:
+            if crossing != yolop_lane_invasion_detected:
+                detection_logger.log_detection("YOLOP", crossing)
             video_output_seg = result
             # Set the global YOLOP flag directly from the crossing result
             yolop_lane_invasion_detected = crossing
 
+
     except Exception as e:
         print(f"Error in camera callback: {str(e)}")
+
+def spawn_lane_invasion_sensor(world, attach_to=None):
+    """Spawn a lane invasion sensor attached to the vehicle"""
+    lane_sensor_bp = world.get_blueprint_library().find('sensor.other.lane_invasion')
+    lane_sensor = world.spawn_actor(lane_sensor_bp, carla.Transform(), attach_to=attach_to)
+    return lane_sensor
+
+def lane_invasion_callback(event):
+    """Callback for when the vehicle crosses lane markings according to Carla"""
+    global lane_invasion_detected, carla_lane_invasion_timestamp
+    lane_invasion_detected = True
+    carla_lane_invasion_timestamp = datetime.now()
+    lane_types = set(x.type for x in event.crossed_lane_markings)
+    text = ['%r' % str(x).split()[-1] for x in lane_types]
+    print('Carla detected lane crossing: %s' % ', '.join(text))
+    # Log the detection
+    detection_logger.log_detection("CARLA", True)
+
+    # Cross-validate with YOLOP detection
+    if yolop_lane_invasion_detected:
+        print("Both systems detected lane crossing - HIGH CONFIDENCE")
+
+
 
 def carla_img_to_opencv(carla_img):
     """Convert CARLA image to OpenCV format (BGR)"""
     array = np.frombuffer(carla_img.raw_data, dtype=np.dtype("uint8"))
     array = np.reshape(array, (carla_img.height, carla_img.width, 4))
     return cv2.cvtColor(array, cv2.COLOR_RGB2BGR)
+
+def setup_test_window():
+    """Set up a dedicated window for displaying test results"""
+    cv2.namedWindow('Test Results', cv2.WINDOW_AUTOSIZE)
+    # Create a blank canvas for the test results
+    test_display = np.ones((400, 600, 3), dtype=np.uint8) * 240  # Light gray background
+    return test_display
+
+
+def update_test_display(test_display):
+    """Update the test results display with current statistics"""
+    # Start with a clean slate
+    test_display.fill(240)
+
+    # Get statistics from the detector logger
+    stats = detection_logger.get_stats()
+
+    # Add title
+    cv2.putText(test_display, "Lane Detection Comparison",
+                (20, 40), cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 0, 0), 2, cv2.LINE_AA)
+
+    # Add statistics
+    cv2.putText(test_display, f"Total events: {stats['events']}",
+                (30, 90), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 0), 1, cv2.LINE_AA)
+
+    # Agreement rate with color coding
+    agreement_rate = stats.get('agreement_rate', 0) * 100
+    color = (0, 100, 0) if agreement_rate > 70 else (0, 0, 200) if agreement_rate < 50 else (0, 150, 150)
+    cv2.putText(test_display, f"Agreement rate: {agreement_rate:.1f}%",
+                (30, 130), cv2.FONT_HERSHEY_SIMPLEX, 0.7, color, 2, cv2.LINE_AA)
+
+    # Detection counts
+    cv2.putText(test_display, f"YOLOP only: {stats.get('yolop_only', 0)}",
+                (30, 170), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 128, 0), 1, cv2.LINE_AA)
+    cv2.putText(test_display, f"CARLA only: {stats.get('carla_only', 0)}",
+                (30, 210), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 1, cv2.LINE_AA)
+    cv2.putText(test_display,
+                f"Both systems: {stats.get('events', 0) - stats.get('yolop_only', 0) - stats.get('carla_only', 0)}",
+                (30, 250), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 0), 1, cv2.LINE_AA)
+
+    # Add time information
+    time_now = datetime.now().strftime("%H:%M:%S")
+    cv2.putText(test_display, f"Time: {time_now}",
+                (30, 350), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (100, 100, 100), 1, cv2.LINE_AA)
+
+    # Draw a border
+    cv2.rectangle(test_display, (10, 10), (590, 390), (0, 0, 0), 2)
+
+    return test_display
 
 def main(args):
     actor_list = []
@@ -177,8 +255,7 @@ def main(args):
     client.set_timeout(5.0)
     client.load_world('Town04')
     world = client.get_world()
-
-    # Load playback data if in playback mode
+     # Load playback data if in playback mode
     playback_data = []
     playback_index = 0
     if args.playback:
@@ -210,6 +287,12 @@ def main(args):
             carla.Transform(carla.Location(x=-5.5, z=2.8), carla.Rotation(pitch=-15)),
             attach_to=vehicle)
         actor_list.append(camera_rgb)
+        if args.playback:
+            test_display = setup_test_window()
+            stats_display_counter = 0
+            # Create and attach the lane invasion sensor
+            lane_invasion_sensor = spawn_lane_invasion_sensor(client.get_world(), attach_to=vehicle)
+            lane_invasion_sensor.listen(lambda event: lane_invasion_callback(event))
 
         initializeYOLOPModel()
 
@@ -305,6 +388,15 @@ def main(args):
                     (8, 28))
                 pygame.display.flip()
                 cv2.waitKey(1)
+
+                # Update and show test display if in test mode
+                if args.playback:
+                    stats_display_counter += 1
+                    if stats_display_counter >= 10:  # Update every 30 frames (0.25 sec at 120fps)
+                        test_display = update_test_display(test_display)
+                        stats_display_counter = 0
+
+                    cv2.imshow('Test Results', test_display)
 
 
     finally:
