@@ -176,8 +176,8 @@ def analyzeImage(image):
                 center_distance = lane_center_x - img_center_x
 
                 # Thresholds for different states
-                CENTERED_THRESHOLD = 30  # More tolerant centered threshold
-                CROSSING_THRESHOLD = 45  # Higher threshold for definite crossing
+                CENTERED_THRESHOLD = 40  # More tolerant centered threshold
+                CROSSING_THRESHOLD = 60  # Higher threshold for definite crossing
 
                 # Add state tracking
                 if len(red_boxes) == 1:  # Single box scenario
