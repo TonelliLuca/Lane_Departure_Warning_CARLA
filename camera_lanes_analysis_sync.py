@@ -53,6 +53,7 @@ detection_logger = DetectionLogger()
 yolop_lane_invasion_detected = False  # Our YOLOP detection
 
 
+
 class CarlaSyncMode(object):
     """
     Context manager to synchronize output from different sensors. Synchronous
@@ -416,8 +417,25 @@ def main(args):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='CARLA Autonomous Driving Simulation')
     parser.add_argument('--record', action='store_true', help='Enable recording of control data')
-    parser.add_argument('--playback', action='store_true', help='Play back recorded control data from control_log.json')
+    parser.add_argument('--playback', nargs='?', const='control_log.json',
+                        help='Play back recorded control data from a given file')
     args = parser.parse_args()
+
+    playback_data = []
+    playback_index = 0
+
+    if args.playback:
+        playback_file = os.path.join('test_commands', args.playback)
+        try:
+            with open(playback_file, 'r') as f:
+                playback_data = json.load(f)
+            print(f"Loaded {len(playback_data)} control records from {playback_file}")
+        except FileNotFoundError:
+            print(f"Error: File not found: {playback_file}")
+            sys.exit(1)
+        except json.JSONDecodeError:
+            print(f"Error: {playback_file} is not a valid JSON file.")
+            sys.exit(1)
 
     try:
         main(args)

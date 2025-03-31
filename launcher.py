@@ -11,7 +11,7 @@ class CarlaLauncher:
     def __init__(self, root):
         self.root = root
         self.root.title("CARLA Lane Departure Warning Launcher")
-        self.root.geometry("600x500")
+        self.root.geometry("600x650")
         self.root.resizable(True, True)
 
         # Config file path
@@ -57,15 +57,7 @@ class CarlaLauncher:
         except Exception as e:
             print(f"Error saving config: {e}")
 
-    def toggle_run_mode(self):
-        """Show or hide run mode options based on program type"""
-        if self.program_type.get() in ["sync", "sync_record"]:
-            self.run_mode_frame.grid()
-            self.toggle_test_options()  # Update test options visibility based on run mode
-        else:
-            self.run_mode_frame.grid_remove()
-            self.test_options_frame.grid_remove()
-            self.test_files_frame.grid_remove()
+
 
     def toggle_test_options(self):
         """Show or hide test options based on run mode"""
@@ -132,36 +124,30 @@ class CarlaLauncher:
                        value="async", command=self.toggle_run_mode).grid(row=0, column=0, sticky=tk.W, padx=5, pady=5)
         ttk.Radiobutton(program_frame, text="Sync Mode", variable=self.program_type,
                        value="sync", command=self.toggle_run_mode).grid(row=0, column=1, sticky=tk.W, padx=5, pady=5)
-        # Controller selection
-        self.controller_selection_frame = ttk.Frame(script_frame)
-        self.controller_selection_frame.grid(row=1, column=0, sticky=tk.W + tk.E, padx=5, pady=5)
-        ttk.Label(self.controller_selection_frame, text="Select Controller:").grid(row=0, column=0, sticky=tk.W, padx=5, pady=5)
-        xbox_radio = ttk.Radiobutton(self.controller_selection_frame, text="Xbox One", variable=self.controller,
-                                       value="xbox", command=self.toggle_controller_options())
-        xbox_radio.grid(row=0, column=1, sticky=tk.W, padx=5, pady=5)
 
-        wheel_radio = ttk.Radiobutton(self.controller_selection_frame, text="G29", variable=self.controller,
-                                     value="wheel", command=self.toggle_controller_options)
-        wheel_radio.grid(row=0, column=2, sticky=tk.W, padx=5, pady=5)
-        keyboard_radio = ttk.Radiobutton(self.controller_selection_frame, text="Keyboard", variable=self.controller,
-                                         value="keyboard", command=self.toggle_controller_options)
-        keyboard_radio.grid(row=0, column=3, sticky=tk.W, padx=5, pady=5)
-        # Run mode section (will be shown/hidden based on program_type)
-        self.run_mode_frame = ttk.Frame(script_frame)
-        self.run_mode_frame.grid(row=1, column=0, sticky=tk.W+tk.E, padx=5, pady=5)
+        # Controller selection - shown only for async mode
+        self.controller_selection_frame = ttk.LabelFrame(script_frame, text="Controller Selection")
+        self.controller_selection_frame.grid(row=1, column=0, sticky=tk.W+tk.E, padx=5, pady=5)
 
-        ttk.Label(self.run_mode_frame, text="Run Mode:").grid(row=0, column=0, sticky=tk.W, padx=5, pady=5)
-        xbox_radio = ttk.Radiobutton(self.run_mode_frame, text="Record Mode", variable=self.run_mode,
-                                      value="sync_record", command=self.toggle_test_options)
-        xbox_radio.grid(row=0, column=1, sticky=tk.W, padx=5, pady=5)
+        ttk.Radiobutton(self.controller_selection_frame, text="Xbox One", variable=self.controller,
+                       value="xbox", command=self.toggle_controller_options).grid(row=0, column=0, sticky=tk.W, padx=5, pady=5)
+        ttk.Radiobutton(self.controller_selection_frame, text="G29", variable=self.controller,
+                       value="wheel", command=self.toggle_controller_options).grid(row=0, column=1, sticky=tk.W, padx=5, pady=5)
+        ttk.Radiobutton(self.controller_selection_frame, text="Keyboard", variable=self.controller,
+                       value="keyboard", command=self.toggle_controller_options).grid(row=0, column=2, sticky=tk.W, padx=5, pady=5)
 
-        wheel_radio = ttk.Radiobutton(self.run_mode_frame, text="Test Mode", variable=self.run_mode,
-                                    value="sync_test", command=self.toggle_test_options)
-        wheel_radio.grid(row=0, column=2, sticky=tk.W, padx=5, pady=5)
+        # Run mode section - shown only for sync mode
+        self.run_mode_frame = ttk.LabelFrame(script_frame, text="Run Mode")
+        self.run_mode_frame.grid(row=2, column=0, sticky=tk.W+tk.E, padx=5, pady=5)
+
+        ttk.Radiobutton(self.run_mode_frame, text="Record Mode", variable=self.run_mode,
+                       value="sync_record", command=self.toggle_test_options).grid(row=0, column=0, sticky=tk.W, padx=5, pady=5)
+        ttk.Radiobutton(self.run_mode_frame, text="Test Mode", variable=self.run_mode,
+                       value="sync_test", command=self.toggle_test_options).grid(row=0, column=1, sticky=tk.W, padx=5, pady=5)
 
         # Test file options frame (initially hidden)
-        self.test_options_frame = ttk.Frame(script_frame)
-        self.test_options_frame.grid(row=2, column=0, sticky=tk.W+tk.E, padx=5, pady=5)
+        self.test_options_frame = ttk.LabelFrame(script_frame, text="Test Options")
+        self.test_options_frame.grid(row=3, column=0, sticky=tk.W+tk.E, padx=5, pady=5)
 
         commands_frame = ttk.Frame(self.test_options_frame)
         commands_frame.pack(fill=tk.X, expand=True)
@@ -171,7 +157,7 @@ class CarlaLauncher:
 
         # Available test files
         self.test_files_frame = ttk.LabelFrame(script_frame, text="Available Test Files")
-        self.test_files_frame.grid(row=3, column=0, sticky=tk.W+tk.E+tk.N+tk.S, padx=5, pady=5)
+        self.test_files_frame.grid(row=4, column=0, sticky=tk.W+tk.E+tk.N+tk.S, padx=5, pady=5)
 
         # Test files listbox with scrollbar
         self.test_files_listbox = tk.Listbox(self.test_files_frame, height=10)
@@ -235,9 +221,26 @@ class CarlaLauncher:
             full_path = os.path.join(self.commands_dir.get(), selected_filename)
             self.test_file.set(full_path)
 
+    def toggle_run_mode(self):
+        """Show or hide run mode options based on program type"""
+        if self.program_type.get() == "async":
+            self.controller_selection_frame.grid()
+            self.run_mode_frame.grid_remove()
+            self.test_options_frame.grid_remove()
+            self.test_files_frame.grid_remove()
+        elif self.program_type.get() == "sync":
+            self.controller_selection_frame.grid_remove()
+            self.run_mode_frame.grid()
+            self.toggle_test_options()  # Update test options visibility
+        else:
+            self.controller_selection_frame.grid_remove()
+            self.run_mode_frame.grid_remove()
+            self.test_options_frame.grid_remove()
+            self.test_files_frame.grid_remove()
+
     def toggle_test_options(self):
         """Show or hide test options based on run mode"""
-        if self.run_mode.get() == "Test":
+        if self.program_type.get() == "sync" and self.run_mode.get() == "sync_test":
             self.test_options_frame.grid()
             self.test_files_frame.grid()
             self.refresh_test_files()
@@ -284,12 +287,14 @@ class CarlaLauncher:
             elif self.program_type.get() == "async" and self.controller.get() == "keyboard":
                 script_name = "camera_lanes_analysis_async.py"
                 script_args = ["--controller", "keyboard"]
-            elif self.program_type.get() == "sync" and self.run_mode.get() == "sync_test":
-                script_name = "camera_lanes_analysis_sync.py"
-                script_args = ["--playback"]
             elif self.program_type.get() == "sync" and self.run_mode.get() == "sync_record":
                 script_name = "camera_lanes_analysis_sync.py"
                 script_args = ["--record"]
+            elif self.program_type.get() == "sync" and self.run_mode.get() == "sync_test":
+                script_name = "camera_lanes_analysis_sync.py"
+                # Pass the selected file as playback
+                selected_file = os.path.basename(self.test_file.get())  # e.g. test_multi_lane_synch_30fps.json
+                script_args = ["--playback", selected_file]
             else:
                 script_name = "camera_lanes_analysis_sync.py"
                 script_args = []
@@ -297,9 +302,7 @@ class CarlaLauncher:
             # Prepare script command
             script_cmd = ["python", script_name] + script_args
 
-            # Add test mode parameters if selected
-            if self.run_mode.get() == "sync_test" and self.test_file.get():
-                script_cmd.extend(["--test", "--test-file", self.test_file.get()])
+
 
             # Update status and run script
             self.root.after(0, lambda: self.status_var.set(f"Starting script {script_name}..."))
