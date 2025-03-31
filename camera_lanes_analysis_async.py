@@ -108,7 +108,7 @@ except ImportError:
     raise RuntimeError('cannot import numpy, make sure numpy package is installed')
 
 # Log file path
-log_file_path = "/log/tracked/frame_performance_log.txt"
+log_file_path = "./log/tracked/frame_performance_log.txt"
 # Queue to buffer frame data for logging
 log_queue = queue.Queue()
 # ==============================================================================
@@ -383,9 +383,12 @@ class DualControl(object):
             if isinstance(self._control, carla.VehicleControl):
                 if self.controller_type == 'wheel':
                     self._parse_vehicle_wheel()
-                else:  # xbox controller
+                elif self.controller_type == 'xbox':  # xbox controller
                     self._parse_vehicle_xbox()
-                #self._parse_vehicle_keys(pygame.key.get_pressed(), clock.get_time())
+                elif self.controller_type == 'keyboard':  # keyboard
+                    self._parse_vehicle_keys(pygame.key.get_pressed(), clock.get_time())
+                else:
+                    raise ValueError("Invalid controller type. Use 'wheel', 'xbox', or 'keyboard'.")
                 self._control.reverse = self._control.gear < 0
 
                 # Record the current inputs if recording is active
@@ -403,9 +406,6 @@ class DualControl(object):
         """Parse input from Xbox controller"""
         numAxes = self._joystick.get_numaxes()
         jsInputs = [float(self._joystick.get_axis(i)) for i in range(numAxes)]
-
-        # Debug output
-        print(f"Xbox axes values: {jsInputs}")
 
         # Xbox One controller typically uses:
         # - Right trigger (axis 5): -1 (not pressed) to 1 (fully pressed)
@@ -1252,8 +1252,8 @@ def main():
     argparser.add_argument(
         '--controller',
         default='wheel',
-        choices=['wheel', 'xbox'],
-        help='Control method: wheel (Logitech G29) or xbox (Xbox controller) (default: wheel)'
+        choices=['wheel', 'xbox', 'keyboard'],
+        help='Control method: wheel (Logitech G29) or xbox (Xbox One controller) or keyboard (default: wheel)'
     )
     argparser.add_argument(
         '-v', '--verbose',
