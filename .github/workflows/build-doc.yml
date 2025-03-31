@@ -1,10 +1,12 @@
 name: Build and Deploy Documentation
 
 on:
-  push:
-    branches:
-      - main
-  workflow_dispatch:
+    push:
+      branches:
+        - main
+      paths:
+        - 'asciidoc/**'
+    workflow_dispatch:
 
 jobs:
   build:
