@@ -24,6 +24,7 @@ class CarlaLauncher:
         self.carla_path = tk.StringVar(value=saved_config.get("carla_path", "./CarlaUE4.exe"))
         self.quality_level = tk.StringVar(value="Low")
         self.run_mode = tk.StringVar(value="Normal")
+        self.controller = tk.StringVar(value="xbox")
         self.test_file = tk.StringVar()
         self.commands_dir = tk.StringVar(value="./test_commands")
         self.carla_process = None
@@ -56,6 +57,42 @@ class CarlaLauncher:
         except Exception as e:
             print(f"Error saving config: {e}")
 
+    def toggle_run_mode(self):
+        """Show or hide run mode options based on program type"""
+        if self.program_type.get() in ["sync", "sync_record"]:
+            self.run_mode_frame.grid()
+            self.toggle_test_options()  # Update test options visibility based on run mode
+        else:
+            self.run_mode_frame.grid_remove()
+            self.test_options_frame.grid_remove()
+            self.test_files_frame.grid_remove()
+
+    def toggle_test_options(self):
+        """Show or hide test options based on run mode"""
+        if self.program_type.get() in ["sync", "sync_record"] and self.run_mode.get() == "Test":
+            self.test_options_frame.grid()
+            self.test_files_frame.grid()
+            self.refresh_test_files()
+        else:
+            self.test_options_frame.grid_remove()
+            self.test_files_frame.grid_remove()
+
+    def toggle_controller_options(self):
+        """Show or hide controller options based on program type and run mode"""
+        # Show controller options for async modes that support controllers
+        if self.program_type.get() in ["async", "async_controller"]:
+            self.controller_selection_frame.grid()
+
+            # Set default controller if not already set
+            if not self.controller.get():
+                self.controller.set("wheel")
+
+        else:
+            # Hide controller options for modes that don't support controllers
+            self.controller_selection_frame.grid_remove()
+            self.test_options_frame.grid_remove()
+            self.test_files_frame.grid_remove()
+
     def create_ui(self):
         # Main frame
         main_frame = ttk.Frame(self.root, padding="10")
@@ -65,66 +102,84 @@ class CarlaLauncher:
         carla_frame = ttk.LabelFrame(main_frame, text="CARLA Settings")
         carla_frame.pack(fill=tk.X, padx=5, pady=5)
 
-        # CARLA path selection
-        ttk.Label(carla_frame, text="CARLA Executable:").grid(column=0, row=0, sticky=tk.W, padx=5, pady=5)
-        ttk.Entry(carla_frame, textvariable=self.carla_path, width=50).grid(column=1, row=0, padx=5, pady=5)
-        ttk.Button(carla_frame, text="Browse", command=self.browse_carla).grid(column=2, row=0, padx=5, pady=5)
+        # CARLA path row
+        carla_path_frame = ttk.Frame(carla_frame)
+        carla_path_frame.pack(fill=tk.X, padx=5, pady=5)
+        ttk.Label(carla_path_frame, text="CARLA Path:").pack(side=tk.LEFT, padx=5)
+        ttk.Entry(carla_path_frame, textvariable=self.carla_path, width=50).pack(side=tk.LEFT, padx=5, fill=tk.X, expand=True)
+        ttk.Button(carla_path_frame, text="Browse", command=self.browse_carla).pack(side=tk.LEFT, padx=5)
 
-        # Quality level selection
-        ttk.Label(carla_frame, text="Quality Level:").grid(column=0, row=1, sticky=tk.W, padx=5, pady=5)
-        quality_combo = ttk.Combobox(carla_frame, textvariable=self.quality_level, state="readonly")
-        quality_combo['values'] = ('Low', 'Epic')
-        quality_combo.grid(column=1, row=1, sticky=tk.W, padx=5, pady=5)
+        # Quality level row
+        quality_frame = ttk.Frame(carla_frame)
+        quality_frame.pack(fill=tk.X, padx=5, pady=5)
+        ttk.Label(quality_frame, text="Quality Level:").pack(side=tk.LEFT, padx=5)
+        for quality in ["Low", "Epic"]:
+            ttk.Radiobutton(quality_frame, text=quality, variable=self.quality_level, value=quality).pack(side=tk.LEFT, padx=5)
 
         # Script settings section
         script_frame = ttk.LabelFrame(main_frame, text="Script Settings")
         script_frame.pack(fill=tk.X, padx=5, pady=5)
 
+        # Use grid for script_frame children
+        script_frame.columnconfigure(0, weight=1)
+
         # Program selection frame
         program_frame = ttk.LabelFrame(script_frame, text="Program Selection")
-        program_frame.pack(fill=tk.X, padx=5, pady=5)
+        program_frame.grid(row=0, column=0, sticky=tk.W+tk.E, padx=5, pady=5)
 
-        ttk.Radiobutton(program_frame, text="Async Mode", variable=self.program_type, 
-                       value="async").grid(column=0, row=0, sticky=tk.W, padx=5, pady=5)
-        
-        ttk.Radiobutton(program_frame, text="Sync Mode", variable=self.program_type, 
-                       value="sync").grid(column=1, row=0, sticky=tk.W, padx=5, pady=5)
-        
-        ttk.Radiobutton(program_frame, text="Sync Mode + Record", variable=self.program_type, 
-                       value="sync_record").grid(column=2, row=0, sticky=tk.W, padx=5, pady=5)
+        # Radio buttons in program frame
+        ttk.Radiobutton(program_frame, text="Async Mode", variable=self.program_type,
+                       value="async", command=self.toggle_run_mode).grid(row=0, column=0, sticky=tk.W, padx=5, pady=5)
+        ttk.Radiobutton(program_frame, text="Sync Mode", variable=self.program_type,
+                       value="sync", command=self.toggle_run_mode).grid(row=0, column=1, sticky=tk.W, padx=5, pady=5)
+        # Controller selection
+        self.controller_selection_frame = ttk.Frame(script_frame)
+        self.controller_selection_frame.grid(row=1, column=0, sticky=tk.W + tk.E, padx=5, pady=5)
+        ttk.Label(self.controller_selection_frame, text="Select Controller:").grid(row=0, column=0, sticky=tk.W, padx=5, pady=5)
+        xbox_radio = ttk.Radiobutton(self.controller_selection_frame, text="Xbox One", variable=self.controller,
+                                       value="xbox", command=self.toggle_controller_options())
+        xbox_radio.grid(row=0, column=1, sticky=tk.W, padx=5, pady=5)
 
-        # Mode selection
-        ttk.Label(script_frame, text="Run Mode:").grid(column=0, row=1, sticky=tk.W, padx=5, pady=5)
-        normal_radio = ttk.Radiobutton(script_frame, text="Normal Mode", variable=self.run_mode, value="Normal",
-                                      command=self.toggle_test_options)
-        normal_radio.grid(column=1, row=1, sticky=tk.W, padx=5, pady=5)
+        wheel_radio = ttk.Radiobutton(self.controller_selection_frame, text="G29", variable=self.controller,
+                                     value="wheel", command=self.toggle_controller_options)
+        wheel_radio.grid(row=0, column=2, sticky=tk.W, padx=5, pady=5)
+        keyboard_radio = ttk.Radiobutton(self.controller_selection_frame, text="Keyboard", variable=self.controller,
+                                         value="keyboard", command=self.toggle_controller_options)
+        keyboard_radio.grid(row=0, column=3, sticky=tk.W, padx=5, pady=5)
+        # Run mode section (will be shown/hidden based on program_type)
+        self.run_mode_frame = ttk.Frame(script_frame)
+        self.run_mode_frame.grid(row=1, column=0, sticky=tk.W+tk.E, padx=5, pady=5)
 
-        test_radio = ttk.Radiobutton(script_frame, text="Test Mode", variable=self.run_mode, value="Test",
-                                    command=self.toggle_test_options)
-        test_radio.grid(column=2, row=1, sticky=tk.W, padx=5, pady=5)
+        ttk.Label(self.run_mode_frame, text="Run Mode:").grid(row=0, column=0, sticky=tk.W, padx=5, pady=5)
+        xbox_radio = ttk.Radiobutton(self.run_mode_frame, text="Record Mode", variable=self.run_mode,
+                                      value="sync_record", command=self.toggle_test_options)
+        xbox_radio.grid(row=0, column=1, sticky=tk.W, padx=5, pady=5)
 
-        # Test file options frame (initially disabled)
+        wheel_radio = ttk.Radiobutton(self.run_mode_frame, text="Test Mode", variable=self.run_mode,
+                                    value="sync_test", command=self.toggle_test_options)
+        wheel_radio.grid(row=0, column=2, sticky=tk.W, padx=5, pady=5)
+
+        # Test file options frame (initially hidden)
         self.test_options_frame = ttk.Frame(script_frame)
-        self.test_options_frame.grid(column=0, row=2, columnspan=3, sticky=tk.W+tk.E, padx=5, pady=5)
+        self.test_options_frame.grid(row=2, column=0, sticky=tk.W+tk.E, padx=5, pady=5)
 
-        ttk.Label(self.test_options_frame, text="Commands Directory:").pack(side=tk.LEFT, padx=5, pady=5)
-        ttk.Entry(self.test_options_frame, textvariable=self.commands_dir, width=30).pack(side=tk.LEFT, padx=5, pady=5)
-        ttk.Button(self.test_options_frame, text="Browse", command=self.browse_commands_dir).pack(side=tk.LEFT, padx=5, pady=5)
+        commands_frame = ttk.Frame(self.test_options_frame)
+        commands_frame.pack(fill=tk.X, expand=True)
+        ttk.Label(commands_frame, text="Commands Directory:").pack(side=tk.LEFT, padx=5, pady=5)
+        ttk.Entry(commands_frame, textvariable=self.commands_dir, width=30).pack(side=tk.LEFT, padx=5, pady=5, fill=tk.X, expand=True)
+        ttk.Button(commands_frame, text="Browse", command=self.browse_commands_dir).pack(side=tk.LEFT, padx=5, pady=5)
 
         # Available test files
         self.test_files_frame = ttk.LabelFrame(script_frame, text="Available Test Files")
-        self.test_files_frame.grid(column=0, row=3, columnspan=3, sticky=tk.W+tk.E+tk.N+tk.S, padx=5, pady=5)
+        self.test_files_frame.grid(row=3, column=0, sticky=tk.W+tk.E+tk.N+tk.S, padx=5, pady=5)
 
         # Test files listbox with scrollbar
-        self.test_files_listbox = tk.Listbox(self.test_files_frame, height=10, width=70)
+        self.test_files_listbox = tk.Listbox(self.test_files_frame, height=10)
         self.test_files_listbox.pack(side=tk.LEFT, fill=tk.BOTH, expand=True, padx=5, pady=5)
         scrollbar = ttk.Scrollbar(self.test_files_frame, orient=tk.VERTICAL, command=self.test_files_listbox.yview)
         scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
         self.test_files_listbox.config(yscrollcommand=scrollbar.set)
         self.test_files_listbox.bind('<<ListboxSelect>>', self.on_test_file_select)
-
-        # Set initial state
-        self.toggle_test_options()
 
         # Status frame
         status_frame = ttk.Frame(main_frame)
@@ -138,6 +193,10 @@ class CarlaLauncher:
         button_frame.pack(fill=tk.X, padx=5, pady=5)
 
         ttk.Button(button_frame, text="Launch", command=self.launch_application).pack(side=tk.RIGHT, padx=5)
+
+        # Initialize UI state
+        self.toggle_run_mode()
+        self.toggle_test_options()
 
     def browse_carla(self):
         """Open file browser dialog specifically for finding CarlaUE4.exe"""
@@ -216,21 +275,30 @@ class CarlaLauncher:
             time.sleep(10)  # Give CARLA time to start
 
             # Determine which script to run based on program_type
-            if self.program_type.get() == "async":
+            if self.program_type.get() == "async" and self.controller.get() == "xbox":
                 script_name = "camera_lanes_analysis_async.py"
-                script_args = []
-            elif self.program_type.get() == "sync":
+                script_args = ["--controller", "xbox"]
+            elif self.program_type.get() == "async" and self.controller.get() == "wheel":
+                script_name = "camera_lanes_analysis_async.py"
+                script_args = ["--controller", "wheel"]
+            elif self.program_type.get() == "async" and self.controller.get() == "keyboard":
+                script_name = "camera_lanes_analysis_async.py"
+                script_args = ["--controller", "keyboard"]
+            elif self.program_type.get() == "sync" and self.run_mode.get() == "sync_test":
                 script_name = "camera_lanes_analysis_sync.py"
                 script_args = ["--playback"]
-            elif self.program_type.get() == "sync_record":
+            elif self.program_type.get() == "sync" and self.run_mode.get() == "sync_record":
                 script_name = "camera_lanes_analysis_sync.py"
                 script_args = ["--record"]
-            
+            else:
+                script_name = "camera_lanes_analysis_sync.py"
+                script_args = []
+
             # Prepare script command
             script_cmd = ["python", script_name] + script_args
 
             # Add test mode parameters if selected
-            if self.run_mode.get() == "Test" and self.test_file.get():
+            if self.run_mode.get() == "sync_test" and self.test_file.get():
                 script_cmd.extend(["--test", "--test-file", self.test_file.get()])
 
             # Update status and run script
@@ -248,7 +316,8 @@ class CarlaLauncher:
             self.root.after(0, lambda: self.status_var.set("Ready"))
 
         except Exception as e:
-            self.root.after(0, lambda: self.status_var.set(f"Error: {str(e)}"))
+            error_msg = str(e)  # Capture the error message
+            self.root.after(0, lambda msg=error_msg: self.status_var.set(f"Error: {msg}"))
             if self.carla_process:
                 self.carla_process.terminate()
                 self.carla_process = None
