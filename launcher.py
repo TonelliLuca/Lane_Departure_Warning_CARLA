@@ -293,7 +293,7 @@ class CarlaLauncher:
             elif self.program_type.get() == "sync" and self.run_mode.get() == "sync_test":
                 script_name = "camera_lanes_analysis_sync.py"
                 # Pass the selected file as playback
-                selected_file = os.path.basename(self.test_file.get())  # e.g. test_multi_lane_synch_30fps.json
+                selected_file = os.path.abspath(self.test_file.get())
                 script_args = ["--playback", selected_file]
             else:
                 script_name = "camera_lanes_analysis_sync.py"

@@ -242,9 +242,32 @@ def update_test_display(test_display):
 
     return test_display
 
-def main(args):
+
+def get_sequential_filename():
+    """Generate a sequential filename for recordings"""
+    # Create recorded subfolder if it doesn't exist
+    recorded_dir = os.path.join("test_commands", "recorded")
+    os.makedirs(recorded_dir, exist_ok=True)
+
+    # Get current timestamp
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+
+    # Check existing files in the recorded subfolder
+    pattern = os.path.join(recorded_dir, f"control_log_*.json")
+    existing_files = glob.glob(pattern)
+
+    # Count how many files exist and add one
+    next_number = len(existing_files) + 1
+
+    # Create filename with timestamp and sequence number
+    filename = f"control_log_{timestamp}_{next_number:03d}.json"
+    return os.path.join(recorded_dir, filename)
+
+
+def main(args, playback_data=None, playback_index=0):
     actor_list = []
     pygame.init()
+    # rest of function remains the same
 
     display = pygame.display.set_mode(
         (800, 600),
@@ -256,23 +279,8 @@ def main(args):
     client.set_timeout(5.0)
     client.load_world('Town04')
     world = client.get_world()
-     # Load playback data if in playback mode
-    playback_data = []
-    playback_index = 0
-    if args.playback:
-        try:
-            with open('control_log.json', 'r') as f:
-                playback_data = json.load(f)
-            print(f"Loaded {len(playback_data)} control records for playback")
-        except FileNotFoundError:
-            print("Error: control_log.json not found. Run with --record first.")
-            return
-        except json.JSONDecodeError:
-            print("Error: control_log.json is not a valid JSON file.")
-            return
 
     try:
-        m = world.get_map()
         spawn_point = world.get_map().get_spawn_points()[0]
 
         blueprint_library = world.get_blueprint_library()
@@ -300,14 +308,11 @@ def main(args):
         camera = spawn_camera(world, attach_to=vehicle)
         actor_list.append(camera)
 
-        yolop_lane_invasion_detected = False
-
         control = carla.VehicleControl()
         control.throttle = 0
         control.steer = 0
         control.brake = 0
-        data_log = []  # List to store the recorded data
-        #camera.listen(lambda image: camera_callback(image))
+        data_log = []
 
         # Create a synchronous mode context.
         with CarlaSyncMode(world, camera_rgb, camera, fps=30) as sync_mode:
@@ -318,16 +323,18 @@ def main(args):
                     return
                 clock.tick()
 
-                # Control logic - either from keyboard or playback
                 if args.playback and playback_index < len(playback_data):
-                    # Use controls from playback data
-                    control.throttle = playback_data[playback_index]["throttle"]
-                    control.brake = playback_data[playback_index]["brake"]
-                    control.steer = playback_data[playback_index]["steer"]
+                    # Get the current control from playback data
+                    control_data = playback_data[playback_index]
+
+                    # Apply controls from playback data
+                    control.throttle = control_data["throttle"]
+                    control.brake = control_data["brake"]
+                    control.steer = control_data["steer"]
+
+                    print("Playback index ", playback_index, "/", len(playback_data))
                     playback_index += 1
 
-                    # Display playback status
-                    print(f"Playback: {playback_index}/{len(playback_data)}", end="\r")
                 elif not args.playback:
                     # Use keyboard controls if not in playback mode
                     keys = pygame.key.get_pressed()
@@ -403,7 +410,8 @@ def main(args):
     finally:
         if args.record:
             print('Saving recorded data...')
-            with open('control_log.json', 'w') as f:
+            new_file = get_sequential_filename()
+            with open(new_file, 'w') as f:
                 json.dump(data_log, f, indent=4)
 
         print('Destroying actors.')
@@ -425,7 +433,8 @@ if __name__ == '__main__':
     playback_index = 0
 
     if args.playback:
-        playback_file = os.path.join('test_commands', args.playback)
+        # Use the filename directly if it doesn't specify a directory
+        playback_file = args.playback
         try:
             with open(playback_file, 'r') as f:
                 playback_data = json.load(f)
@@ -438,6 +447,6 @@ if __name__ == '__main__':
             sys.exit(1)
 
     try:
-        main(args)
+        main(args, playback_data, playback_index)
     except KeyboardInterrupt:
         print('\nCancelled by user. Bye!')
