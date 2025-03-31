@@ -35,12 +35,16 @@ jobs:
           cd output
           mv report.html index.html
           cd ..
-          rsync -av \
-          --exclude="*.drawio" \
-          --exclude="*.puml" \
-          --exclude="puml/" \
-          --exclude="drawio/" \
-          src/resources/ output/resources/
+          if [ -d src/resources/ ]; then
+            rsync -av \
+              --exclude="*.drawio" \
+              --exclude="*.puml" \
+              --exclude="puml/" \
+              --exclude="drawio/" \
+              src/resources/ output/resources/
+          else
+            echo "No resources folder found, skipping rsync."
+          fi
       
       - name: Upload report as artifact
         uses: actions/upload-artifact@v4
