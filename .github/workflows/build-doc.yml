@@ -1,0 +1,83 @@
+name: Build and Deploy Documentation
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Install APT packages
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential graphviz
+          
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2'
+          bundler-cache: true
+      
+      - name: Install Ruby gems
+        run: |
+          gem install --no-document asciidoctor asciidoctor-diagram rouge
+      
+      - name: Build documentation and copy it into Docs folder
+        run: |
+          cd asciidoc
+          make html
+          cd output
+          mv report.html index.html
+          cd ..
+          if [ -d src/resources/ ]; then
+            rsync -av \
+              --exclude="*.drawio" \
+              --exclude="*.puml" \
+              --exclude="puml/" \
+              --exclude="drawio/" \
+              src/resources/ output/resources/
+          else
+            echo "No resources folder found, skipping rsync."
+          fi
+      
+      - name: Upload report as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: documentation-report
+          path: |
+            asciidoc/output/index.html
+            asciidoc/output/resources/
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      
+      - name: Checkout gh-pages Branch and clean
+        run: |
+          git checkout gh-pages
+          rm -rf docs
+      
+      - name: Download Documentation Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: documentation-report
+          path: docs
+      
+      - name: Commit and Push Documentation to gh-pages
+        run: |
+          git add docs
+          git commit -m "docs: Update documentation for gh-pages"
+          git push origin gh-pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
