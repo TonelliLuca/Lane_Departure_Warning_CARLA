@@ -27,7 +27,10 @@ class CarlaLauncher:
         self.test_file = tk.StringVar()
         self.commands_dir = tk.StringVar(value="./test_commands")
         self.carla_process = None
-        self.python_script = "manual_control_steeringwheel.py"
+        
+        # Nuove variabili per la selezione del programma e modalità
+        self.program_type = tk.StringVar(value="async")
+        self.record_mode = tk.BooleanVar(value=False)
 
         # Create UI
         self.create_ui()
@@ -77,19 +80,32 @@ class CarlaLauncher:
         script_frame = ttk.LabelFrame(main_frame, text="Script Settings")
         script_frame.pack(fill=tk.X, padx=5, pady=5)
 
+        # Program selection frame
+        program_frame = ttk.LabelFrame(script_frame, text="Program Selection")
+        program_frame.pack(fill=tk.X, padx=5, pady=5)
+
+        ttk.Radiobutton(program_frame, text="Async Mode", variable=self.program_type, 
+                       value="async").grid(column=0, row=0, sticky=tk.W, padx=5, pady=5)
+        
+        ttk.Radiobutton(program_frame, text="Sync Mode", variable=self.program_type, 
+                       value="sync").grid(column=1, row=0, sticky=tk.W, padx=5, pady=5)
+        
+        ttk.Radiobutton(program_frame, text="Sync Mode + Record", variable=self.program_type, 
+                       value="sync_record").grid(column=2, row=0, sticky=tk.W, padx=5, pady=5)
+
         # Mode selection
-        ttk.Label(script_frame, text="Run Mode:").grid(column=0, row=0, sticky=tk.W, padx=5, pady=5)
+        ttk.Label(script_frame, text="Run Mode:").grid(column=0, row=1, sticky=tk.W, padx=5, pady=5)
         normal_radio = ttk.Radiobutton(script_frame, text="Normal Mode", variable=self.run_mode, value="Normal",
                                       command=self.toggle_test_options)
-        normal_radio.grid(column=1, row=0, sticky=tk.W, padx=5, pady=5)
+        normal_radio.grid(column=1, row=1, sticky=tk.W, padx=5, pady=5)
 
         test_radio = ttk.Radiobutton(script_frame, text="Test Mode", variable=self.run_mode, value="Test",
                                     command=self.toggle_test_options)
-        test_radio.grid(column=2, row=0, sticky=tk.W, padx=5, pady=5)
+        test_radio.grid(column=2, row=1, sticky=tk.W, padx=5, pady=5)
 
         # Test file options frame (initially disabled)
         self.test_options_frame = ttk.Frame(script_frame)
-        self.test_options_frame.grid(column=0, row=1, columnspan=3, sticky=tk.W+tk.E, padx=5, pady=5)
+        self.test_options_frame.grid(column=0, row=2, columnspan=3, sticky=tk.W+tk.E, padx=5, pady=5)
 
         ttk.Label(self.test_options_frame, text="Commands Directory:").pack(side=tk.LEFT, padx=5, pady=5)
         ttk.Entry(self.test_options_frame, textvariable=self.commands_dir, width=30).pack(side=tk.LEFT, padx=5, pady=5)
@@ -97,7 +113,7 @@ class CarlaLauncher:
 
         # Available test files
         self.test_files_frame = ttk.LabelFrame(script_frame, text="Available Test Files")
-        self.test_files_frame.grid(column=0, row=2, columnspan=3, sticky=tk.W+tk.E+tk.N+tk.S, padx=5, pady=5)
+        self.test_files_frame.grid(column=0, row=3, columnspan=3, sticky=tk.W+tk.E+tk.N+tk.S, padx=5, pady=5)
 
         # Test files listbox with scrollbar
         self.test_files_listbox = tk.Listbox(self.test_files_frame, height=10, width=70)
@@ -122,11 +138,6 @@ class CarlaLauncher:
         button_frame.pack(fill=tk.X, padx=5, pady=5)
 
         ttk.Button(button_frame, text="Launch", command=self.launch_application).pack(side=tk.RIGHT, padx=5)
-
-        # Configure style
-        style = ttk.Style()
-        if 'Accent.TButton' not in style.theme_names():
-            pass  # Apply custom style if needed
 
     def browse_carla(self):
         """Open file browser dialog specifically for finding CarlaUE4.exe"""
@@ -204,15 +215,27 @@ class CarlaLauncher:
             self.root.after(0, lambda: self.status_var.set("Waiting for CARLA to initialize..."))
             time.sleep(10)  # Give CARLA time to start
 
+            # Determine which script to run based on program_type
+            if self.program_type.get() == "async":
+                script_name = "camera_lanes_analysis_async.py"
+                script_args = []
+            elif self.program_type.get() == "sync":
+                script_name = "camera_lanes_analysis_sync.py"
+                script_args = ["--playback"]
+            elif self.program_type.get() == "sync_record":
+                script_name = "camera_lanes_analysis_sync.py"
+                script_args = ["--record"]
+            
             # Prepare script command
-            script_cmd = ["python", self.python_script]
+            script_cmd = ["python", script_name] + script_args
 
             # Add test mode parameters if selected
             if self.run_mode.get() == "Test" and self.test_file.get():
                 script_cmd.extend(["--test", "--test-file", self.test_file.get()])
 
             # Update status and run script
-            self.root.after(0, lambda: self.status_var.set("Starting script..."))
+            self.root.after(0, lambda: self.status_var.set(f"Starting script {script_name}..."))
+            print(f"Running command: {' '.join(script_cmd)}")
             script_process = subprocess.Popen(script_cmd)
             script_process.wait()
 
@@ -244,36 +267,6 @@ class CarlaLauncher:
 if __name__ == "__main__":
     # Create test commands directory if it doesn't exist
     os.makedirs("test_commands", exist_ok=True)
-
-    # Create sample command file if directory is empty
-    if not os.listdir("test_commands"):
-        sample_commands = [
-            [0.0, 0.0, 0.0],
-            [0.5, 0.0, 0.0],
-            [0.7, 0.0, 0.0],
-            [0.9, 0.0, 0.0],
-            [0.9, 0.0, 0.2],
-            [0.9, 0.0, 0.4],
-            [0.9, 0.0, 0.6],
-            [0.7, 0.0, 0.6],
-            [0.5, 0.0, 0.6],
-            [0.3, 0.0, 0.6],
-            [0.3, 0.0, 0.4],
-            [0.3, 0.0, 0.2],
-            [0.3, 0.0, 0.0],
-            [0.3, 0.0, -0.2],
-            [0.3, 0.0, -0.4],
-            [0.3, 0.0, -0.6],
-            [0.5, 0.0, -0.6],
-            [0.7, 0.0, -0.6],
-            [0.9, 0.0, -0.6],
-            [0.9, 0.0, -0.4],
-            [0.9, 0.0, -0.2],
-            [0.9, 0.0, 0.0],
-            [0.0, 0.5, 0.0]
-        ]
-        with open("test_commands/sample.json", "w") as f:
-            json.dump(sample_commands, f)
 
     root = tk.Tk()
     app = CarlaLauncher(root)

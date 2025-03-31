@@ -1,5 +1,5 @@
 asciidoc/output/
-
+log/untracked/
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

@@ -108,7 +108,7 @@ except ImportError:
     raise RuntimeError('cannot import numpy, make sure numpy package is installed')
 
 # Log file path
-log_file_path = "frame_performance_log.txt"
+log_file_path = "/log/tracked/frame_performance_log.txt"
 # Queue to buffer frame data for logging
 log_queue = queue.Queue()
 # ==============================================================================
@@ -425,8 +425,8 @@ class DualControl(object):
             self._control.steer = steer_raw
 
         # Print control values for debugging
-        print(
-            f"Control values - Throttle: {self._control.throttle}, Brake: {self._control.brake}, Steer: {self._control.steer}")
+        # print(
+        #     f"Control values - Throttle: {self._control.throttle}, Brake: {self._control.brake}, Steer: {self._control.steer}")
 
     def _parse_vehicle_keys(self, keys, milliseconds):
         self._control.throttle = 1.0 if keys[K_UP] or keys[K_w] else 0.0
