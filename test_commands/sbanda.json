@@ -1,0 +1,2966 @@
+[
+    {
+        "timestamp": 6.08974165096879,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 6.123074986040592,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 6.156408321112394,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 6.1897416561841965,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 6.223074991255999,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 6.256408326327801,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 6.289741661399603,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 6.323074996471405,
+        "throttle": 0.20000000298023224,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 6.356408331543207,
+        "throttle": 0.4000000059604645,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 6.389741666615009,
+        "throttle": 0.6000000238418579,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 6.4230750016868114,
+        "throttle": 0.800000011920929,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 6.456408336758614,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 6.489741671830416,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 6.523075006902218,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 6.55640834197402,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 6.589741677045822,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 6.623075012117624,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 6.656408347189426,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 6.689741682261229,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 6.723075017333031,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 6.756408352404833,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 6.789741687476635,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 6.823075022548437,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 6.856408357620239,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 6.889741692692041,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 6.9230750277638435,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 6.956408362835646,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 6.989741697907448,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 7.02307503297925,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 7.056408368051052,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 7.089741703122854,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 7.123075038194656,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 7.1564083732664585,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 7.189741708338261,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 7.223075043410063,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 7.256408378481865,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 7.289741713553667,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 7.323075048625469,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 7.356408383697271,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 7.3897417187690735,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 7.423075053840876,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 7.456408388912678,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 7.48974172398448,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 7.523075059056282,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 7.556408394128084,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 7.589741729199886,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 7.6230750642716885,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 7.656408399343491,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 7.689741734415293,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 7.723075069487095,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 7.756408404558897,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 7.789741739630699,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 7.823075074702501,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 7.856408409774303,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 7.889741744846106,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 7.923075079917908,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 7.95640841498971,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 7.989741750061512,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 8.023075085133314,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 8.056408420205116,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 8.089741755276918,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 8.12307509034872,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 8.156408425420523,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 8.189741760492325,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 8.223075095564127,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 8.256408430635929,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 8.289741765707731,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 8.323075100779533,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 8.356408435851336,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 8.389741770923138,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 8.42307510599494,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 8.456408441066742,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 8.489741776138544,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 8.523075111210346,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 8.556408446282148,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 8.58974178135395,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 8.623075116425753,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 8.656408451497555,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 8.689741786569357,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 8.723075121641159,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 8.756408456712961,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.05000000074505806
+    },
+    {
+        "timestamp": 8.789741791784763,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 8.823075126856565,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 8.856408461928368,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 8.88974179700017,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 8.923075132071972,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 8.956408467143774,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.05000000074505806
+    },
+    {
+        "timestamp": 8.989741802215576,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 9.023075137287378,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 9.05640847235918,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 9.089741807430983,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 9.123075142502785,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 9.156408477574587,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 9.189741812646389,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 9.223075147718191,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 9.256408482789993,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 9.289741817861795,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 9.323075152933598,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 9.3564084880054,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 9.389741823077202,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 9.423075158149004,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 9.456408493220806,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 9.489741828292608,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 9.52307516336441,
+        "throttle": 0.800000011920929,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 9.556408498436213,
+        "throttle": 0.6000000238418579,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 9.589741833508015,
+        "throttle": 0.40000003576278687,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 9.623075168579817,
+        "throttle": 0.20000003278255463,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 9.656408503651619,
+        "throttle": 3.278255533700758e-08,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 9.689741838723421,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 9.723075173795223,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.05000000074505806
+    },
+    {
+        "timestamp": 9.756408508867025,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 9.789741843938828,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 9.82307517901063,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 9.856408514082432,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 9.889741849154234,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 9.923075184226036,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.05000000074505806
+    },
+    {
+        "timestamp": 9.956408519297838,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 9.98974185436964,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 10.023075189441442,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 10.056408524513245,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 10.089741859585047,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": -0.05000000074505806
+    },
+    {
+        "timestamp": 10.123075194656849,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 10.156408529728651,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 10.189741864800453,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 10.223075199872255,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 10.256408534944057,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 10.28974187001586,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 10.323075205087662,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": -0.05000000074505806
+    },
+    {
+        "timestamp": 10.356408540159464,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 10.389741875231266,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 10.423075210303068,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 10.45640854537487,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 10.489741880446672,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 10.523075215518475,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 10.556408550590277,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": -0.05000000074505806
+    },
+    {
+        "timestamp": 10.589741885662079,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 10.623075220733881,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 10.656408555805683,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 10.689741890877485,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 10.723075225949287,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 10.75640856102109,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 10.789741896092892,
+        "throttle": 0.20000000298023224,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 10.823075231164694,
+        "throttle": 0.4000000059604645,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 10.856408566236496,
+        "throttle": 0.6000000238418579,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 10.889741901308298,
+        "throttle": 0.800000011920929,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 10.9230752363801,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 10.956408571451902,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 10.989741906523705,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 11.023075241595507,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 11.056408576667309,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 11.089741911739111,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 11.123075246810913,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 11.156408581882715,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 11.189741916954517,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 11.22307525202632,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 11.256408587098122,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 11.289741922169924,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 11.323075257241726,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 11.356408592313528,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 11.38974192738533,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 11.423075262457132,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 11.456408597528934,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 11.489741932600737,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 11.523075267672539,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 11.556408602744341,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 11.589741937816143,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.05000000074505806
+    },
+    {
+        "timestamp": 11.623075272887945,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.10000000149011612
+    },
+    {
+        "timestamp": 11.656408607959747,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.15000000596046448
+    },
+    {
+        "timestamp": 11.68974194303155,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 11.723075278103352,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 11.756408613175154,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 11.789741948246956,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.05000000074505806
+    },
+    {
+        "timestamp": 11.823075283318758,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.10000000149011612
+    },
+    {
+        "timestamp": 11.85640861839056,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.15000000596046448
+    },
+    {
+        "timestamp": 11.889741953462362,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.20000000298023224
+    },
+    {
+        "timestamp": 11.923075288534164,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.25
+    },
+    {
+        "timestamp": 11.956408623605967,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.30000001192092896
+    },
+    {
+        "timestamp": 11.989741958677769,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.3500000238418579
+    },
+    {
+        "timestamp": 12.02307529374957,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 12.056408628821373,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 12.089741963893175,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 12.123075298964977,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": -0.05000000074505806
+    },
+    {
+        "timestamp": 12.15640863403678,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": -0.10000000149011612
+    },
+    {
+        "timestamp": 12.189741969108582,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": -0.15000000596046448
+    },
+    {
+        "timestamp": 12.223075304180384,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": -0.20000000298023224
+    },
+    {
+        "timestamp": 12.256408639252186,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 12.289741974323988,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 12.32307530939579,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 12.356408644467592,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 12.389741979539394,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 12.423075314611197,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.05000000074505806
+    },
+    {
+        "timestamp": 12.456408649682999,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.10000000149011612
+    },
+    {
+        "timestamp": 12.4897419847548,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 12.523075319826603,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 12.556408654898405,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 12.589741989970207,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.05000000074505806
+    },
+    {
+        "timestamp": 12.62307532504201,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.10000000149011612
+    },
+    {
+        "timestamp": 12.656408660113811,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.15000000596046448
+    },
+    {
+        "timestamp": 12.689741995185614,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 12.723075330257416,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 12.756408665329218,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 12.78974200040102,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.05000000074505806
+    },
+    {
+        "timestamp": 12.823075335472822,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.10000000149011612
+    },
+    {
+        "timestamp": 12.856408670544624,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 12.889742005616426,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 12.923075340688229,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 12.95640867576003,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 12.989742010831833,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 13.023075345903635,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 13.056408680975437,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 13.08974201604724,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 13.123075351119041,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 13.156408686190844,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 13.189742021262646,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 13.223075356334448,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 13.25640869140625,
+        "throttle": 0.800000011920929,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 13.289742026478052,
+        "throttle": 0.6000000238418579,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 13.323075361549854,
+        "throttle": 0.40000003576278687,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 13.356408696621656,
+        "throttle": 0.20000003278255463,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 13.389742031693459,
+        "throttle": 3.278255533700758e-08,
+        "brake": 0.0,
+        "steer": 0.05000000074505806
+    },
+    {
+        "timestamp": 13.42307536676526,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 13.456408701837063,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 13.489742036908865,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 13.523075371980667,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.05000000074505806
+    },
+    {
+        "timestamp": 13.55640870705247,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.10000000149011612
+    },
+    {
+        "timestamp": 13.589742042124271,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.15000000596046448
+    },
+    {
+        "timestamp": 13.623075377196074,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.20000000298023224
+    },
+    {
+        "timestamp": 13.656408712267876,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 13.689742047339678,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 13.72307538241148,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 13.756408717483282,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 13.789742052555084,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 13.823075387626886,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 13.856408722698689,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 13.88974205777049,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 13.923075392842293,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 13.956408727914095,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 13.989742062985897,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 14.0230753980577,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.05000000074505806
+    },
+    {
+        "timestamp": 14.056408733129501,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.10000000149011612
+    },
+    {
+        "timestamp": 14.089742068201303,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 14.123075403273106,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 14.156408738344908,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 14.18974207341671,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 14.223075408488512,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.05000000074505806
+    },
+    {
+        "timestamp": 14.256408743560314,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.10000000149011612
+    },
+    {
+        "timestamp": 14.289742078632116,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.15000000596046448
+    },
+    {
+        "timestamp": 14.323075413703918,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.20000000298023224
+    },
+    {
+        "timestamp": 14.35640874877572,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 14.389742083847523,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 14.423075418919325,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 14.456408753991127,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 14.48974208906293,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 14.523075424134731,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": -0.05000000074505806
+    },
+    {
+        "timestamp": 14.556408759206533,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": -0.10000000149011612
+    },
+    {
+        "timestamp": 14.589742094278336,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": -0.15000000596046448
+    },
+    {
+        "timestamp": 14.623075429350138,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": -0.20000000298023224
+    },
+    {
+        "timestamp": 14.65640876442194,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 14.689742099493742,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 14.723075434565544,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 14.756408769637346,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 14.789742104709148,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 14.82307543978095,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": -0.05000000074505806
+    },
+    {
+        "timestamp": 14.856408774852753,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": -0.10000000149011612
+    },
+    {
+        "timestamp": 14.889742109924555,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": -0.15000000596046448
+    },
+    {
+        "timestamp": 14.923075444996357,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": -0.20000000298023224
+    },
+    {
+        "timestamp": 14.956408780068159,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 14.989742115139961,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 15.023075450211763,
+        "throttle": 0.20000000298023224,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 15.056408785283566,
+        "throttle": 0.4000000059604645,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 15.089742120355368,
+        "throttle": 0.6000000238418579,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 15.12307545542717,
+        "throttle": 0.800000011920929,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 15.156408790498972,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 15.189742125570774,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 15.223075460642576,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 15.256408795714378,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 15.28974213078618,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 15.323075465857983,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.05000000074505806
+    },
+    {
+        "timestamp": 15.356408800929785,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.10000000149011612
+    },
+    {
+        "timestamp": 15.389742136001587,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.15000000596046448
+    },
+    {
+        "timestamp": 15.423075471073389,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.20000000298023224
+    },
+    {
+        "timestamp": 15.456408806145191,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 15.489742141216993,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 15.523075476288795,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 15.556408811360598,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 15.5897421464324,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 15.623075481504202,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 15.656408816576004,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 15.689742151647806,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 15.723075486719608,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.05000000074505806
+    },
+    {
+        "timestamp": 15.75640882179141,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.10000000149011612
+    },
+    {
+        "timestamp": 15.789742156863213,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.15000000596046448
+    },
+    {
+        "timestamp": 15.823075491935015,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 15.856408827006817,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 15.889742162078619,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 15.923075497150421,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 15.956408832222223,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.05000000074505806
+    },
+    {
+        "timestamp": 15.989742167294025,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.10000000149011612
+    },
+    {
+        "timestamp": 16.023075502365828,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.15000000596046448
+    },
+    {
+        "timestamp": 16.05640883743763,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 16.089742172509432,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 16.123075507581234,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 16.156408842653036,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 16.18974217772484,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.05000000074505806
+    },
+    {
+        "timestamp": 16.22307551279664,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.10000000149011612
+    },
+    {
+        "timestamp": 16.256408847868443,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.15000000596046448
+    },
+    {
+        "timestamp": 16.289742182940245,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.20000000298023224
+    },
+    {
+        "timestamp": 16.323075518012047,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 16.35640885308385,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 16.38974218815565,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 16.423075523227453,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 16.456408858299255,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 16.489742193371058,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 16.52307552844286,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 16.556408863514662,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 16.589742198586464,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.05000000074505806
+    },
+    {
+        "timestamp": 16.623075533658266,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 16.656408868730068,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 16.68974220380187,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 16.723075538873672,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 16.756408873945475,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 16.789742209017277,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.05000000074505806
+    },
+    {
+        "timestamp": 16.82307554408908,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.10000000149011612
+    },
+    {
+        "timestamp": 16.85640887916088,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 16.889742214232683,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 16.923075549304485,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 16.956408884376287,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 16.98974221944809,
+        "throttle": 0.800000011920929,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 17.02307555451989,
+        "throttle": 0.6000000238418579,
+        "brake": 0.0,
+        "steer": -0.05000000074505806
+    },
+    {
+        "timestamp": 17.056408889591694,
+        "throttle": 0.40000003576278687,
+        "brake": 0.0,
+        "steer": -0.10000000149011612
+    },
+    {
+        "timestamp": 17.089742224663496,
+        "throttle": 0.20000003278255463,
+        "brake": 0.0,
+        "steer": -0.15000000596046448
+    },
+    {
+        "timestamp": 17.123075559735298,
+        "throttle": 3.278255533700758e-08,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 17.1564088948071,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 17.189742229878902,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 17.223075564950705,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 17.256408900022507,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 17.28974223509431,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 17.32307557016611,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 17.356408905237913,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 17.389742240309715,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 17.423075575381517,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 17.45640891045332,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 17.48974224552512,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 17.523075580596924,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 17.556408915668726,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 17.589742250740528,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 17.62307558581233,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.05000000074505806
+    },
+    {
+        "timestamp": 17.656408920884132,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.10000000149011612
+    },
+    {
+        "timestamp": 17.689742255955935,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.15000000596046448
+    },
+    {
+        "timestamp": 17.723075591027737,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.20000000298023224
+    },
+    {
+        "timestamp": 17.75640892609954,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.25
+    },
+    {
+        "timestamp": 17.78974226117134,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.30000001192092896
+    },
+    {
+        "timestamp": 17.823075596243143,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 17.856408931314945,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 17.889742266386747,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.05000000074505806
+    },
+    {
+        "timestamp": 17.92307560145855,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.10000000149011612
+    },
+    {
+        "timestamp": 17.95640893653035,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.15000000596046448
+    },
+    {
+        "timestamp": 17.989742271602154,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.20000000298023224
+    },
+    {
+        "timestamp": 18.023075606673956,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 18.056408941745758,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 18.08974227681756,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 18.123075611889362,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 18.156408946961164,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 18.189742282032967,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 18.22307561710477,
+        "throttle": 0.20000000298023224,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 18.25640895217657,
+        "throttle": 0.4000000059604645,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 18.289742287248373,
+        "throttle": 0.6000000238418579,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 18.323075622320175,
+        "throttle": 0.800000011920929,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 18.356408957391977,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 18.38974229246378,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 18.42307562753558,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 18.456408962607384,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 18.489742297679186,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 18.523075632750988,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 18.55640896782279,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 18.589742302894592,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 18.623075637966394,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 18.656408973038197,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 18.68974230811,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 18.7230756431818,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 18.756408978253603,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 18.789742313325405,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 18.823075648397207,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 18.85640898346901,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 18.88974231854081,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 18.923075653612614,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 18.956408988684416,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 18.989742323756218,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 19.02307565882802,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 19.056408993899822,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": -0.05000000074505806
+    },
+    {
+        "timestamp": 19.089742328971624,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": -0.10000000149011612
+    },
+    {
+        "timestamp": 19.123075664043427,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 19.15640899911523,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 19.18974233418703,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 19.223075669258833,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 19.256409004330635,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 19.289742339402437,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 19.32307567447424,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 19.35640900954604,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 19.389742344617844,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 19.423075679689646,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 19.456409014761448,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 19.48974234983325,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 19.523075684905052,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 19.556409019976854,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 19.589742355048656,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 19.62307569012046,
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.05000000074505806
+    },
+    {
+        "timestamp": 19.65640902519226,
+        "throttle": 0.800000011920929,
+        "brake": 0.0,
+        "steer": 0.10000000149011612
+    },
+    {
+        "timestamp": 19.689742360264063,
+        "throttle": 0.6000000238418579,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 19.723075695335865,
+        "throttle": 0.40000003576278687,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 19.756409030407667,
+        "throttle": 0.20000003278255463,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 19.78974236547947,
+        "throttle": 3.278255533700758e-08,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 19.82307570055127,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 19.856409035623074,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.05000000074505806
+    },
+    {
+        "timestamp": 19.889742370694876,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.10000000149011612
+    },
+    {
+        "timestamp": 19.923075705766678,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.15000000596046448
+    },
+    {
+        "timestamp": 19.95640904083848,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 19.989742375910282,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 20.023075710982084,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 20.056409046053886,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.05000000074505806
+    },
+    {
+        "timestamp": 20.08974238112569,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.10000000149011612
+    },
+    {
+        "timestamp": 20.12307571619749,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.15000000596046448
+    },
+    {
+        "timestamp": 20.156409051269293,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 20.189742386341095,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 20.223075721412897,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.05000000074505806
+    },
+    {
+        "timestamp": 20.2564090564847,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.10000000149011612
+    },
+    {
+        "timestamp": 20.2897423915565,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 20.323075726628304,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 20.356409061700106,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 20.389742396771908,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 20.42307573184371,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.05000000074505806
+    },
+    {
+        "timestamp": 20.456409066915512,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.10000000149011612
+    },
+    {
+        "timestamp": 20.489742401987314,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 20.523075737059116,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 20.55640907213092,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 20.58974240720272,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.05000000074505806
+    },
+    {
+        "timestamp": 20.623075742274523,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.10000000149011612
+    },
+    {
+        "timestamp": 20.656409077346325,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 20.689742412418127,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 20.72307574748993,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 20.75640908256173,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 20.789742417633533,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 20.823075752705336,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 20.856409087777138,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 20.88974242284894,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 20.923075757920742,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 20.956409092992544,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 20.989742428064346,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 21.02307576313615,
+        "throttle": 0.0,
+        "brake": 0.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 21.05640909820795,
+        "throttle": 0.0,
+        "brake": 0.20000000298023224,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 21.089742433279753,
+        "throttle": 0.0,
+        "brake": 0.4000000059604645,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 21.123075768351555,
+        "throttle": 0.0,
+        "brake": 0.6000000238418579,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 21.156409103423357,
+        "throttle": 0.0,
+        "brake": 0.800000011920929,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 21.18974243849516,
+        "throttle": 0.0,
+        "brake": 1.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 21.22307577356696,
+        "throttle": 0.0,
+        "brake": 1.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 21.256409108638763,
+        "throttle": 0.0,
+        "brake": 1.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 21.289742443710566,
+        "throttle": 0.0,
+        "brake": 1.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 21.323075778782368,
+        "throttle": 0.0,
+        "brake": 1.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 21.35640911385417,
+        "throttle": 0.0,
+        "brake": 1.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 21.389742448925972,
+        "throttle": 0.0,
+        "brake": 1.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 21.423075783997774,
+        "throttle": 0.0,
+        "brake": 1.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 21.456409119069576,
+        "throttle": 0.0,
+        "brake": 1.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 21.48974245414138,
+        "throttle": 0.0,
+        "brake": 1.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 21.52307578921318,
+        "throttle": 0.0,
+        "brake": 1.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 21.556409124284983,
+        "throttle": 0.0,
+        "brake": 1.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 21.589742459356785,
+        "throttle": 0.0,
+        "brake": 1.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 21.623075794428587,
+        "throttle": 0.0,
+        "brake": 1.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 21.65640912950039,
+        "throttle": 0.0,
+        "brake": 1.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 21.68974246457219,
+        "throttle": 0.0,
+        "brake": 1.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 21.723075799643993,
+        "throttle": 0.0,
+        "brake": 1.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 21.756409134715796,
+        "throttle": 0.0,
+        "brake": 1.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 21.789742469787598,
+        "throttle": 0.0,
+        "brake": 1.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 21.8230758048594,
+        "throttle": 0.0,
+        "brake": 1.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 21.856409139931202,
+        "throttle": 0.0,
+        "brake": 1.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 21.889742475003004,
+        "throttle": 0.0,
+        "brake": 1.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 21.923075810074806,
+        "throttle": 0.0,
+        "brake": 1.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 21.95640914514661,
+        "throttle": 0.0,
+        "brake": 1.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 21.98974248021841,
+        "throttle": 0.0,
+        "brake": 1.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 22.023075815290213,
+        "throttle": 0.0,
+        "brake": 1.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 22.056409150362015,
+        "throttle": 0.0,
+        "brake": 1.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 22.089742485433817,
+        "throttle": 0.0,
+        "brake": 1.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 22.12307582050562,
+        "throttle": 0.0,
+        "brake": 1.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 22.15640915557742,
+        "throttle": 0.0,
+        "brake": 1.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 22.189742490649223,
+        "throttle": 0.0,
+        "brake": 1.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 22.223075825721025,
+        "throttle": 0.0,
+        "brake": 1.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 22.256409160792828,
+        "throttle": 0.0,
+        "brake": 1.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 22.28974249586463,
+        "throttle": 0.0,
+        "brake": 1.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 22.323075830936432,
+        "throttle": 0.0,
+        "brake": 1.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 22.356409166008234,
+        "throttle": 0.0,
+        "brake": 1.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 22.389742501080036,
+        "throttle": 0.0,
+        "brake": 1.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 22.42307583615184,
+        "throttle": 0.0,
+        "brake": 1.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 22.45640917122364,
+        "throttle": 0.0,
+        "brake": 1.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 22.489742506295443,
+        "throttle": 0.0,
+        "brake": 1.0,
+        "steer": 0.0
+    },
+    {
+        "timestamp": 22.523075841367245,
+        "throttle": 0.0,
+        "brake": 1.0,
+        "steer": 0.0
+    }
+]
