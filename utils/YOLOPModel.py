@@ -68,17 +68,7 @@ def filter_nested_boxes(boxes, iou_threshold=0.8):
     return filtered_boxes
 
 
-def get_smoothed_status(new_status):
-    global lane_status_history
-    lane_status_history.append(new_status)
 
-    # Only report lane crossing if we've seen it multiple times
-    if "CROSSING" in new_status:
-        if sum(1 for status in lane_status_history if "CROSSING" in status) >= 3:
-            return new_status
-        else:
-            return "Car is SLIGHTLY off center"
-    return new_status
 
 def analyzeImage(image):
     """Improved detect function to filter horizontal lines and handle central alignment."""
@@ -147,8 +137,8 @@ def analyzeImage(image):
             contours, _ = cv2.findContours(red_lane_mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 
             # Filter bounding boxes based on size and orientation
-            MIN_BOX_WIDTH = 30   # Minimum box width
-            MIN_BOX_HEIGHT = 30  # Minimum box height
+            MIN_BOX_WIDTH = 40   # Minimum box width
+            MIN_BOX_HEIGHT = 40  # Minimum box height
             ORIENTATION_THRESHOLD = 4.0  # Threshold for detecting horizontal boxes
 
             red_boxes = []
@@ -176,7 +166,7 @@ def analyzeImage(image):
                 center_distance = lane_center_x - img_center_x
 
                 # Thresholds for different states
-                CENTERED_THRESHOLD = 35  # More tolerant centered threshold
+                CENTERED_THRESHOLD = 30  # More tolerant centered threshold
                 CROSSING_THRESHOLD = 53  # Higher threshold for definite crossing
 
                 # Add state tracking

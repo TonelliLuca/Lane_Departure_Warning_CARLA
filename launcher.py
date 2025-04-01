@@ -302,8 +302,6 @@ class CarlaLauncher:
             # Prepare script command
             script_cmd = ["python", script_name] + script_args
 
-
-
             # Update status and run script
             self.root.after(0, lambda: self.status_var.set(f"Starting script {script_name}..."))
             print(f"Running command: {' '.join(script_cmd)}")
@@ -312,17 +310,34 @@ class CarlaLauncher:
 
             # Cleanup after script exit
             self.root.after(0, lambda: self.status_var.set("Script finished. Closing CARLA..."))
+            # Add a small delay to ensure any script cleanup is finished
+            time.sleep(2)
+
+            # Make sure CARLA is terminated properly
             if self.carla_process:
-                self.carla_process.terminate()
+                if self.carla_process.poll() is None:  # Check if still running
+                    try:
+                        self.carla_process.terminate()
+                        time.sleep(2)  # Wait for graceful termination
+                        if self.carla_process.poll() is None:  # If still running
+                            self.carla_process.kill()  # Force kill
+                    except Exception as e:
+                        print(f"Error closing CARLA: {e}")
                 self.carla_process = None
 
             self.root.after(0, lambda: self.status_var.set("Ready"))
 
         except Exception as e:
-            error_msg = str(e)  # Capture the error message
+            error_msg = str(e)
             self.root.after(0, lambda msg=error_msg: self.status_var.set(f"Error: {msg}"))
             if self.carla_process:
-                self.carla_process.terminate()
+                try:
+                    self.carla_process.terminate()
+                    time.sleep(1)
+                    if self.carla_process.poll() is None:
+                        self.carla_process.kill()
+                except:
+                    pass
                 self.carla_process = None
 
     def on_closing(self):

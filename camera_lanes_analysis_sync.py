@@ -223,7 +223,7 @@ def update_test_display(test_display):
     cv2.putText(test_display, f"CARLA only: {stats.get('carla_only', 0)}",
                 (30, 210), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 1, cv2.LINE_AA)
     cv2.putText(test_display,
-                f"Both systems: {stats.get('events', 0) - stats.get('yolop_only', 0) - stats.get('carla_only', 0)}",
+                f"Confirmed Crossings: {stats.get('agreements', 0)}",
                 (30, 250), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 0), 1, cv2.LINE_AA)
 
     # Add time information
