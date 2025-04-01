@@ -217,12 +217,6 @@ def update_test_display(test_display):
     cv2.putText(test_display, f"Total events: {stats['events']}",
                 (30, 90), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 0), 1, cv2.LINE_AA)
 
-    # Agreement rate with color coding
-    agreement_rate = stats.get('agreement_rate', 0) * 100
-    color = (0, 100, 0) if agreement_rate > 70 else (0, 0, 200) if agreement_rate < 50 else (0, 150, 150)
-    cv2.putText(test_display, f"Agreement rate: {agreement_rate:.1f}%",
-                (30, 130), cv2.FONT_HERSHEY_SIMPLEX, 0.7, color, 2, cv2.LINE_AA)
-
     # Detection counts
     cv2.putText(test_display, f"YOLOP only: {stats.get('yolop_only', 0)}",
                 (30, 170), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 128, 0), 1, cv2.LINE_AA)
@@ -332,8 +326,9 @@ def main(args, playback_data=None, playback_index=0):
                     control.brake = control_data["brake"]
                     control.steer = control_data["steer"]
 
-                    print("Playback index ", playback_index, "/", len(playback_data))
                     playback_index += 1
+                    print("Playback index ", playback_index, "/", len(playback_data))
+
 
                 elif not args.playback:
                     # Use keyboard controls if not in playback mode

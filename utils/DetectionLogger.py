@@ -71,7 +71,6 @@ class DetectionLogger:
         carla_only = sum(1 for event in crossing_events if event["carla"] and not event["yolop"])
 
         return {
-            "agreement_rate": agreements / len(crossing_events),
             "events": len(crossing_events),
             "yolop_only": yolop_only,
             "carla_only": carla_only,
