@@ -15,8 +15,8 @@ def process_image(video_output, define_crop_size):
 
     # Define source points (trapezoid in the original image)
     src_points = np.float32([
-        [width * 0.35, height * 0.55],  # Top-left
-        [width * 0.65, height * 0.55],  # Top-right
+        [width * 0.25, height * 0.55],  # Top-left
+        [width * 0.75, height * 0.55],  # Top-right
         [width * 0.85, height * 0.95],  # Bottom-right
         [width * 0.15, height * 0.95]   # Bottom-left
     ])

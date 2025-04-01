@@ -176,32 +176,33 @@ def analyzeImage(image):
                 center_distance = lane_center_x - img_center_x
 
                 # Thresholds for different states
-                CENTERED_THRESHOLD = 40  # More tolerant centered threshold
-                CROSSING_THRESHOLD = 60  # Higher threshold for definite crossing
+                CENTERED_THRESHOLD = 35  # More tolerant centered threshold
+                CROSSING_THRESHOLD = 53  # Higher threshold for definite crossing
 
                 # Add state tracking
                 if len(red_boxes) == 1:  # Single box scenario
-                    alignment_status = "Single box: Car likely BETWEEN two lanes"
+                    alignment_status = "CROSSING: SBX"
                     crossing = True
                     #print(alignment_status)
                 else:
                     if abs(center_distance) < CENTERED_THRESHOLD:
-                        alignment_status = "Car is CENTERED in the lane"
+                        alignment_status = "CENTERED"
                         #print(alignment_status)
                     elif abs(center_distance) < CROSSING_THRESHOLD:
                         if center_distance > 0:
-                            alignment_status = "Car is SLIGHTLY LEFT of center"
+                            alignment_status = "CROSSING: SL"
                             #print(alignment_status)
                         else:
-                            alignment_status = "Car is SLIGHTLY RIGHT of center"
+                            alignment_status = "CROSSING: SR"
                             #print(alignment_status)
+                        crossing = True
                     else:
                         if center_distance > 0:
 
-                            alignment_status = "Car is CROSSING to the LEFT lane"
+                            alignment_status = "CROSSING: LEFT"
                             #print("Car is CROSSING to the LEFT lane")
                         else:
-                            alignment_status = "Car is CROSSING to the RIGHT lane"
+                            alignment_status = "CROSSING: RIGHT"
                             #print("Car is CROSSING to the RIGHT lane")
                         crossing = True
 
