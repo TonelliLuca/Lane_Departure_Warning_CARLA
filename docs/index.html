@@ -473,6 +473,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_introduction">1. Introduction</a>
 <ul class="sectlevel2">
 <li><a href="#_the_project">1.1. The Project</a></li>
+<li><a href="#_motivation">1.2. Motivation</a></li>
+<li><a href="#_references">References</a></li>
 </ul>
 </li>
 <li><a href="#_requirements">2. Requirements</a></li>
@@ -493,10 +495,67 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>This Lane Departure Warning system represents a critical safety feature designed to prevent unintentional lane departures on roadways. Our implementation leverages the CARLA simulation environment to detect when a vehicle begins to drift from its lane, providing timely warnings to alert the driver.</p>
 </div>
 <div class="paragraph">
-<p>The system employs computer vision techniques, specifically utilizing the YOLOPv2 model, to identify lane markings and determine the vehicle&#8217;s position relative to these boundaries in real-time. When the system detects an imminent unintended lane crossing, it generates a visual alert, allowing the driver to take corrective action.</p>
+<p>The system employs computer vision techniques, specifically utilizing the YOLOPv2 model, to:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Identify lane markings in real-time</p>
+</li>
+<li>
+<p>Determine the vehicle&#8217;s position relative to lane boundaries</p>
+</li>
+<li>
+<p>Generate visual alerts when detecting imminent unintended lane crossings</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p>This technology serves as an essential component of modern driver assistance systems, helping to reduce accidents caused by driver distraction, fatigue, or momentary inattention.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_motivation">1.2. Motivation</h3>
+<div class="paragraph">
+<p>Unintentional lane departures are a significant cause of road accidents, often resulting from driver distraction or fatigue. Lane Departure Warning systems aim to mitigate these incidents by alerting drivers when they unintentionally drift from their lanes.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="title">Key Research Findings</div>
+<div class="paragraph">
+<p>The study "The effectiveness of lane departure warning systems—A reduction in real-world passenger car injury crashes" found that:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>LDW and LKA systems could reduce head-on and single-vehicle injury crashes by <strong>53%</strong></p>
+</li>
+<li>
+<p>The research was conducted on Swedish roads (70-120 km/h speed limits)</p>
+</li>
+<li>
+<p>Under all conditions, crash reduction was estimated at <strong>30%</strong></p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_references">References</h3>
+<div class="ulist bibliography">
+<ul class="bibliography">
+<li>
+<p><a id="ldw-study"></a>[ldw-study] "The effectiveness of lane departure warning systems—A reduction in real-world passenger car injury crashes" <a href="https://pubmed.ncbi.nlm.nih.gov/27624313/">Pubmed</a></p>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -540,7 +599,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2025-04-02 14:21:31 UTC
+Last updated 2025-04-02 14:27:41 UTC
 </div>
 </div>
 </body>
