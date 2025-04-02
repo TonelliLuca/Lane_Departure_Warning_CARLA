@@ -470,7 +470,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="toc" class="toc">
 <div id="toctitle" class="title">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#_introduction">1. Introduction</a></li>
+<li><a href="#_introduction">1. Introduction</a>
+<ul class="sectlevel2">
+<li><a href="#_the_project">1.1. The Project</a></li>
+</ul>
+</li>
 <li><a href="#_requirements">2. Requirements</a></li>
 <li><a href="#_design">3. Design</a></li>
 <li><a href="#_testing">4. Testing</a></li>
@@ -483,8 +487,17 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect1">
 <h2 id="_introduction">1. Introduction</h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="_the_project">1.1. The Project</h3>
 <div class="paragraph">
-<p>Project &amp; Motivations</p>
+<p>This Lane Departure Warning system represents a critical safety feature designed to prevent unintentional lane departures on roadways. Our implementation leverages the CARLA simulation environment to detect when a vehicle begins to drift from its lane, providing timely warnings to alert the driver.</p>
+</div>
+<div class="paragraph">
+<p>The system employs computer vision techniques, specifically utilizing the YOLOPv2 model, to identify lane markings and determine the vehicle&#8217;s position relative to these boundaries in real-time. When the system detects an imminent unintended lane crossing, it generates a visual alert, allowing the driver to take corrective action.</p>
+</div>
+<div class="paragraph">
+<p>This technology serves as an essential component of modern driver assistance systems, helping to reduce accidents caused by driver distraction, fatigue, or momentary inattention.</p>
+</div>
 </div>
 </div>
 </div>
@@ -527,7 +540,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2025-04-02 14:12:00 UTC
+Last updated 2025-04-02 14:21:31 UTC
 </div>
 </div>
 </body>
