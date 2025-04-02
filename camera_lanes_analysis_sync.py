@@ -9,6 +9,8 @@ import argparse
 import glob
 import json
 import os
+import re
+
 import sys
 from datetime import datetime
 
@@ -257,6 +259,18 @@ def get_sequential_filename():
     filename = f"control_log_{timestamp}_{next_number:03d}.json"
     return os.path.join(recorded_dir, filename)
 
+def get_weather_presets():
+    rgx = re.compile('.+?(?:(?<=[a-z])(?=[A-Z])|(?<=[A-Z])(?=[A-Z][a-z])|$)')
+    name = lambda x: ' '.join(m.group(0) for m in rgx.finditer(x))
+    presets = [x for x in dir(carla.WeatherParameters) if re.match('[A-Z].+', x)]
+    return [(getattr(carla.WeatherParameters, x), name(x)) for x in presets]
+
+def add_weather_argument(parser):
+    # Get all weather presets
+    weather_presets = get_weather_presets()
+    weather_choices = [name for _, name in weather_presets]  # Just the names for the CLI choices
+    parser.add_argument('--weather', choices=weather_choices, default='Clear Noon',
+                        help="Select weather preset from available options (default: 'Clear Noon').")
 
 def main(args, playback_data=None, playback_index=0):
     actor_list = []
@@ -273,6 +287,17 @@ def main(args, playback_data=None, playback_index=0):
     client.set_timeout(5.0)
     client.load_world('Town04')
     world = client.get_world()
+
+    # Apply the selected weather preset
+    weather_presets = get_weather_presets()
+    print(weather_presets)
+    preset_name = args.weather  # The weather preset passed in the arguments
+    weather = next((weather for weather, name in weather_presets if name == preset_name), None)
+    if weather:
+        world.set_weather(weather)
+        print(f"Weather set to: {preset_name}")
+    else:
+        print(f"Weather preset '{preset_name}' not found.")
 
     try:
         spawn_point = world.get_map().get_spawn_points()[0]
@@ -408,6 +433,31 @@ def main(args, playback_data=None, playback_index=0):
             new_file = get_sequential_filename()
             with open(new_file, 'w') as f:
                 json.dump(data_log, f, indent=4)
+        elif args.playback:
+            try:
+                log_dir = './log/untracked'
+                os.makedirs(log_dir, exist_ok=True)
+                log_file_path = os.path.join(log_dir, 'test_log.txt')
+
+                # Extract the file name from the path, remove extension, and add a timestamp
+                test_name = os.path.basename(playback_file)
+                base_name = os.path.splitext(test_name)[0]
+                timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+
+                final_stats = detection_logger.get_stats()
+                log_line = (
+                    f"TestName: {base_name}; "
+                    f"Timestamp: {timestamp}; "
+                    f"Weather: {preset_name}; "
+                    f"PlaybackIndex: {playback_index}; "
+                    f"Results: {final_stats}\n"
+                )
+
+                with open(log_file_path, 'a') as log_file:
+                    log_file.write(log_line)
+
+            except Exception as e:
+                print(f"Error while logging test data: {str(e)}")
 
         print('Destroying actors.')
         for actor in actor_list:
@@ -422,6 +472,7 @@ if __name__ == '__main__':
     parser.add_argument('--record', action='store_true', help='Enable recording of control data')
     parser.add_argument('--playback', nargs='?', const='control_log.json',
                         help='Play back recorded control data from a given file')
+    add_weather_argument(parser)
     args = parser.parse_args()
 
     playback_data = []
