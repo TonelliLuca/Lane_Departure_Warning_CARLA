@@ -207,4 +207,4 @@ def analyzeImage(image):
     except Exception as e:
         print(f"Error in analyzeImage: {str(e)}")
         # Return a safe default image
-        return np.zeros((720, 1280, 3), dtype=np.uint8)
+        return np.zeros((720, 1280, 3), dtype=np.uint8), False
