@@ -4,6 +4,29 @@
 
 This Lane Departure Warning system represents a critical safety feature designed to prevent unintentional lane departures on roadways. Our implementation leverages the CARLA simulation environment to detect when a vehicle begins to drift from its lane, providing timely warnings to alert the driver.
 
-The system employs computer vision techniques, specifically utilizing the YOLOPv2 model, to identify lane markings and determine the vehicle's position relative to these boundaries in real-time. When the system detects an imminent unintended lane crossing, it generates a visual alert, allowing the driver to take corrective action.
+The system employs computer vision techniques, specifically utilizing the YOLOPv2 model, to:
+
+* Identify lane markings in real-time
+* Determine the vehicle's position relative to lane boundaries
+* Generate visual alerts when detecting imminent unintended lane crossings
 
 This technology serves as an essential component of modern driver assistance systems, helping to reduce accidents caused by driver distraction, fatigue, or momentary inattention.
+
+=== Motivation
+
+Unintentional lane departures are a significant cause of road accidents, often resulting from driver distraction or fatigue. Lane Departure Warning systems aim to mitigate these incidents by alerting drivers when they unintentionally drift from their lanes.
+
+.Key Research Findings
+[NOTE]
+====
+The study "The effectiveness of lane departure warning systems—A reduction in real-world passenger car injury crashes" found that:
+
+* LDW and LKA systems could reduce head-on and single-vehicle injury crashes by *53%* 
+* The research was conducted on Swedish roads (70-120 km/h speed limits)
+* Under all conditions, crash reduction was estimated at *30%*
+====
+
+[bibliography]
+=== References
+
+* [[[ldw-study]]] "The effectiveness of lane departure warning systems—A reduction in real-world passenger car injury crashes" https://pubmed.ncbi.nlm.nih.gov/27624313/[Pubmed]
