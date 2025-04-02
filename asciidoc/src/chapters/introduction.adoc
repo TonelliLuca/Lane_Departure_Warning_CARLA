@@ -1,3 +1,9 @@
 == Introduction
 
-Project & Motivations
+=== The Project
+
+This Lane Departure Warning system represents a critical safety feature designed to prevent unintentional lane departures on roadways. Our implementation leverages the CARLA simulation environment to detect when a vehicle begins to drift from its lane, providing timely warnings to alert the driver.
+
+The system employs computer vision techniques, specifically utilizing the YOLOPv2 model, to identify lane markings and determine the vehicle's position relative to these boundaries in real-time. When the system detects an imminent unintended lane crossing, it generates a visual alert, allowing the driver to take corrective action.
+
+This technology serves as an essential component of modern driver assistance systems, helping to reduce accidents caused by driver distraction, fatigue, or momentary inattention.
