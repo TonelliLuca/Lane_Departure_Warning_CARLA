@@ -12,6 +12,7 @@
 :imagesoutdir: output/resources/
 :diagramsdir: svg
 
+include::chapters/header.adoc[]
 
 include::chapters/introduction.adoc[]
 

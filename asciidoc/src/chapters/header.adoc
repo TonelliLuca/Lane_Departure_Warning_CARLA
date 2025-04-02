@@ -1,0 +1,13 @@
+University of Bologna
+
+Master Degree in Computer Science and Engineering - Smart Vehicular System Project
+
+
+'''
+
+|=======
+|[.normalize]#Alessandro Becci# |[.normalize]#0001125114# |[.normalize]#alessandro.becci@studio.unibo.it#
+|[.normalize]#Luca Tonelli# |[.normalize]#0001126379# |[.normalize]#luca.tonelli11@studio.unibo.it#
+|=======
+
+toc::[]
