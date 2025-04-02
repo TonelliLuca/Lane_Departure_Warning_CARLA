@@ -21,6 +21,7 @@ class CarlaLauncher:
         saved_config = self.load_config()
 
         # Variables
+        self.weather_preset = tk.StringVar(value="Clear Sunset")
         self.carla_path = tk.StringVar(value=saved_config.get("carla_path", "./CarlaUE4.exe"))
         self.quality_level = tk.StringVar(value="Low")
         self.run_mode = tk.StringVar(value="Normal")
@@ -166,6 +167,15 @@ class CarlaLauncher:
         scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
         self.test_files_listbox.config(yscrollcommand=scrollbar.set)
         self.test_files_listbox.bind('<<ListboxSelect>>', self.on_test_file_select)
+        #weather preset
+        weather_frame = ttk.Frame(self.test_options_frame)
+        weather_frame.pack(fill=tk.X, expand=True)
+        ttk.Label(weather_frame, text="Weather:").pack(side=tk.LEFT, padx=5, pady=5)
+        weather_combo = ttk.Combobox(weather_frame, textvariable=self.weather_preset,
+                                     values=["Clear Sunset", "Cloudy Night", "Mid Rainy Night",
+                                             "Mid Rain Sunset", "Soft Rain Night", "Wet Noon"],
+                                     state="readonly")
+        weather_combo.pack(side=tk.LEFT, padx=5, pady=5, fill=tk.X, expand=True)
 
         # Status frame
         status_frame = ttk.Frame(main_frame)
@@ -292,9 +302,9 @@ class CarlaLauncher:
                 script_args = ["--record"]
             elif self.program_type.get() == "sync" and self.run_mode.get() == "sync_test":
                 script_name = "camera_lanes_analysis_sync.py"
-                # Pass the selected file as playback
                 selected_file = os.path.abspath(self.test_file.get())
-                script_args = ["--playback", selected_file]
+                script_args = ["--playback", selected_file, "--weather", self.weather_preset.get()]
+
             else:
                 script_name = "camera_lanes_analysis_sync.py"
                 script_args = []
