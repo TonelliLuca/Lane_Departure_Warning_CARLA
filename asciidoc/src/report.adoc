@@ -13,4 +13,14 @@
 :diagramsdir: svg
 
 
-include::chapters/intro.adoc[]
+include::chapters/introduction.adoc[]
+
+include::chapters/requirements.adoc[]
+
+include::chapters/design.adoc[]
+
+include::chapters/testing.adoc[]
+
+include::chapters/deployment.adoc[]
+
+include::chapters/conclusion.adoc[]
