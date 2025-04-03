@@ -1,1 +1,6 @@
 == Testing
+
+Meccanismi creati per il testing
+(Launcher, Record - Playback, LoggerDetection)
+
+Risultati

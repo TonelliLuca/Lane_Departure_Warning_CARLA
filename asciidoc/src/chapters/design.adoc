@@ -1,1 +1,11 @@
 == Design
+
+Sensors Used
+Camera Positioning
+Picture Preprocessing (Trapezoid Cut)
+YOLOP Model (Not too much on the technology)
+Computer Vision Algorithm
+
+Technolegies used (Here talk about YOLOP)
+
+
