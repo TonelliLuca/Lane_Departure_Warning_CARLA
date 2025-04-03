@@ -13,6 +13,11 @@ The exact positioning coordinates are (x=0.6, y=0.0, z=1.41) with a pitch of 0 d
 
 === Camera Positioning
 
+image::../resources/png/lateral_view.png[Lateral View of Camera Positioning, width=600]
+image::../resources/png/top_view.png[Top View of Camera Positioning, width=600]
+image::../resources/png/frontal_view.png[Frontal View of Camera Positioning, width=600]
+image::../resources/png/camera_inside_view.png[View of Camera Inside the Car, width=600]
+
 === Picture Preprocessing
 Trapezoid Cut + Change of Perspective
 
