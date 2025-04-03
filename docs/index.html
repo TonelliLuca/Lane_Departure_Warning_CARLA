@@ -477,7 +477,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_references">References</a></li>
 </ul>
 </li>
-<li><a href="#_requirements">2. Requirements</a></li>
+<li><a href="#_requirements">2. Requirements</a>
+<ul class="sectlevel2">
+<li><a href="#_functional_requirements">2.1. Functional Requirements</a></li>
+<li><a href="#_non_functional_requirements">2.2. Non-Functional Requirements</a></li>
+</ul>
+</li>
 <li><a href="#_design">3. Design</a></li>
 <li><a href="#_testing">4. Testing</a></li>
 <li><a href="#_deployment">5. Deployment</a></li>
@@ -564,7 +569,60 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h2 id="_requirements">2. Requirements</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Functional &amp; Non-Functional Requirements</p>
+<p>This section outlines the requirements for the Lane Departure Warning system implemented in CARLA. Requirements define the capabilities and characteristics that the system must exhibit to fulfill its purpose of detecting lane departures and alerting drivers. They are divided into functional requirements, which describe what the system should do, and non-functional requirements, which specify how the system should perform its functions.</p>
+</div>
+<div class="sect2">
+<h3 id="_functional_requirements">2.1. Functional Requirements</h3>
+<div class="paragraph">
+<p>The main functionalities of the system are:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Lane marking detection in real-time.</p>
+</li>
+<li>
+<p>Vehicle position tracking relative to lane boundaries.</p>
+</li>
+<li>
+<p>Warning generation when lane departure is detected.</p>
+</li>
+<li>
+<p>Visual alert display to the driver upon lane departure detection.</p>
+</li>
+<li>
+<p>Support for Highway Road Types.</p>
+</li>
+<li>
+<p>Reporting of lane departure events to the driver interface.</p>
+</li>
+<li>
+<p>Logging relevant events (lane detection status, warnings triggered, etc.) on an MQTT broker.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_non_functional_requirements">2.2. Non-Functional Requirements</h3>
+<div class="paragraph">
+<p>The principal features of the system are:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Responsiveness → Operating in real-time driving scenarios, the Lane Departure Warning system must process camera feeds at high frequency to detect lane boundaries and vehicle position with minimal latency.</p>
+</li>
+<li>
+<p>Reliability → The system shall operate consistently under diverse conditions, maintaining optimal performance in varying lighting (day and night) and weather scenarios (clear, rain, fog).</p>
+</li>
+<li>
+<p>Integration with CARLA simulation environment for comprehensive testing and validation of the system under controlled conditions.</p>
+</li>
+<li>
+<p>Support for Xbox One joypad and G29 steering wheel as input devices for testing and manual control within the simulation environment.</p>
+</li>
+</ol>
+</div>
 </div>
 </div>
 </div>
@@ -599,7 +657,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2025-04-02 14:27:41 UTC
+Last updated 2025-04-03 09:31:50 UTC
 </div>
 </div>
 </body>
