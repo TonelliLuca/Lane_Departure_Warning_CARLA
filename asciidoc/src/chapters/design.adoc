@@ -21,6 +21,9 @@ image::../resources/png/camera_inside_view.png[View of Camera Inside the Car, wi
 === Picture Preprocessing
 Trapezoid Cut + Change of Perspective
 
+image::../resources/png/trapezoid_visualization.png[Trapezoid Cut Visualization]
+image::../resources/png/trapezoid_warped.png[Perspective Change Visualization]
+
 === Picture Processing
 Talk about what YOLOP does, and result had, explore the tech later in the section for technologies
 Later of our Computer Vision Algorithm
