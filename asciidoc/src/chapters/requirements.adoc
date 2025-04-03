@@ -1,3 +1,24 @@
 == Requirements
 
-Functional & Non-Functional Requirements
+This section outlines the requirements for the Lane Departure Warning system implemented in CARLA. Requirements define the capabilities and characteristics that the system must exhibit to fulfill its purpose of detecting lane departures and alerting drivers. They are divided into functional requirements, which describe what the system should do, and non-functional requirements, which specify how the system should perform its functions.
+
+=== Functional Requirements
+
+The main functionalities of the system are:
+
+. Lane marking detection in real-time.
+. Vehicle position tracking relative to lane boundaries.
+. Warning generation when lane departure is detected.
+. Visual alert display to the driver upon lane departure detection.
+. Support for Highway Road Types.
+. Reporting of lane departure events to the driver interface.
+. Logging relevant events (lane detection status, warnings triggered, etc.) on an MQTT broker.
+
+=== Non-Functional Requirements
+
+The principal features of the system are:
+
+. Responsiveness → Operating in real-time driving scenarios, the Lane Departure Warning system must process camera feeds at high frequency to detect lane boundaries and vehicle position with minimal latency.
+. Reliability → The system shall operate consistently under diverse conditions, maintaining optimal performance in varying lighting (day and night) and weather scenarios (clear, rain, fog).
+. Integration with CARLA simulation environment for comprehensive testing and validation of the system under controlled conditions.
+. Support for Xbox One joypad and G29 steering wheel as input devices for testing and manual control within the simulation environment.
