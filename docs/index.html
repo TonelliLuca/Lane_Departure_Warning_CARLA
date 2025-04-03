@@ -639,7 +639,28 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="_sensors_used">3.1. Sensors used</h3>
-
+<div class="paragraph">
+<p>For this lane departure warning system, we use a RGB camera as the primary sensing device. The camera captures real-time images of the roadway ahead of the vehicle with a resolution of 640x640 pixels. This resolution provides sufficient detail for lane detection while remaining computationally efficient for real-time processing.</p>
+</div>
+<div class="paragraph">
+<p>The camera is mounted on the rearview mirror, a location that offers several advantages:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Unobstructed forward view of the road</p>
+</li>
+<li>
+<p>Minimal intrusion into the driver&#8217;s field of vision</p>
+</li>
+<li>
+<p>Standard mounting position in modern commercial vehicles</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The exact positioning coordinates are (x=0.6, y=0.0, z=1.41) with a pitch of 0 degrees. This precise placement ensures optimal coverage of the road surface and minimizes distortion while maintaining a practical implementation suitable for mass-production vehicles.</p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_camera_positioning">3.2. Camera Positioning</h3>
@@ -648,7 +669,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_picture_preprocessing">3.3. Picture Preprocessing</h3>
 <div class="paragraph">
-<p>Trapezoid Cut</p>
+<p>Trapezoid Cut + Change of Perspective</p>
 </div>
 </div>
 <div class="sect2">
@@ -697,7 +718,7 @@ Later of our Computer Vision Algorithm</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2025-04-03 13:30:51 UTC
+Last updated 2025-04-03 13:41:20 UTC
 </div>
 </div>
 </body>
