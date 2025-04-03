@@ -3,9 +3,10 @@ import cv2
 
 # Global flag to track if visualization has been saved
 _trapezoid_saved = False
+_final_saved = False
 
 def process_image(video_output, define_crop_size):
-    global _trapezoid_saved
+    global _trapezoid_saved, _final_saved
 
     # Convert raw image data to a numpy array
     image_to_analyze = video_output[:, :, :3]
@@ -60,5 +61,9 @@ def process_image(video_output, define_crop_size):
 
     # Convert to CHW format for model input
     warped_chw = warped.transpose(2, 0, 1)  # HWC to CHW
-
+    if not _final_saved:
+        # Save the final image
+        cv2.imwrite('./log/untracked/final_image.png', cv2.cvtColor(warped, cv2.COLOR_RGB2BGR))
+        print("Final image saved to 'final_image.png'")
+        _final_saved = True
     return warped_chw
