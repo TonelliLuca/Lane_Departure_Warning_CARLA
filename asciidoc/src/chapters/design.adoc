@@ -1,11 +1,18 @@
-== Design
+== Design Of Proposed Solution
 
-Sensors Used
-Camera Positioning
-Picture Preprocessing (Trapezoid Cut)
-YOLOP Model (Not too much on the technology)
-Computer Vision Algorithm
+=== Sensors used
 
+
+=== Camera Positioning
+
+=== Picture Preprocessing
+Trapezoid Cut
+
+=== Picture Processing
+Talk about what YOLOP does, and result had, explore the tech later in the section for technologies
+Later of our Computer Vision Algorithm
+
+=== Technologies used
 Technolegies used (Here talk about YOLOP)
 
 
