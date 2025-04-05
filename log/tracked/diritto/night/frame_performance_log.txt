@@ -1,0 +1,4590 @@
+Frame Data:
+Time taken for image processing and analysis: 0.2008 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 122
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 1.4121 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 120
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0564 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 120
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0570 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 120
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0465 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 120
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0566 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 120
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0586 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 120
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0442 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 122
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0421 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 120
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0434 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 120
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0434 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 120
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0442 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 120
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0465 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 120
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0548 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 120
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0568 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 122
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0445 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 120
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0450 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 119
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0467 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 119
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0441 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 120
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0469 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 122
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0440 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 120
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0462 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 122
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0446 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 122
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0456 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 122
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0445 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 122
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0503 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 122
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0453 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 122
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0506 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 122
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0506 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 122
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0443 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 122
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0447 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 122
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0475 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 122
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0458 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 122
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0484 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 117
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0450 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 115
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0437 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 127
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0439 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 115
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0435 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 124
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0441 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 104
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0440 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 121
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0486 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 114
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0446 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 113
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0441 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 120
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0486 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 114
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0496 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 117
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0490 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 106
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0442 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 117
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0440 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 119
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0465 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 115
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0501 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 111
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0486 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 122
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0449 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 113
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0450 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 123
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0506 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 110
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0438 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 121
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0435 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 109
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0430 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 120
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0496 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 116
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0441 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 122
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0516 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 120
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0431 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 115
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0435 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 113
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0445 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 101
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0440 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 102
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0467 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 102
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0477 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 94
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0453 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 91
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0437 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 100
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0469 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 95
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0496 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 90
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0468 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 135
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0436 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 119
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0440 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 107
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0448 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 99
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0487 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 109
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0496 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 114
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0426 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 121
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0486 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 115
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0422 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 104
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0496 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 109
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0461 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 119
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0440 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 98
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0493 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 118
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0496 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 113
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0496 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 119
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0457 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 123
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0481 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 120
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0461 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 128
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0460 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 117
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0437 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 111
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0442 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 120
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0435 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 105
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0439 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 103
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0430 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 104
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0440 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 101
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0435 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 93
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0432 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 94
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0442 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 96
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0430 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 96
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0430 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 97
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0426 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 100
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0430 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 91
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0440 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 95
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0432 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 98
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0481 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 97
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0449 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 98
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0442 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 98
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0437 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 99
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0440 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 100
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0433 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 99
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0435 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 95
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0431 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 91
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0572 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 191
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0440 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 110
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0455 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 91
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0507 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 85
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0450 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 81
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0472 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 79
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0577 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 80
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0581 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 123
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0431 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 79
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0477 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 178
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0445 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 103
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0445 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 165
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0578 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 79
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0607 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 86
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0445 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 78
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0457 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 80
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0430 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 80
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0445 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 79
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0470 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 81
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0461 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 84
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0433 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 87
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0440 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 79
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0441 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 101
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0435 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 112
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0429 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 97
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0570 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 113
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0467 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 95
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0432 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 90
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0568 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 100
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0435 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 106
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0492 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 105
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0551 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 100
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0438 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 105
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0426 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 96
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0440 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 91
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0445 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 125
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0425 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 106
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0458 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 103
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0437 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 102
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0572 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 113
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0435 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 115
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0435 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 110
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0440 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 115
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0434 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 104
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0440 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 103
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0566 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 102
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0438 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 90
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0450 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 91
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0440 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 93
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0438 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 86
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0435 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 88
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0441 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 96
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0444 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 92
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0430 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 92
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0450 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 95
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0435 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 91
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0440 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 196
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0435 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 79
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0425 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 89
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0491 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 80
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0464 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 79
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0440 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 83
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0444 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 84
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0435 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 79
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0496 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 87
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0491 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 83
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0430 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 85
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0439 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 84
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0432 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 81
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0479 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 79
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0443 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 79
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0450 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 85
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0693 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 101
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0470 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 104
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0440 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 93
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0437 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 108
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0444 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 91
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0450 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 101
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0435 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 85
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0437 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 79
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0440 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 81
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0496 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 85
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0439 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 113
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0437 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 134
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0430 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 112
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0435 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 122
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0435 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 107
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0425 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 127
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0435 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 122
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0430 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 111
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0430 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 94
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0445 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 93
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0445 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 94
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0477 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 96
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0430 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 99
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0435 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 94
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0428 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 95
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0470 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 99
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0506 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 97
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0449 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 97
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0450 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 99
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0453 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 99
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0434 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 99
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0471 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 96
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0431 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 85
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0426 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 84
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0435 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 83
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0446 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 84
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0445 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 85
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0468 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 93
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0444 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 89
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0569 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 87
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0501 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 87
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0445 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 84
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0428 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 83
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0429 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 81
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0481 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 78
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0439 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 83
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0570 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 79
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0461 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 105
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0434 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 84
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0430 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 97
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0441 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 92
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0429 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 99
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0436 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 87
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0427 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 82
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0431 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 81
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0441 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 82
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0437 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 81
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0560 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 108
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0582 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 107
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0436 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 108
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0441 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 114
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0574 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 107
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0577 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 112
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0442 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 87
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0443 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 84
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0425 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 93
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0459 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 95
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0435 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 87
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0561 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 97
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0461 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 99
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0558 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 90
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0440 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 96
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0435 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 112
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0440 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 100
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0440 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 110
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0460 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 103
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0430 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 95
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0449 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 97
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0565 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 98
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0592 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 88
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0582 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 94
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0476 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 83
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0440 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 84
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0572 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 83
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0436 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 83
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0437 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 84
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0434 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 86
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0426 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 84
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0436 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 85
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0425 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 85
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0445 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 84
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0582 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 86
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0436 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 84
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0430 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 76
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0425 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 113
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0446 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 99
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0448 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 109
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0554 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 80
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0582 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 84
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0572 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 84
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0568 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 87
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0571 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 82
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0564 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 80
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0462 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 81
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0432 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 85
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0429 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 106
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0586 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 110
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0440 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 101
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0440 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 86
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0571 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 97
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0447 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 108
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0577 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 110
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0441 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 94
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0448 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 87
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0440 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 91
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0445 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 91
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0433 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 108
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0450 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 97
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0441 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 110
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0426 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 94
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0435 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 110
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0430 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 88
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0444 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 96
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0430 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 85
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0437 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 95
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0436 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 83
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0495 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 86
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0446 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 85
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0501 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 81
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0465 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 82
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0445 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 81
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0430 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 83
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0428 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 90
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0431 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 83
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0447 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 84
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0440 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 81
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0428 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 83
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0440 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 83
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0440 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 144
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0462 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 83
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0495 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 82
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0431 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 82
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0427 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 85
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0491 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 82
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0486 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 81
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0441 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 81
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0448 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 84
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0496 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 83
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0449 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 83
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0496 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 99
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0447 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 83
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0430 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 99
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0443 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 101
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0470 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 103
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0445 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 115
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0506 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 106
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0501 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 103
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0496 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 88
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0484 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 84
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0501 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 99
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0435 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 99
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0440 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 124
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0432 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 119
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0443 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 113
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0435 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 115
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0506 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 97
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0446 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 100
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0511 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 97
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0495 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 98
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0458 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 98
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0501 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 95
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0496 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 92
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0434 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 95
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0431 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 83
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0501 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 89
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0491 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 90
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0496 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 89
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0491 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 89
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0486 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 90
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0464 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 91
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0435 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 93
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0486 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 92
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0435 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 93
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0435 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 91
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0491 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 83
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0433 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 83
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0447 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 105
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0430 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 175
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0578 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 83
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0569 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 81
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0433 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 83
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0435 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 84
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0434 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 99
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0466 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 113
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0450 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 91
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0567 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 96
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0435 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 99
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0430 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 101
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0435 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 102
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0442 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 105
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0435 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 99
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0440 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 91
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0433 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 122
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0435 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 118
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0450 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 115
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0431 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 120
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0445 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 124
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0581 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 116
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0445 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 113
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0425 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 100
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0430 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 98
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0582 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 100
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0435 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 100
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0440 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 110
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0442 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 100
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0437 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 107
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0440 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 116
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0573 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 98
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0435 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 93
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0438 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 95
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0445 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 97
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0632 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 95
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0575 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 95
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0580 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 99
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0562 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 99
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0418 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 95
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0438 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 92
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0430 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 109
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0572 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 154
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0542 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 83
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0445 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 127
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0611 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 82
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0436 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 81
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0445 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 82
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0455 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 82
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0443 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 83
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0441 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 83
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0450 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 84
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0449 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 84
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0455 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 83
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0435 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 81
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0441 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 83
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0468 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 82
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0440 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 81
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0437 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 82
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0430 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 80
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0425 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 81
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0430 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 83
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0436 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 81
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0433 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 82
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0570 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 86
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0415 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 85
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0440 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 90
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0456 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 93
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0475 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 88
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0426 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 89
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0429 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 110
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0452 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 91
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0434 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 96
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0455 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 110
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0436 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 96
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0425 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 96
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0437 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 99
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0440 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 88
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0426 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 96
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0436 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 86
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0440 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 85
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0440 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 85
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0435 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 85
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0440 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 90
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0506 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 86
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0454 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 92
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0440 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 86
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0442 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 86
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0438 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 104
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0448 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 91
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0431 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 94
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0436 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 109
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0430 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 95
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0441 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 96
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0496 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 94
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0436 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 101
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0441 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 98
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0428 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 107
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0423 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 110
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0430 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 102
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0444 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 110
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0434 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 94
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0433 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 105
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0440 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 99
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0444 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 104
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0425 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 99
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0435 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 103
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0435 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 109
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0451 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 107
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0465 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 96
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0454 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 95
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0501 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 103
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0446 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 104
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0439 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 102
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0455 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 118
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0445 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 97
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0483 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 100
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0444 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 103
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0426 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 105
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0456 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 103
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0430 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 106
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0430 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 99
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0430 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 96
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0491 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 105
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0427 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 109
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0437 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 114
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0432 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 110
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0440 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 108
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0476 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 107
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0428 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 107
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0491 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 106
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0436 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 107
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0437 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 107
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0449 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 106
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0492 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 107
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0459 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 107
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0446 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 107
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0448 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 106
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0445 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 107
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
+Frame Data:
+Time taken for image processing and analysis: 0.0440 seconds
+Image Height: 640, Image Width: 640
+Image Size (after processing): (3, 320, 320)
+Max value in processed image: 107
+Result: Detected
+Crossing: No
+------------------------------------------------------------
+
