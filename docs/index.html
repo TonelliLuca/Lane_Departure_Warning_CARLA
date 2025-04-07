@@ -592,7 +592,6 @@ pre.rouge .gs {
 <ul class="sectlevel2">
 <li><a href="#_the_project">1.1. The Project</a></li>
 <li><a href="#_motivation">1.2. Motivation</a></li>
-<li><a href="#_references">References</a></li>
 </ul>
 </li>
 <li><a href="#_requirements">2. Requirements</a>
@@ -692,16 +691,6 @@ pre.rouge .gs {
 </td>
 </tr>
 </table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_references">References</h3>
-<div class="ulist bibliography">
-<ul class="bibliography">
-<li>
-<p><a id="ldw-study"></a>[ldw-study] "The effectiveness of lane departure warning systems—A reduction in real-world passenger car injury crashes" <a href="https://pubmed.ncbi.nlm.nih.gov/27624313/">Pubmed</a></p>
-</li>
-</ul>
 </div>
 </div>
 </div>
@@ -837,6 +826,7 @@ pre.rouge .gs {
 <div class="content">
 <img src="resources/png/trapezoid_visualization.png" alt="Trapezoid Cut Visualization">
 </div>
+<div class="title">Figure 3. Trapezoid Cut Visualization</div>
 </div>
 </div>
 <div class="sect3">
@@ -873,7 +863,7 @@ pre.rouge .gs {
 <div class="content">
 <img src="resources/png/trapezoid_warped.png" alt="Perspective Change Visualization">
 </div>
-<div class="title">Figure 3. Perspective Change Visualization</div>
+<div class="title">Figure 4. Perspective Change Visualization</div>
 </div>
 </div>
 <div class="sect3">
@@ -894,7 +884,7 @@ pre.rouge .gs {
 <div class="sect2">
 <h3 id="_picture_processing">3.3. Picture Processing</h3>
 <div class="paragraph">
-<p>The image processing pipeline through YOLOPv2 involves several sophisticated steps to detect lane markings and potential lane departures:</p>
+<p>The image processing pipeline through YOLOPv2 involves several sophisticated steps to detect lane markings and potential lane departures.</p>
 </div>
 <div class="sect3">
 <h4 id="_neural_network_inference">3.3.1. Neural Network Inference</h4>
@@ -1046,7 +1036,7 @@ pre.rouge .gs {
 </ul>
 </div>
 <div class="paragraph">
-<p>This detailed analysis enables the lane departure warning system to accurately detect unintentional lane departures and alert the driver in real-time, enhancing road safety.</p>
+<p>This detailed analysis enables the lane departure warning system to accurately detect unintentional lane departures and alert the driver in real-time.</p>
 </div>
 </div>
 </div>
@@ -1123,12 +1113,6 @@ pre.rouge .gs {
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p>The official implementation of YOLOPv2 is available on GitHub:</p>
-</div>
-<div class="paragraph">
-<p><a href="https://github.com/CAIC-AD/YOLOPv2">YOLOPv2 GitHub Repository</a></p>
-</div>
 </div>
 </div>
 <div class="sect2">
@@ -1139,26 +1123,7 @@ pre.rouge .gs {
 <div class="sect3">
 <h4 id="_hivemq_cloud_platform">3.5.1. HiveMQ Cloud Platform</h4>
 <div class="paragraph">
-<p>For this project, we use HiveMQ Cloud as our MQTT broker service, which provides:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Secure Communication</strong>: TLS/SSL encrypted connections with certificate validation</p>
-</li>
-<li>
-<p><strong>High Availability</strong>: 99.9% uptime SLA for reliable message delivery</p>
-</li>
-<li>
-<p><strong>Scalability</strong>: Support for thousands of concurrent connections</p>
-</li>
-<li>
-<p><strong>Compliance</strong>: MQTT 3.1.1 and MQTT 5.0 protocol support</p>
-</li>
-<li>
-<p><strong>Global Accessibility</strong>: Low-latency access from anywhere in the world</p>
-</li>
-</ul>
+<p>For this project, we use HiveMQ Cloud as our MQTT broker service. HiveMQ Cloud ensures secure communication through TLS/SSL encrypted connections that include proper certificate validation, providing peace of mind in terms of security. Furthermore, it guarantees a high level of availability with a 99.9% uptime service level agreement, which is critical for reliable message delivery. The service is designed to scale, seamlessly supporting thousands of concurrent connections, and adheres to both MQTT 3.1.1 and MQTT 5.0 protocol standards. Its global infrastructure ensures that users have low-latency access from anywhere in the world.</p>
 </div>
 </div>
 <div class="sect3">
@@ -1531,10 +1496,7 @@ python carla_sync.py <span class="nt">--playback</span> control_log.json <span c
 <p>Minimum 8GB RAM</p>
 </li>
 <li>
-<p>Multicore processor</p>
-</li>
-<li>
-<p>10GB free disk space</p>
+<p>20GB free disk space</p>
 </li>
 </ul>
 </div>
@@ -1575,11 +1537,15 @@ conda activate carla-env</code></pre>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Create a <code>.env</code> file in the project root with your HiveMQ credentials:
-<code>`
+<p>Create a <code>.env</code> file in the project root with your HiveMQ credentials:</p>
+<div class="literalblock">
+<div class="content">
+<pre>```
 HIVE_MQ_USERNAME=your_username
 HIVE_MQ_PASSWORD=your_password
-</code>`</p>
+```</pre>
+</div>
+</div>
 </li>
 <li>
 <p>Ensure CARLA simulator is correctly installed.</p>
@@ -1617,7 +1583,7 @@ HIVE_MQ_PASSWORD=your_password
 <div class="sect2">
 <h3 id="_running_the_system">5.5. Running the System</h3>
 <div class="paragraph">
-<p>This section describes how to run the lane detection system, including the launcher mechanism and the two operational modes: asynchronous (for normal operation) and synchronous (for testing).</p>
+<p>This section describes how to run the lane detection system, including the launcher mechanism and the two operational modes: asynchronous (for normal usage) and synchronous (for testing).</p>
 </div>
 <div class="sect3">
 <h4 id="_system_launcher">5.5.1. System Launcher</h4>
@@ -1652,7 +1618,7 @@ HIVE_MQ_PASSWORD=your_password
 <p>Provides real-time lane detection with minimal latency</p>
 </li>
 <li>
-<p>Supports multiple controller inputs (steering wheel, Xbox controller, keyboard)</p>
+<p>Supports multiple controller inputs (G29 Steering wheel, Xbox One controller, Keyboard)</p>
 </li>
 <li>
 <p>Displays real-time visualization of lane detection results</p>
@@ -1676,9 +1642,9 @@ HIVE_MQ_PASSWORD=your_password
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="resources/png/launcher_async.png" alt="Launcher in async mode">
+<img src="resources/png/launcher_async.png" alt="Launcher in async mode" width="50%">
 </div>
-<div class="title">Figure 4. Launcher in asynchronous mode</div>
+<div class="title">Figure 5. Launcher in asynchronous mode</div>
 </div>
 </div>
 <div class="sect3">
@@ -1708,66 +1674,17 @@ HIVE_MQ_PASSWORD=your_password
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>The synchronous approach ensures that each frame is fully processed before moving to the next one, maintaining precise timing between simulation steps. This creates a controlled environment ideal for:</p>
+<div class="imageblock">
+<div class="content">
+<img src="resources/png/launcher_record.png" alt="Launcher in sync mode for recording" width="50%">
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>Regression testing when modifying the detection algorithm</p>
-</li>
-<li>
-<p>Comparing detection performance across different weather conditions</p>
-</li>
-<li>
-<p>Reproducing specific driving patterns to test edge cases</p>
-</li>
-</ul>
+<div class="title">Figure 6. Launcher in synchronous mode for recording</div>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="resources/png/launcher_record.png" alt="Launcher in sync mode for recording">
+<img src="resources/png/launcher_test.png" alt="Launcher in sync mode for playback" width="50%">
 </div>
-<div class="title">Figure 5. Launcher in synchronous mode for recording</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="resources/png/launcher_test.png" alt="Launcher in sync mode for playback">
-</div>
-<div class="title">Figure 6. Launcher in synchronous mode for playback</div>
-</div>
-<div class="sect4">
-<h5 id="_recording_and_playback">Recording and Playback</h5>
-<div class="paragraph">
-<p>The recording feature saves control inputs in a structured JSON format with timestamps:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight"><code data-lang="json"><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.45</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"throttle"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.8</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"brake"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"steer"</span><span class="p">:</span><span class="w"> </span><span class="mf">-0.2</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="err">...</span><span class="w">
-</span><span class="p">]</span></code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Files are automatically named with timestamps and stored in the <code>test_commands/recorded</code> directory.</p>
-</div>
-<div class="paragraph">
-<p>To play back a recorded session:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight"><code data-lang="bash">python camera_lanes_analysis_sync.py <span class="nt">--playback</span> test_commands/recorded/control_log_20230615_143022_001.json <span class="nt">--weather</span> <span class="s2">"Clear Noon"</span></code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>This precise recording and playback capability forms the foundation of our testing methodology, ensuring consistent evaluation of detection performance across different conditions.</p>
-</div>
+<div class="title">Figure 7. Launcher in synchronous mode for playback</div>
 </div>
 </div>
 </div>
@@ -1799,9 +1716,17 @@ Confirm credentials in <code>.env</code> file and network connectivity to HiveMQ
 <div class="sect3">
 <h4 id="_log_files">5.6.2. Log Files</h4>
 <div class="paragraph">
-<p>Examine logs in the <code>log/</code> directory for detailed error information:
-- <code>log/tracked/frame_performance_log.txt</code>: Processing performance metrics
-- <code>log/untracked/test_log.txt</code>: Test results and statistics</p>
+<p>Examine logs in the <code>log/</code> directory for detailed error information:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>log/tracked/frame_performance_log.txt</code>: Processing performance metrics</p>
+</li>
+<li>
+<p><code>log/untracked/test_log.txt</code>: Test results and statistics</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -1813,12 +1738,22 @@ Confirm credentials in <code>.env</code> file and network connectivity to HiveMQ
 <div class="paragraph">
 <p>In general we think that the project is a success. We have learned a lot about the</p>
 </div>
+<div class="ulist bibliography">
+<ul class="bibliography">
+<li>
+<p><a id="ldw-study"></a>[ldw-study] "The effectiveness of lane departure warning systems—A reduction in real-world passenger car injury crashes" <a href="https://pubmed.ncbi.nlm.nih.gov/27624313/">Pubmed</a></p>
+</li>
+<li>
+<p><a id="yolopv2"></a>[yolopv2] "YOLOPv2 GitHub Repository" link:https://github.com/CAIC-AD/YOLOPv2</p>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2025-04-07 14:48:09 UTC
+Last updated 2025-04-07 15:09:11 UTC
 </div>
 </div>
 </body>
