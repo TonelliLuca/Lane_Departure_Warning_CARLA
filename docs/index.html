@@ -607,7 +607,7 @@ pre.rouge .gs {
 <li><a href="#_camera_positioning">3.2. Camera Positioning</a></li>
 <li><a href="#_picture_preprocessing">3.3. Picture Preprocessing</a></li>
 <li><a href="#_picture_processing">3.4. Picture Processing</a></li>
-<li><a href="#_technologies_used">3.5. Technologies used</a></li>
+<li><a href="#_technologies_used">3.5. Technologies Used</a></li>
 </ul>
 </li>
 <li><a href="#_testing">4. Testing</a>
@@ -812,12 +812,51 @@ pre.rouge .gs {
 <div class="sect2">
 <h3 id="_picture_preprocessing">3.3. Picture Preprocessing</h3>
 <div class="paragraph">
-<p>Trapezoid Cut + Change of Perspective</p>
+<p>Every frame captured from the RGB camera undergoes several critical preprocessing steps before being fed into the lane detection system:</p>
+</div>
+<div class="sect3">
+<h4 id="_region_of_interest_selection">3.3.1. Region of Interest Selection</h4>
+<div class="paragraph">
+<p>First, the system defines a trapezoid-shaped region of interest (ROI) on the raw camera image:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="n">src_points</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">float32</span><span class="p">([</span>
+    <span class="p">[</span><span class="n">width</span> <span class="o">*</span> <span class="mf">0.25</span><span class="p">,</span> <span class="n">height</span> <span class="o">*</span> <span class="mf">0.55</span><span class="p">],</span>  <span class="c1"># Top-left
+</span>    <span class="p">[</span><span class="n">width</span> <span class="o">*</span> <span class="mf">0.75</span><span class="p">,</span> <span class="n">height</span> <span class="o">*</span> <span class="mf">0.55</span><span class="p">],</span>  <span class="c1"># Top-right
+</span>    <span class="p">[</span><span class="n">width</span> <span class="o">*</span> <span class="mf">0.85</span><span class="p">,</span> <span class="n">height</span> <span class="o">*</span> <span class="mf">0.95</span><span class="p">],</span>  <span class="c1"># Bottom-right
+</span>    <span class="p">[</span><span class="n">width</span> <span class="o">*</span> <span class="mf">0.15</span><span class="p">,</span> <span class="n">height</span> <span class="o">*</span> <span class="mf">0.95</span><span class="p">]</span>   <span class="c1"># Bottom-left
+</span><span class="p">])</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This trapezoid specifically targets the road area ahead of the vehicle, eliminating irrelevant portions of the image such as the sky, roadside objects, and the vehicle&#8217;s hood that could interfere with lane detection.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="resources/png/trapezoid_visualization.png" alt="Trapezoid Cut Visualization">
 </div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_perspective_transformation">3.3.2. Perspective Transformation</h4>
+<div class="paragraph">
+<p>Next, a bird&#8217;s-eye view transformation is applied to the selected region using OpenCV&#8217;s perspective transformation functions:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="c1"># Get the perspective transformation matrix
+</span><span class="n">M</span> <span class="o">=</span> <span class="n">cv2</span><span class="p">.</span><span class="nf">getPerspectiveTransform</span><span class="p">(</span><span class="n">src_points</span><span class="p">,</span> <span class="n">dst_points</span><span class="p">)</span>
+
+<span class="c1"># Apply the perspective transformation
+</span><span class="n">warped</span> <span class="o">=</span> <span class="n">cv2</span><span class="p">.</span><span class="nf">warpPerspective</span><span class="p">(</span><span class="n">image_to_analyze</span><span class="p">,</span> <span class="n">M</span><span class="p">,</span> <span class="p">(</span><span class="n">define_crop_size</span><span class="p">,</span> <span class="n">define_crop_size</span><span class="p">))</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This transformation:
+- Removes perspective distortion where distant lane lines appear to converge
+- Creates a uniform representation where lane width is consistent regardless of distance
+- Makes subsequent lane detection calculations more straightforward by converting to a 2D plane</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -825,17 +864,259 @@ pre.rouge .gs {
 </div>
 </div>
 </div>
+<div class="sect3">
+<h4 id="_format_conversion_for_neural_network">3.3.3. Format Conversion for Neural Network</h4>
+<div class="paragraph">
+<p>Finally, the image is converted from HWC (Height, Width, Channel) format to CHW (Channel, Height, Width) format required by our PyTorch-based neural network:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="n">warped_chw</span> <span class="o">=</span> <span class="n">warped</span><span class="p">.</span><span class="nf">transpose</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># HWC to CHW</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This standardized preprocessing pipeline ensures that our lane detection system receives consistent, optimized input regardless of lighting conditions or road characteristics, improving both the accuracy and reliability of the system.</p>
+</div>
+</div>
+</div>
 <div class="sect2">
 <h3 id="_picture_processing">3.4. Picture Processing</h3>
 <div class="paragraph">
-<p>Talk about what YOLOP does, and result had, explore the tech later in the section for technologies
-Later of our Computer Vision Algorithm</p>
+<p>The image processing pipeline through YOLOPv2 involves several sophisticated steps to detect lane markings and potential lane departures:</p>
+</div>
+<div class="sect3">
+<h4 id="_neural_network_inference">3.4.1. Neural Network Inference</h4>
+<div class="paragraph">
+<p>Each captured frame from the vehicle-mounted camera undergoes analysis through a YOLOPv2 (You Only Look Once Panoptic) model:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="k">def</span> <span class="nf">analyzeImage</span><span class="p">(</span><span class="n">image</span><span class="p">):</span>
+    <span class="c1"># Convert image format for neural network
+</span>    <span class="n">img0</span> <span class="o">=</span> <span class="n">image</span><span class="p">.</span><span class="nf">transpose</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="c1"># CHW to HWC
+</span>    <span class="n">img</span> <span class="o">=</span> <span class="nf">letterbox</span><span class="p">(</span><span class="n">img0</span><span class="p">,</span> <span class="n">new_shape</span><span class="o">=</span><span class="n">img0</span><span class="p">.</span><span class="n">shape</span><span class="p">[:</span><span class="mi">2</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">img</span> <span class="o">=</span> <span class="n">img</span><span class="p">[:,</span> <span class="p">:,</span> <span class="p">::</span><span class="o">-</span><span class="mi">1</span><span class="p">].</span><span class="nf">transpose</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># BGR to RGB, HWC to CHW
+</span>
+    <span class="c1"># Normalize and prepare tensor
+</span>    <span class="n">img</span> <span class="o">=</span> <span class="n">torch</span><span class="p">.</span><span class="nf">from_numpy</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="nf">ascontiguousarray</span><span class="p">(</span><span class="n">img</span><span class="p">)).</span><span class="nf">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+    <span class="n">img</span> <span class="o">=</span> <span class="n">img</span><span class="p">.</span><span class="nf">half</span><span class="p">()</span> <span class="k">if</span> <span class="n">half</span> <span class="k">else</span> <span class="n">img</span><span class="p">.</span><span class="nf">float</span><span class="p">()</span>
+    <span class="n">img</span> <span class="o">/=</span> <span class="mf">255.0</span>  <span class="c1"># Normalize to 0.0-1.0 range</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_multi_task_output_processing">3.4.2. Multi-Task Output Processing</h4>
+<div class="paragraph">
+<p>YOLOPv2 simultaneously produces three critical outputs from a single forward pass:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Object detection results (<code>pred</code>) - identifying traffic participants</p>
+</li>
+<li>
+<p>Drivable area segmentation (<code>seg</code>) - determining where the vehicle can safely travel</p>
+</li>
+<li>
+<p>Lane line segmentation (<code>ll</code>) - precisely identifying lane markings</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_lane_detection_and_analysis">3.4.3. Lane Detection and Analysis</h4>
+<div class="paragraph">
+<p>The system processes segmentation masks to isolate lane markings:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="c1"># Extract and resize segmentation masks
+</span><span class="n">da_seg_mask</span> <span class="o">=</span> <span class="nf">driving_area_mask</span><span class="p">(</span><span class="n">seg</span><span class="p">)</span>
+<span class="n">ll_seg_mask</span> <span class="o">=</span> <span class="nf">lane_line_mask</span><span class="p">(</span><span class="n">ll</span><span class="p">)</span>
+
+<span class="c1"># Resize masks to match original image dimensions
+</span><span class="n">da_seg_mask_resized</span> <span class="o">=</span> <span class="n">cv2</span><span class="p">.</span><span class="nf">resize</span><span class="p">(</span><span class="n">da_seg_mask</span><span class="p">,</span> <span class="n">img0</span><span class="p">.</span><span class="n">shape</span><span class="p">[:</span><span class="mi">2</span><span class="p">][::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">ll_seg_mask_resized</span> <span class="o">=</span> <span class="n">cv2</span><span class="p">.</span><span class="nf">resize</span><span class="p">(</span><span class="n">ll_seg_mask</span><span class="p">,</span> <span class="n">img0</span><span class="p">.</span><span class="n">shape</span><span class="p">[:</span><span class="mi">2</span><span class="p">][::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_bounding_box_filtering">3.4.4. Bounding Box Filtering</h4>
+<div class="paragraph">
+<p>Lane markings are identified through contour analysis and filtered based on specific parameters:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="c1"># Find contours of lane lines
+</span><span class="n">contours</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">cv2</span><span class="p">.</span><span class="nf">findContours</span><span class="p">(</span><span class="n">red_lane_mask</span><span class="p">,</span> <span class="n">cv2</span><span class="p">.</span><span class="n">RETR_EXTERNAL</span><span class="p">,</span> <span class="n">cv2</span><span class="p">.</span><span class="n">CHAIN_APPROX_SIMPLE</span><span class="p">)</span>
+
+<span class="c1"># Filter boxes based on size and orientation
+</span><span class="n">MIN_BOX_WIDTH</span> <span class="o">=</span> <span class="mi">40</span>
+<span class="n">MIN_BOX_HEIGHT</span> <span class="o">=</span> <span class="mi">40</span>
+<span class="n">ORIENTATION_THRESHOLD</span> <span class="o">=</span> <span class="mf">4.0</span>  <span class="c1"># Avoid horizontal boxes
+</span>
+<span class="n">red_boxes</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">cnt</span> <span class="ow">in</span> <span class="n">contours</span><span class="p">:</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="n">cv2</span><span class="p">.</span><span class="nf">boundingRect</span><span class="p">(</span><span class="n">cnt</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">w</span> <span class="o">&gt;</span> <span class="n">MIN_BOX_WIDTH</span> <span class="ow">and</span> <span class="n">h</span> <span class="o">&gt;</span> <span class="n">MIN_BOX_HEIGHT</span><span class="p">:</span>
+        <span class="n">aspect_ratio</span> <span class="o">=</span> <span class="n">w</span> <span class="o">/</span> <span class="n">h</span>
+        <span class="k">if</span> <span class="n">aspect_ratio</span> <span class="o">&lt;</span> <span class="n">ORIENTATION_THRESHOLD</span><span class="p">:</span>
+            <span class="n">red_boxes</span><span class="p">.</span><span class="nf">append</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">))</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This filtering ensures that only valid lane markings are considered, eliminating noise and irrelevant shapes.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_nested_box_elimination">3.4.5. Nested Box Elimination</h4>
+<div class="paragraph">
+<p>The system removes redundant or nested boxes to prevent double-counting of lane markings:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="n">red_boxes</span> <span class="o">=</span> <span class="nf">filter_nested_boxes</span><span class="p">(</span><span class="n">red_boxes</span><span class="p">,</span> <span class="n">iou_threshold</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_lane_crossing_detection">3.4.6. Lane Crossing Detection</h4>
+<div class="paragraph">
+<p>Lane departure is determined through geometric analysis of identified lane markings:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="k">if</span> <span class="n">red_boxes</span><span class="p">:</span>
+    <span class="c1"># Calculate lane center
+</span>    <span class="n">leftmost_red</span> <span class="o">=</span> <span class="nf">min</span><span class="p">([</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span> <span class="ow">in</span> <span class="n">red_boxes</span><span class="p">])</span>
+    <span class="n">rightmost_red</span> <span class="o">=</span> <span class="nf">max</span><span class="p">([</span><span class="n">x</span> <span class="o">+</span> <span class="n">w</span> <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span> <span class="ow">in</span> <span class="n">red_boxes</span><span class="p">])</span>
+    <span class="n">lane_center_x</span> <span class="o">=</span> <span class="p">(</span><span class="n">leftmost_red</span> <span class="o">+</span> <span class="n">rightmost_red</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
+    <span class="n">img_center_x</span> <span class="o">=</span> <span class="n">combined</span><span class="p">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">//</span> <span class="mi">2</span>
+
+    <span class="c1"># Measure distance from center
+</span>    <span class="n">center_distance</span> <span class="o">=</span> <span class="n">lane_center_x</span> <span class="o">-</span> <span class="n">img_center_x</span>
+
+    <span class="c1"># Apply thresholds for different crossing states
+</span>    <span class="n">CENTERED_THRESHOLD</span> <span class="o">=</span> <span class="mi">30</span>
+    <span class="n">CROSSING_THRESHOLD</span> <span class="o">=</span> <span class="mi">53</span>
+
+    <span class="k">if</span> <span class="nf">len</span><span class="p">(</span><span class="n">red_boxes</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>  <span class="c1"># Single box scenario
+</span>        <span class="n">alignment_status</span> <span class="o">=</span> <span class="sh">"</span><span class="s">CROSSING: SBX</span><span class="sh">"</span>
+        <span class="n">crossing</span> <span class="o">=</span> <span class="bp">True</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nf">abs</span><span class="p">(</span><span class="n">center_distance</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">CENTERED_THRESHOLD</span><span class="p">:</span>
+            <span class="n">alignment_status</span> <span class="o">=</span> <span class="sh">"</span><span class="s">CENTERED</span><span class="sh">"</span>
+        <span class="k">elif</span> <span class="nf">abs</span><span class="p">(</span><span class="n">center_distance</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">CROSSING_THRESHOLD</span><span class="p">:</span>
+            <span class="n">alignment_status</span> <span class="o">=</span> <span class="sh">"</span><span class="s">CROSSING: SL/SR</span><span class="sh">"</span>
+            <span class="n">crossing</span> <span class="o">=</span> <span class="bp">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">alignment_status</span> <span class="o">=</span> <span class="sh">"</span><span class="s">CROSSING: LEFT/RIGHT</span><span class="sh">"</span>
+            <span class="n">crossing</span> <span class="o">=</span> <span class="bp">True</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The system classifies the vehicle&#8217;s position relative to the lanes into several states:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>CENTERED</strong> - Vehicle is properly aligned within lane</p>
+</li>
+<li>
+<p><strong>CROSSING: SL/SR</strong> - Vehicle is slightly crossing to left or right</p>
+</li>
+<li>
+<p><strong>CROSSING: LEFT/RIGHT</strong> - Vehicle is significantly crossing lane boundaries</p>
+</li>
+<li>
+<p><strong>CROSSING: SBX</strong> - Single box detection indicating probable crossing</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This detailed analysis enables the lane departure warning system to accurately detect unintentional lane departures and alert the driver in real-time, enhancing road safety.</p>
+</div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_technologies_used">3.5. Technologies used</h3>
+<h3 id="_technologies_used">3.5. Technologies Used</h3>
 <div class="paragraph">
-<p>Technolegies used (Here talk about YOLOP)</p>
+<p>In our project, we employed YOLOPv2, an advanced multi-task learning network designed for panoptic driving perception. This model efficiently integrates three critical tasks in autonomous driving: traffic object detection, drivable area segmentation, and lane detection. By utilizing a shared encoder and task-specific decoders, YOLOPv2 achieves high accuracy and speed, making it suitable for real-time applications.</p>
+</div>
+<div class="paragraph">
+<p>The architecture of YOLOPv2 comprises a shared encoder and three task-specific decoders:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Shared Encoder</strong>: YOLOPv2 adopts the Extended Efficient Layer Aggregation Networks (E-ELAN) as its backbone for feature extraction. E-ELAN employs group convolution, enabling different layers to learn more diverse features, thereby enhancing both efficiency and performance.</p>
+</li>
+<li>
+<p><strong>Object Detection Decoder</strong>: This decoder implements an anchor-based multi-scale detection scheme. Features from the Path Aggregation Network (PAN) and Feature Pyramid Network (FPN) are combined to fuse semantic information with local features, facilitating detection on multi-scale fused feature maps. Each grid in the feature map is assigned multiple anchors of different aspect ratios, with the detection head predicting the position offsets, scaled height and width, as well as the probability and confidence for each class.</p>
+</li>
+<li>
+<p><strong>Drivable Area Segmentation Decoder</strong>: Unlike previous models where features for segmentation tasks are derived from the last layer of the neck, YOLOPv2 connects the drivable area segmentation head prior to the FPN module. This approach utilizes features from less deep layers, which are more suitable for this task. To compensate for potential information loss, an additional upsampling layer is applied in the decoder stage.</p>
+</li>
+<li>
+<p><strong>Lane Detection Decoder</strong>: This decoder focuses on identifying lane markings, which is crucial for lane-keeping and lane-changing maneuvers in autonomous driving systems. It branches out from the FPN layer to extract features from deeper levels. Given that lane markings are often slender and challenging to detect, deconvolution is applied in the decoder stage to improve performance.</p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="_technical_specifications">3.5.1. Technical Specifications</h4>
+<div class="paragraph">
+<p>YOLOPv2 operates with remarkable efficiency while maintaining high accuracy:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Input Resolution</strong>: 640×640 pixels</p>
+</li>
+<li>
+<p><strong>Inference Speed</strong>: 30+ FPS on consumer-grade GPU hardware</p>
+</li>
+<li>
+<p><strong>Model Size</strong>: ~40MB, enabling deployment on embedded automotive systems</p>
+</li>
+<li>
+<p><strong>Lane Line Detection</strong>: Accuracy of 87.3% and IoU of 27.2%</p>
+</li>
+<li>
+<p><strong>Half-precision Support</strong>: FP16 computation for accelerated inference</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_key_advantages_for_lane_departure_systems">3.5.2. Key Advantages for Lane Departure Systems</h4>
+<div class="paragraph">
+<p>YOLOPv2 offers several critical advantages for lane departure warning applications:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Unified Processing</strong>: By handling object detection and lane segmentation simultaneously, the system gains contextual awareness of the entire driving scene</p>
+</li>
+<li>
+<p><strong>Low Latency</strong>: Critical for time-sensitive warning systems, with end-to-end processing under 33ms</p>
+</li>
+<li>
+<p><strong>Resilience to Conditions</strong>: Robust performance across varying lighting, weather, and road conditions</p>
+</li>
+<li>
+<p><strong>Memory Efficiency</strong>: Shared feature extraction reduces computational overhead</p>
+</li>
+<li>
+<p><strong>Integration Potential</strong>: The multi-task architecture allows expansion to additional ADAS functions with minimal additional hardware</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The official implementation of YOLOPv2 is available on GitHub:</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/CAIC-AD/YOLOPv2">YOLOPv2 GitHub Repository</a></p>
+</div>
 </div>
 </div>
 </div>
@@ -1117,7 +1398,7 @@ python carla_sync.py <span class="nt">--playback</span> control_log.json <span c
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2025-04-07 12:37:24 UTC
+Last updated 2025-04-07 12:46:44 UTC
 </div>
 </div>
 </body>
