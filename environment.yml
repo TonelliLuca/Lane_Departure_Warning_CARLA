@@ -1,4 +1,4 @@
-name: carla-env-test
+name: carla-env
 channels:
   - defaults
   - https://repo.anaconda.com/pkgs/main
