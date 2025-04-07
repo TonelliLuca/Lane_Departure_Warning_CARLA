@@ -13,24 +13,24 @@ This generates a JSON file containing a sequence of control commands:
 
 [source,json]
 [
-{
-"timestamp": 6.08974165096879,
-"throttle": 0.0,
-"brake": 0.0,
-"steer": 0.0
-},
-{
-"timestamp": 6.123074986040592,
-"throttle": 0.0,
-"brake": 0.0,
-"steer": 0.0
-},
-{
-"timestamp": 6.156408321112394,
-"throttle": 0.2,
-"brake": 0.0,
-"steer": -0.05
-}
+    {
+    "timestamp": 6.08974165096879,
+    "throttle": 0.0,
+    "brake": 0.0,
+    "steer": 0.0
+    },
+    {
+    "timestamp": 6.123074986040592,
+    "throttle": 0.6,
+    "brake": 0.0,
+    "steer": -0.05
+    },
+    {
+    "timestamp": 6.156408321112394,
+    "throttle": 0.8,
+    "brake": 0.0,
+    "steer": -0.25
+    }
 ]
 
 The system automatically generates sequential filenames for recordings using timestamps and sequence numbers, storing them in the test_commands/recorded directory:
@@ -68,10 +68,9 @@ if args.playback and playback_index < len(playback_data):
 Initially, we encountered problems with playback reliability when using asynchronous mode. The timing differences between recording and playback sessions led to inconsistent behavior. Switching to CARLA's synchronous mode resolved these issues by ensuring that the simulation steps forward only after all sensor data has been processed.
 [source,python]
 with CarlaSyncMode(world, camera_rgb, camera, fps=30) as sync_mode:
-    # Simulation runs in lockstep with our code
     while True:
-    # Get data from all sensors
-    out = sync_mode.tick(timeout=2.0)
+        # Get data from all sensors
+        out = sync_mode.tick(timeout=2.0)
 
 The CarlaSyncMode context manager enforces timing consistency by:
 
