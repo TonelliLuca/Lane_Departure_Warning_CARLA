@@ -129,10 +129,7 @@ password = os.getenv("HIVE_MQ_PASSWORD")
 
 
 def setup_mqtt_client():
-    # Use the VERSION2 of the Callback API to avoid deprecation warning
     mqtt_client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION2, client_id="carla_lane_detector")
-
-    # Rest of the function remains the same
     mqtt_client.tls_set(cert_reqs=ssl.CERT_REQUIRED, tls_version=ssl.PROTOCOL_TLS)
     mqtt_client.username_pw_set(username, password)
     mqtt_client.connect("68194d06420140d29c7cde00549b2f40.s1.eu.hivemq.cloud", 8883)
