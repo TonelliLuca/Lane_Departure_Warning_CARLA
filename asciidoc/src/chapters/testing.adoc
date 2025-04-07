@@ -1,6 +1,167 @@
 == Testing
 
-Meccanismi creati per il testing
-(Launcher, Record - Playback, LoggerDetection)
+Our ADAS requires rigorous testing to ensure reliability and safety. To facilitate this, we've implemented a comprehensive testing framework with recording and playback capabilities that allow us to reproduce specific driving scenarios consistently.
 
-Risultati
+=== Record and Playback Mode
+==== Record Mode
+The record mode captures vehicle control inputs during a drive session, allowing us to create reproducible test cases from real driving scenarios. When enabled, the system logs throttle, brake, and steering commands along with timestamps.
+
+[source,shell]
+python carla_sync.py --record --weather "Clear Noon"
+
+This generates a JSON file containing a sequence of control commands:
+
+[source,json]
+[
+{
+"timestamp": 6.08974165096879,
+"throttle": 0.0,
+"brake": 0.0,
+"steer": 0.0
+},
+{
+"timestamp": 6.123074986040592,
+"throttle": 0.0,
+"brake": 0.0,
+"steer": 0.0
+},
+{
+"timestamp": 6.156408321112394,
+"throttle": 0.2,
+"brake": 0.0,
+"steer": -0.05
+}
+]
+
+The system automatically generates sequential filenames for recordings using timestamps and sequence numbers, storing them in the test_commands/recorded directory:
+
+[source,python]
+def get_sequential_filename():
+"""Generate a sequential filename for recordings"""
+recorded_dir = os.path.join("test_commands", "recorded")
+os.makedirs(recorded_dir, exist_ok=True)
+timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+pattern = os.path.join(recorded_dir, f"control_log_*.json")
+existing_files = glob.glob(pattern)
+next_number = len(existing_files) + 1
+filename = f"control_log_{timestamp}_{next_number:03d}.json"
+return os.path.join(recorded_dir, filename)
+
+==== Playback Mode
+
+The playback mode replays previously recorded driving sessions, creating consistent test conditions. This allows us to evaluate our lane detection algorithms under identical driving scenarios.
+
+[source,bash]
+python carla_sync.py --playback control_log_20240407_120145_001.json --weather "Clear Noon"
+
+During playback, the system reads the control commands from the specified JSON file and applies them sequentially to the vehicle:
+
+[source,python]
+if args.playback and playback_index < len(playback_data):
+    control_data = playback_data[playback_index]
+    control.throttle = control_data["throttle"]
+    control.brake = control_data["brake"]
+    control.steer = control_data["steer"]
+    playback_index += 1
+
+==== Synchronous Mode Importance
+Initially, we encountered problems with playback reliability when using asynchronous mode. The timing differences between recording and playback sessions led to inconsistent behavior. Switching to CARLA's synchronous mode resolved these issues by ensuring that the simulation steps forward only after all sensor data has been processed.
+[source,python]
+with CarlaSyncMode(world, camera_rgb, camera, fps=30) as sync_mode:
+    # Simulation runs in lockstep with our code
+    while True:
+    # Get data from all sensors
+    out = sync_mode.tick(timeout=2.0)
+
+The CarlaSyncMode context manager enforces timing consistency by:
+
+* Enabling CARLA's synchronous mode
+* Setting a fixed delta time between simulation steps
+* Ensuring all sensor data is received before advancing the simulation
+
+This synchronization is crucial for creating reproducible test scenarios, as it guarantees that control inputs are applied at consistent simulation times.
+
+=== Detection Logging System
+The DetectionLogger class tracks lane invasion detections from both our YOLOP-based lane detection system and CARLA's built-in lane invasion sensor. This allows us to compare and validate our detection algorithm against CARLA's ground truth.
+
+==== How Detection Logging Works
+The logger is triggered in two different scenarios:
+
+* YOLOP Detection: When our computer vision model detects a lane crossing
+[source,python]
+if crossing != yolop_lane_invasion_detected:
+    detection_logger.log_detection("YOLOP", crossing)
+
+* CARLA Detection: When CARLA's lane invasion sensor is triggered
+[source,python]
+def lane_invasion_callback(event):
+    detection_logger.log_detection("CARLA", True)
+
+==== Detection Agreement Logic
+An important aspect of our testing framework is the ability to identify when both detection systems agree on a lane crossing event. Since the YOLOP vision-based system and CARLA's ground truth sensor doesn't trigger at exactly the same moment, we implement a time window-based agreement system.
+
+The agreement_window parameter (set to 2 seconds by default) defines the maximum time difference allowed between YOLOP and CARLA detections for them to be considered as referring to the same lane crossing event.
+When calculating statistics, the system groups detections into crossing events and identifies agreements:
+[source,python]
+def get_stats(self):
+crossing_events = []
+current_event = {"start": None, "end": None, "yolop": False, "carla": False}
+sorted_detections = sorted(self.detections, key=lambda x: x[0])
+for timestamp, detector, status, _ in sorted_detections:
+    # Only consider positive crossing detections
+    if not status:
+        continue
+    if current_event["start"] is None:
+        # Start a new event
+        current_event = {
+            "start": timestamp,
+            "end": timestamp,
+            "yolop": detector == "YOLOP",
+            "carla": detector == "CARLA"
+        }
+    elif timestamp - current_event["end"] > self.agreement_window:
+        # This detection is beyond our time window, save the current event and start a new one
+        crossing_events.append(current_event)
+        current_event = {
+            "start": timestamp,
+            "end": timestamp,
+            "yolop": detector == "YOLOP",
+            "carla": detector == "CARLA"
+        }
+    else:
+        # This detection belongs to the current event
+        current_event["end"] = timestamp
+        if detector == "YOLOP":
+            current_event["yolop"] = True
+        else:
+            current_event["carla"] = True
+
+This approach groups detections that occur within the agreement window into a single "crossing event." If both YOLOP and CARLA detect a lane crossing within this time window, it's considered an agreement.
+
+==== Test Results Visualization
+During playback mode, the system displays real-time statistics about detection performance, including:
+
+* Total number of detection events
+* YOLOP-only detections (potential false positives)
+* CARLA-only detections (potentially missed by our system)
+* Confirmed crossings (when both systems agree)
+
+[source,python]
+def update_test_display(test_display):
+    stats = detection_logger.get_stats()
+    cv2.putText(test_display, f"YOLOP only: {stats.get('yolop_only', 0)}",
+                (30, 170), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 128, 0), 1, cv2.LINE_AA)
+    cv2.putText(test_display, f"CARLA only: {stats.get('carla_only', 0)}",
+                (30, 210), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 1, cv2.LINE_AA)
+    cv2.putText(test_display,
+                f"Confirmed Crossings: {stats.get('agreements', 0)}",
+                (30, 250), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 0), 1, cv2.LINE_AA)
+
+=== Environmental Testing
+The system supports testing under various weather conditions using CARLA's weather presets. This allows us to evaluate the robustness of our lane detection algorithm across different lighting and atmospheric conditions:
+[source,bash]
+python carla_sync.py --playback control_log.json --weather "Cloudy Noon"
+python carla_sync.py --playback control_log.json --weather "WetNoon"
+python carla_sync.py --playback control_log.json --weather "HardRainNoon"
+
+The test results for each scenario are logged to log/untracked/test_log.txt, creating a comprehensive record of algorithm performance across different conditions.
