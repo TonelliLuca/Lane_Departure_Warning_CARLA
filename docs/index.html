@@ -1146,24 +1146,24 @@ pre.rouge .gs {
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight"><code data-lang="json"><span class="p">[</span><span class="w">
-</span><span class="p">{</span><span class="w">
-</span><span class="nl">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mf">6.08974165096879</span><span class="p">,</span><span class="w">
-</span><span class="nl">"throttle"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
-</span><span class="nl">"brake"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
-</span><span class="nl">"steer"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="w">
-</span><span class="p">},</span><span class="w">
-</span><span class="p">{</span><span class="w">
-</span><span class="nl">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mf">6.123074986040592</span><span class="p">,</span><span class="w">
-</span><span class="nl">"throttle"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
-</span><span class="nl">"brake"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
-</span><span class="nl">"steer"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="w">
-</span><span class="p">},</span><span class="w">
-</span><span class="p">{</span><span class="w">
-</span><span class="nl">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mf">6.156408321112394</span><span class="p">,</span><span class="w">
-</span><span class="nl">"throttle"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.2</span><span class="p">,</span><span class="w">
-</span><span class="nl">"brake"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
-</span><span class="nl">"steer"</span><span class="p">:</span><span class="w"> </span><span class="mf">-0.05</span><span class="w">
-</span><span class="p">}</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mf">6.08974165096879</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"throttle"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"brake"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"steer"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mf">6.123074986040592</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"throttle"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.6</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"brake"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"steer"</span><span class="p">:</span><span class="w"> </span><span class="mf">-0.05</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mf">6.156408321112394</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"throttle"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.8</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"brake"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"steer"</span><span class="p">:</span><span class="w"> </span><span class="mf">-0.25</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span></code></pre>
 </div>
 </div>
@@ -1217,10 +1217,9 @@ pre.rouge .gs {
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight"><code data-lang="python"><span class="k">with</span> <span class="nc">CarlaSyncMode</span><span class="p">(</span><span class="n">world</span><span class="p">,</span> <span class="n">camera_rgb</span><span class="p">,</span> <span class="n">camera</span><span class="p">,</span> <span class="n">fps</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span> <span class="k">as</span> <span class="n">sync_mode</span><span class="p">:</span>
-    <span class="c1"># Simulation runs in lockstep with our code
-</span>    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
-    <span class="c1"># Get data from all sensors
-</span>    <span class="n">out</span> <span class="o">=</span> <span class="n">sync_mode</span><span class="p">.</span><span class="nf">tick</span><span class="p">(</span><span class="n">timeout</span><span class="o">=</span><span class="mf">2.0</span><span class="p">)</span></code></pre>
+    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="c1"># Get data from all sensors
+</span>        <span class="n">out</span> <span class="o">=</span> <span class="n">sync_mode</span><span class="p">.</span><span class="nf">tick</span><span class="p">(</span><span class="n">timeout</span><span class="o">=</span><span class="mf">2.0</span><span class="p">)</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1399,7 +1398,7 @@ python carla_sync.py <span class="nt">--playback</span> control_log.json <span c
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2025-04-07 13:44:58 UTC
+Last updated 2025-04-07 13:54:06 UTC
 </div>
 </div>
 </body>
