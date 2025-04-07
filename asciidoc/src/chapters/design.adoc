@@ -53,6 +53,7 @@ warped = cv2.warpPerspective(image_to_analyze, M, (define_crop_size, define_crop
 ----
 
 This transformation:
+
 - Removes perspective distortion where distant lane lines appear to converge
 - Creates a uniform representation where lane width is consistent regardless of distance
 - Makes subsequent lane detection calculations more straightforward by converting to a 2D plane
