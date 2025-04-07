@@ -604,10 +604,9 @@ pre.rouge .gs {
 <li><a href="#_design_of_proposed_solution">3. Design Of Proposed Solution</a>
 <ul class="sectlevel2">
 <li><a href="#_sensors_used">3.1. Sensors used</a></li>
-<li><a href="#_camera_positioning">3.2. Camera Positioning</a></li>
-<li><a href="#_picture_preprocessing">3.3. Picture Preprocessing</a></li>
-<li><a href="#_picture_processing">3.4. Picture Processing</a></li>
-<li><a href="#_technologies_used">3.5. Technologies Used</a></li>
+<li><a href="#_picture_preprocessing">3.2. Picture Preprocessing</a></li>
+<li><a href="#_picture_processing">3.3. Picture Processing</a></li>
+<li><a href="#_technologies_used">3.4. Technologies Used</a></li>
 </ul>
 </li>
 <li><a href="#_testing">4. Testing</a>
@@ -766,6 +765,8 @@ pre.rouge .gs {
 <div class="paragraph">
 <p>For this lane departure warning system, we use a RGB camera as the primary sensing device. The camera captures real-time images of the roadway ahead of the vehicle with a resolution of 640x640 pixels. This resolution provides sufficient detail for lane detection while remaining computationally efficient for real-time processing.</p>
 </div>
+<div class="sect3">
+<h4 id="_camera_positioning">3.1.1. Camera Positioning</h4>
 <div class="paragraph">
 <p>The camera is mounted on the rearview mirror, a location that offers several advantages:</p>
 </div>
@@ -785,37 +786,27 @@ pre.rouge .gs {
 <div class="paragraph">
 <p>The exact positioning coordinates are (x=0.6, y=0.0, z=1.41) with a pitch of 0 degrees. This precise placement ensures optimal coverage of the road surface and minimizes distortion while maintaining a practical implementation suitable for mass-production vehicles.</p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="_camera_positioning">3.2. Camera Positioning</h3>
 <div class="imageblock">
 <div class="content">
-<img src="resources/png/lateral_view.png" alt="Lateral View of Camera Positioning" width="600">
+<img src="resources/png/camera_positions.png" alt="View of Camera Inside the Car" width="600">
 </div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="resources/png/top_view.png" alt="Top View of Camera Positioning" width="600">
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="resources/png/frontal_view.png" alt="Frontal View of Camera Positioning" width="600">
-</div>
+<div class="title">Figure 1. Camera Positioning from Multiple Angles</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="resources/png/camera_inside_view.png" alt="View of Camera Inside the Car" width="600">
 </div>
+<div class="title">Figure 2. Camera View</div>
+</div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_picture_preprocessing">3.3. Picture Preprocessing</h3>
+<h3 id="_picture_preprocessing">3.2. Picture Preprocessing</h3>
 <div class="paragraph">
 <p>Every frame captured from the RGB camera undergoes several critical preprocessing steps before being fed into the lane detection system:</p>
 </div>
 <div class="sect3">
-<h4 id="_region_of_interest_selection">3.3.1. Region of Interest Selection</h4>
+<h4 id="_region_of_interest_selection">3.2.1. Region of Interest Selection</h4>
 <div class="paragraph">
 <p>First, the system defines a trapezoid-shaped region of interest (ROI) on the raw camera image:</p>
 </div>
@@ -839,7 +830,7 @@ pre.rouge .gs {
 </div>
 </div>
 <div class="sect3">
-<h4 id="_perspective_transformation">3.3.2. Perspective Transformation</h4>
+<h4 id="_perspective_transformation">3.2.2. Perspective Transformation</h4>
 <div class="paragraph">
 <p>Next, a bird&#8217;s-eye view transformation is applied to the selected region using OpenCV&#8217;s perspective transformation functions:</p>
 </div>
@@ -865,7 +856,7 @@ pre.rouge .gs {
 </div>
 </div>
 <div class="sect3">
-<h4 id="_format_conversion_for_neural_network">3.3.3. Format Conversion for Neural Network</h4>
+<h4 id="_format_conversion_for_neural_network">3.2.3. Format Conversion for Neural Network</h4>
 <div class="paragraph">
 <p>Finally, the image is converted from HWC (Height, Width, Channel) format to CHW (Channel, Height, Width) format required by our PyTorch-based neural network:</p>
 </div>
@@ -880,12 +871,12 @@ pre.rouge .gs {
 </div>
 </div>
 <div class="sect2">
-<h3 id="_picture_processing">3.4. Picture Processing</h3>
+<h3 id="_picture_processing">3.3. Picture Processing</h3>
 <div class="paragraph">
 <p>The image processing pipeline through YOLOPv2 involves several sophisticated steps to detect lane markings and potential lane departures:</p>
 </div>
 <div class="sect3">
-<h4 id="_neural_network_inference">3.4.1. Neural Network Inference</h4>
+<h4 id="_neural_network_inference">3.3.1. Neural Network Inference</h4>
 <div class="paragraph">
 <p>Each captured frame from the vehicle-mounted camera undergoes analysis through a YOLOPv2 (You Only Look Once Panoptic) model:</p>
 </div>
@@ -905,7 +896,7 @@ pre.rouge .gs {
 </div>
 </div>
 <div class="sect3">
-<h4 id="_multi_task_output_processing">3.4.2. Multi-Task Output Processing</h4>
+<h4 id="_multi_task_output_processing">3.3.2. Multi-Task Output Processing</h4>
 <div class="paragraph">
 <p>YOLOPv2 simultaneously produces three critical outputs from a single forward pass:</p>
 </div>
@@ -924,7 +915,7 @@ pre.rouge .gs {
 </div>
 </div>
 <div class="sect3">
-<h4 id="_lane_detection_and_analysis">3.4.3. Lane Detection and Analysis</h4>
+<h4 id="_lane_detection_and_analysis">3.3.3. Lane Detection and Analysis</h4>
 <div class="paragraph">
 <p>The system processes segmentation masks to isolate lane markings:</p>
 </div>
@@ -941,7 +932,7 @@ pre.rouge .gs {
 </div>
 </div>
 <div class="sect3">
-<h4 id="_bounding_box_filtering">3.4.4. Bounding Box Filtering</h4>
+<h4 id="_bounding_box_filtering">3.3.4. Bounding Box Filtering</h4>
 <div class="paragraph">
 <p>Lane markings are identified through contour analysis and filtered based on specific parameters:</p>
 </div>
@@ -969,7 +960,7 @@ pre.rouge .gs {
 </div>
 </div>
 <div class="sect3">
-<h4 id="_nested_box_elimination">3.4.5. Nested Box Elimination</h4>
+<h4 id="_nested_box_elimination">3.3.5. Nested Box Elimination</h4>
 <div class="paragraph">
 <p>The system removes redundant or nested boxes to prevent double-counting of lane markings:</p>
 </div>
@@ -980,7 +971,7 @@ pre.rouge .gs {
 </div>
 </div>
 <div class="sect3">
-<h4 id="_lane_crossing_detection">3.4.6. Lane Crossing Detection</h4>
+<h4 id="_lane_crossing_detection">3.3.6. Lane Crossing Detection</h4>
 <div class="paragraph">
 <p>Lane departure is determined through geometric analysis of identified lane markings:</p>
 </div>
@@ -1039,7 +1030,7 @@ pre.rouge .gs {
 </div>
 </div>
 <div class="sect2">
-<h3 id="_technologies_used">3.5. Technologies Used</h3>
+<h3 id="_technologies_used">3.4. Technologies Used</h3>
 <div class="paragraph">
 <p>In our project, we employed YOLOPv2, an advanced multi-task learning network designed for panoptic driving perception. This model efficiently integrates three critical tasks in autonomous driving: traffic object detection, drivable area segmentation, and lane detection. By utilizing a shared encoder and task-specific decoders, YOLOPv2 achieves high accuracy and speed, making it suitable for real-time applications.</p>
 </div>
@@ -1063,7 +1054,7 @@ pre.rouge .gs {
 </ul>
 </div>
 <div class="sect3">
-<h4 id="_technical_specifications">3.5.1. Technical Specifications</h4>
+<h4 id="_technical_specifications">3.4.1. Technical Specifications</h4>
 <div class="paragraph">
 <p>YOLOPv2 operates with remarkable efficiency while maintaining high accuracy:</p>
 </div>
@@ -1088,7 +1079,7 @@ pre.rouge .gs {
 </div>
 </div>
 <div class="sect3">
-<h4 id="_key_advantages_for_lane_departure_systems">3.5.2. Key Advantages for Lane Departure Systems</h4>
+<h4 id="_key_advantages_for_lane_departure_systems">3.4.2. Key Advantages for Lane Departure Systems</h4>
 <div class="paragraph">
 <p>YOLOPv2 offers several critical advantages for lane departure warning applications:</p>
 </div>
@@ -1398,7 +1389,7 @@ python carla_sync.py <span class="nt">--playback</span> control_log.json <span c
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2025-04-07 12:46:44 UTC
+Last updated 2025-04-07 13:43:53 UTC
 </div>
 </div>
 </body>
