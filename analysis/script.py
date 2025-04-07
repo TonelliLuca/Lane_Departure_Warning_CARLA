@@ -71,75 +71,52 @@ with open(log_data_file, 'r') as file:
 # Parse the log data
 df = parse_log_data(log_data)
 
-print(df)
-
 # Create output directory for plots if it doesn't exist
 output_dir = 'plots'
 os.makedirs(output_dir, exist_ok=True)
 
-# Group data by TestName
+# Get unique test names
 test_names = df['TestName'].unique()
 
-# Define metrics to plot
-metrics = ['yolop_only']
-
-# Set up the plot style
-plt.style.use('seaborn-v0_8-darkgrid')
-colors = sns.color_palette('Set2', len(metrics))
-
-# Plot for each TestName separately
+# Create a bar chart for each test name
 for test_name in test_names:
+    # Filter data for the current test name
     test_data = df[df['TestName'] == test_name]
     
-    # Create figure with appropriate size based on the amount of data
+    # Set up the plot
     plt.figure(figsize=(12, 6))
     
-    # Set width of bars
-    bar_width = 0.2
-    x = np.arange(len(test_data['Weather'].unique()))
+    # Prepare data for plotting
+    weathers = test_data['Weather'].tolist()
+    width = 0.25  # Width of the bars
+    indices = np.arange(len(weathers))  # X locations for groups
     
-    # Plot each metric
-    for i, metric in enumerate(metrics):
-        plt.bar(x + i*bar_width, test_data[metric], width=bar_width, label=metric, color=colors[i])
+    # Create bars for each metric
+    yolop_bars = plt.bar(indices - width, test_data['yolop_only'], width, label='YOLOP Only')
+    carla_bars = plt.bar(indices, test_data['carla_only'], width, label='CARLA Only')
+    agreement_bars = plt.bar(indices + width, test_data['agreements'], width, label='Agreements')
     
-    # Set labels, title and ticks
-    plt.xlabel('Weather Condition')
+    # Add labels, title, and legend
+    plt.xlabel('Weather Conditions')
     plt.ylabel('Count')
-    plt.title(f'Comparison across Weather Conditions for {test_name}')
-    plt.xticks(x + bar_width * (len(metrics) - 1) / 2, test_data['Weather'], rotation=45, ha='right')
+    plt.title(f'Lane Departure Detection Comparison for Test: {test_name}')
+    plt.xticks(indices, weathers, rotation=45, ha='right')
     plt.legend()
     plt.tight_layout()
     
-    # Save the figure
-    plt.savefig(os.path.join(output_dir, f'{test_name}_comparison.png'))
+    # Add values on top of bars
+    def add_labels(bars):
+        for bar in bars:
+            height = bar.get_height()
+            plt.text(bar.get_x() + bar.get_width()/2., height + 0.1,
+                    f'{int(height)}', ha='center', va='bottom')
+    
+    add_labels(yolop_bars)
+    add_labels(carla_bars)
+    add_labels(agreement_bars)
+    
+    # Save the plot
+    plt.savefig(f'{output_dir}/{test_name}_comparison.png')
     plt.close()
 
-# Create a summary plot comparing all test names
-plt.figure(figsize=(15, 8))
-
-# For each metric, create a subplot
-for i, metric in enumerate(metrics):
-    plt.subplot(2, 2, i+1)
-    
-    # Create a grouped bar plot for each test name
-    sns.barplot(x='Weather', y=metric, hue='TestName', data=df)
-    
-    # Set labels and title
-    plt.xlabel('Weather Condition')
-    plt.ylabel(metric)
-    plt.title(f'{metric} Comparison')
-    plt.xticks(rotation=45, ha='right')
-    plt.legend(title='Test Name')
-    
-    # Adjust layout
-    plt.tight_layout()
-
-# Adjust spacing between subplots
-plt.subplots_adjust(top=0.9)
-plt.suptitle('Summary Comparison Across All Tests', fontsize=16)
-plt.tight_layout()
-plt.subplots_adjust(top=0.9)
-
-# Save the summary figure
-plt.savefig(os.path.join(output_dir, 'all_tests_summary.png'))
-plt.show()
+print(f"Bar charts created for each test name and saved in '{output_dir}' directory.")
