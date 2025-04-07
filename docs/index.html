@@ -607,6 +607,7 @@ pre.rouge .gs {
 <li><a href="#_picture_preprocessing">3.2. Picture Preprocessing</a></li>
 <li><a href="#_picture_processing">3.3. Picture Processing</a></li>
 <li><a href="#_technologies_used">3.4. Technologies Used</a></li>
+<li><a href="#_event_publishing_in_mqtt_broker">3.5. Event Publishing in MQTT Broker</a></li>
 </ul>
 </li>
 <li><a href="#_testing">4. Testing</a>
@@ -1121,6 +1122,128 @@ pre.rouge .gs {
 </div>
 </div>
 </div>
+<div class="sect2">
+<h3 id="_event_publishing_in_mqtt_broker">3.5. Event Publishing in MQTT Broker</h3>
+<div class="paragraph">
+<p>The Lane Departure Warning system utilizes MQTT (Message Queuing Telemetry Transport) protocol to publish events when lane departures are detected. This enables real-time communication between different components of the autonomous driving system and facilitates integration with warning systems, data logging services, and monitoring applications.</p>
+</div>
+<div class="sect3">
+<h4 id="_hivemq_cloud_platform">3.5.1. HiveMQ Cloud Platform</h4>
+<div class="paragraph">
+<p>For this project, we use HiveMQ Cloud as our MQTT broker service, which provides:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Secure Communication</strong>: TLS/SSL encrypted connections with certificate validation</p>
+</li>
+<li>
+<p><strong>High Availability</strong>: 99.9% uptime SLA for reliable message delivery</p>
+</li>
+<li>
+<p><strong>Scalability</strong>: Support for thousands of concurrent connections</p>
+</li>
+<li>
+<p><strong>Compliance</strong>: MQTT 3.1.1 and MQTT 5.0 protocol support</p>
+</li>
+<li>
+<p><strong>Global Accessibility</strong>: Low-latency access from anywhere in the world</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_mqtt_client_configuration">3.5.2. MQTT Client Configuration</h4>
+<div class="paragraph">
+<p>The system establishes a secure connection to the HiveMQ Cloud broker using the following configuration:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="k">def</span> <span class="nf">setup_mqtt_client</span><span class="p">():</span>
+    <span class="c1"># Retrieve the username and password from local storage or environment variables.
+</span>    <span class="c1"># These credentials are stored locally and are not pushed to GitHub.
+</span>    <span class="n">mqtt_client</span> <span class="o">=</span> <span class="n">mqtt</span><span class="p">.</span><span class="nc">Client</span><span class="p">(</span><span class="n">mqtt</span><span class="p">.</span><span class="n">CallbackAPIVersion</span><span class="p">.</span><span class="n">VERSION2</span><span class="p">,</span> <span class="n">client_id</span><span class="o">=</span><span class="sh">"</span><span class="s">carla_lane_detector</span><span class="sh">"</span><span class="p">)</span>
+    <span class="n">mqtt_client</span><span class="p">.</span><span class="nf">tls_set</span><span class="p">(</span><span class="n">cert_reqs</span><span class="o">=</span><span class="n">ssl</span><span class="p">.</span><span class="n">CERT_REQUIRED</span><span class="p">,</span> <span class="n">tls_version</span><span class="o">=</span><span class="n">ssl</span><span class="p">.</span><span class="n">PROTOCOL_TLS</span><span class="p">)</span>
+    <span class="n">mqtt_client</span><span class="p">.</span><span class="nf">username_pw_set</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span>
+    <span class="n">mqtt_client</span><span class="p">.</span><span class="nf">connect</span><span class="p">(</span><span class="sh">"</span><span class="s">hivemqconnectionstring.s1.eu.hivemq.cloud</span><span class="sh">"</span><span class="p">,</span> <span class="mi">8883</span><span class="p">)</span>
+    <span class="n">mqtt_client</span><span class="p">.</span><span class="nf">loop_start</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">mqtt_client</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_event_structure_and_publishing">3.5.3. Event Structure and Publishing</h4>
+<div class="paragraph">
+<p>When the system detects a lane departure, it constructs and publishes a structured JSON message:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="n">mqtt_message</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="sh">"</span><span class="s">event</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">lane_crossing</span><span class="sh">"</span><span class="p">,</span>
+    <span class="sh">"</span><span class="s">system</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">YOLOP</span><span class="sh">"</span><span class="p">,</span>
+    <span class="sh">"</span><span class="s">crossing</span><span class="sh">"</span><span class="p">:</span> <span class="n">crossing</span><span class="p">,</span>
+    <span class="sh">"</span><span class="s">timestamp</span><span class="sh">"</span><span class="p">:</span> <span class="n">datetime</span><span class="p">.</span><span class="nf">now</span><span class="p">().</span><span class="nf">isoformat</span><span class="p">(),</span>
+<span class="p">}</span>
+
+<span class="n">mqtt_client</span><span class="p">.</span><span class="nf">publish</span><span class="p">(</span>
+    <span class="n">topic</span><span class="o">=</span><span class="sh">"</span><span class="s">carla/lane_detection</span><span class="sh">"</span><span class="p">,</span>
+    <span class="n">payload</span><span class="o">=</span><span class="n">json</span><span class="p">.</span><span class="nf">dumps</span><span class="p">(</span><span class="n">mqtt_message</span><span class="p">),</span>
+    <span class="n">qos</span><span class="o">=</span><span class="mi">1</span>
+<span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The message contains:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Event Type</strong>: The specific event being reported ("lane_crossing")</p>
+</li>
+<li>
+<p><strong>Detection System</strong>: The algorithm that detected the crossing ("YOLOP")</p>
+</li>
+<li>
+<p><strong>Crossing Status</strong>: Boolean indication of lane boundary warning</p>
+</li>
+<li>
+<p><strong>Timestamp</strong>: ISO-formatted date and time for event sequencing and correlation</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Messages are published to the topic <code>carla/lane_detection</code> with Quality of Service (QoS) level 1, ensuring at-least-once delivery guarantee.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_benefits_for_autonomous_driving_integration">3.5.4. Benefits for Autonomous Driving Integration</h4>
+<div class="paragraph">
+<p>The MQTT-based event publishing architecture offers several advantages for our lane departure warning system:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Real-time Alerting</strong>: Sub-second notification of critical safety events</p>
+</li>
+<li>
+<p><strong>System Decoupling</strong>: Detection and response systems can evolve independently</p>
+</li>
+<li>
+<p><strong>Distributed Processing</strong>: Events can trigger responses across multiple vehicle systems</p>
+</li>
+<li>
+<p><strong>Data Persistence</strong>: Integration with long-term storage for performance analysis</p>
+</li>
+<li>
+<p><strong>Standards Compliance</strong>: Following industry standards facilitates integration with other systems</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>This design allows for flexible extension and integration with various components of autonomous driving systems while maintaining reliable communication channels for safety-critical information.</p>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -1399,7 +1522,7 @@ python carla_sync.py <span class="nt">--playback</span> control_log.json <span c
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2025-04-07 14:28:36 UTC
+Last updated 2025-04-07 14:44:33 UTC
 </div>
 </div>
 </body>
