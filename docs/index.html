@@ -614,6 +614,7 @@ pre.rouge .gs {
 <ul class="sectlevel2">
 <li><a href="#_record_and_playback_mode">4.1. Record and Playback Mode</a></li>
 <li><a href="#_detection_logging_system">4.2. Detection Logging System</a></li>
+<li><a href="#_environmental_testing">4.3. Environmental Testing</a></li>
 </ul>
 </li>
 <li><a href="#_deployment">5. Deployment</a></li>
@@ -993,9 +994,106 @@ Later of our Computer Vision Algorithm</p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>Risultati</p>
 </div>
+<div class="sect3">
+<h4 id="_detection_agreement_logic">4.2.2. Detection Agreement Logic</h4>
+<div class="paragraph">
+<p>An important aspect of our testing framework is the ability to identify when both detection systems agree on a lane crossing event. Since the YOLOP vision-based system and CARLA&#8217;s ground truth sensor doesn&#8217;t trigger at exactly the same moment, we implement a time window-based agreement system.</p>
+</div>
+<div class="paragraph">
+<p>The agreement_window parameter (set to 2 seconds by default) defines the maximum time difference allowed between YOLOP and CARLA detections for them to be considered as referring to the same lane crossing event.
+When calculating statistics, the system groups detections into crossing events and identifies agreements:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="k">def</span> <span class="nf">get_stats</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+<span class="n">crossing_events</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">current_event</span> <span class="o">=</span> <span class="p">{</span><span class="sh">"</span><span class="s">start</span><span class="sh">"</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span> <span class="sh">"</span><span class="s">end</span><span class="sh">"</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span> <span class="sh">"</span><span class="s">yolop</span><span class="sh">"</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span> <span class="sh">"</span><span class="s">carla</span><span class="sh">"</span><span class="p">:</span> <span class="bp">False</span><span class="p">}</span>
+<span class="n">sorted_detections</span> <span class="o">=</span> <span class="nf">sorted</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">detections</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="k">for</span> <span class="n">timestamp</span><span class="p">,</span> <span class="n">detector</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">sorted_detections</span><span class="p">:</span>
+    <span class="c1"># Only consider positive crossing detections
+</span>    <span class="k">if</span> <span class="ow">not</span> <span class="n">status</span><span class="p">:</span>
+        <span class="k">continue</span>
+    <span class="k">if</span> <span class="n">current_event</span><span class="p">[</span><span class="sh">"</span><span class="s">start</span><span class="sh">"</span><span class="p">]</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="c1"># Start a new event
+</span>        <span class="n">current_event</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="sh">"</span><span class="s">start</span><span class="sh">"</span><span class="p">:</span> <span class="n">timestamp</span><span class="p">,</span>
+            <span class="sh">"</span><span class="s">end</span><span class="sh">"</span><span class="p">:</span> <span class="n">timestamp</span><span class="p">,</span>
+            <span class="sh">"</span><span class="s">yolop</span><span class="sh">"</span><span class="p">:</span> <span class="n">detector</span> <span class="o">==</span> <span class="sh">"</span><span class="s">YOLOP</span><span class="sh">"</span><span class="p">,</span>
+            <span class="sh">"</span><span class="s">carla</span><span class="sh">"</span><span class="p">:</span> <span class="n">detector</span> <span class="o">==</span> <span class="sh">"</span><span class="s">CARLA</span><span class="sh">"</span>
+        <span class="p">}</span>
+    <span class="k">elif</span> <span class="n">timestamp</span> <span class="o">-</span> <span class="n">current_event</span><span class="p">[</span><span class="sh">"</span><span class="s">end</span><span class="sh">"</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">self</span><span class="p">.</span><span class="n">agreement_window</span><span class="p">:</span>
+        <span class="c1"># This detection is beyond our time window, save the current event and start a new one
+</span>        <span class="n">crossing_events</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="n">current_event</span><span class="p">)</span>
+        <span class="n">current_event</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="sh">"</span><span class="s">start</span><span class="sh">"</span><span class="p">:</span> <span class="n">timestamp</span><span class="p">,</span>
+            <span class="sh">"</span><span class="s">end</span><span class="sh">"</span><span class="p">:</span> <span class="n">timestamp</span><span class="p">,</span>
+            <span class="sh">"</span><span class="s">yolop</span><span class="sh">"</span><span class="p">:</span> <span class="n">detector</span> <span class="o">==</span> <span class="sh">"</span><span class="s">YOLOP</span><span class="sh">"</span><span class="p">,</span>
+            <span class="sh">"</span><span class="s">carla</span><span class="sh">"</span><span class="p">:</span> <span class="n">detector</span> <span class="o">==</span> <span class="sh">"</span><span class="s">CARLA</span><span class="sh">"</span>
+        <span class="p">}</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># This detection belongs to the current event
+</span>        <span class="n">current_event</span><span class="p">[</span><span class="sh">"</span><span class="s">end</span><span class="sh">"</span><span class="p">]</span> <span class="o">=</span> <span class="n">timestamp</span>
+        <span class="k">if</span> <span class="n">detector</span> <span class="o">==</span> <span class="sh">"</span><span class="s">YOLOP</span><span class="sh">"</span><span class="p">:</span>
+            <span class="n">current_event</span><span class="p">[</span><span class="sh">"</span><span class="s">yolop</span><span class="sh">"</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">current_event</span><span class="p">[</span><span class="sh">"</span><span class="s">carla</span><span class="sh">"</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This approach groups detections that occur within the agreement window into a single "crossing event." If both YOLOP and CARLA detect a lane crossing within this time window, it&#8217;s considered an agreement.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_test_results_visualization">4.2.3. Test Results Visualization</h4>
+<div class="paragraph">
+<p>During playback mode, the system displays real-time statistics about detection performance, including:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Total number of detection events</p>
+</li>
+<li>
+<p>YOLOP-only detections (potential false positives)</p>
+</li>
+<li>
+<p>CARLA-only detections (potentially missed by our system)</p>
+</li>
+<li>
+<p>Confirmed crossings (when both systems agree)</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="k">def</span> <span class="nf">update_test_display</span><span class="p">(</span><span class="n">test_display</span><span class="p">):</span>
+    <span class="n">stats</span> <span class="o">=</span> <span class="n">detection_logger</span><span class="p">.</span><span class="nf">get_stats</span><span class="p">()</span>
+    <span class="n">cv2</span><span class="p">.</span><span class="nf">putText</span><span class="p">(</span><span class="n">test_display</span><span class="p">,</span> <span class="sa">f</span><span class="sh">"</span><span class="s">YOLOP only: </span><span class="si">{</span><span class="n">stats</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="sh">'</span><span class="s">yolop_only</span><span class="sh">'</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="si">}</span><span class="sh">"</span><span class="p">,</span>
+                <span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">170</span><span class="p">),</span> <span class="n">cv2</span><span class="p">.</span><span class="n">FONT_HERSHEY_SIMPLEX</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">cv2</span><span class="p">.</span><span class="n">LINE_AA</span><span class="p">)</span>
+    <span class="n">cv2</span><span class="p">.</span><span class="nf">putText</span><span class="p">(</span><span class="n">test_display</span><span class="p">,</span> <span class="sa">f</span><span class="sh">"</span><span class="s">CARLA only: </span><span class="si">{</span><span class="n">stats</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="sh">'</span><span class="s">carla_only</span><span class="sh">'</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="si">}</span><span class="sh">"</span><span class="p">,</span>
+                <span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">210</span><span class="p">),</span> <span class="n">cv2</span><span class="p">.</span><span class="n">FONT_HERSHEY_SIMPLEX</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">cv2</span><span class="p">.</span><span class="n">LINE_AA</span><span class="p">)</span>
+    <span class="n">cv2</span><span class="p">.</span><span class="nf">putText</span><span class="p">(</span><span class="n">test_display</span><span class="p">,</span>
+                <span class="sa">f</span><span class="sh">"</span><span class="s">Confirmed Crossings: </span><span class="si">{</span><span class="n">stats</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="sh">'</span><span class="s">agreements</span><span class="sh">'</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="si">}</span><span class="sh">"</span><span class="p">,</span>
+                <span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">250</span><span class="p">),</span> <span class="n">cv2</span><span class="p">.</span><span class="n">FONT_HERSHEY_SIMPLEX</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">cv2</span><span class="p">.</span><span class="n">LINE_AA</span><span class="p">)</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_environmental_testing">4.3. Environmental Testing</h3>
+<div class="paragraph">
+<p>The system supports testing under various weather conditions using CARLA&#8217;s weather presets. This allows us to evaluate the robustness of our lane detection algorithm across different lighting and atmospheric conditions:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="bash">python carla_sync.py <span class="nt">--playback</span> control_log.json <span class="nt">--weather</span> <span class="s2">"Cloudy Noon"</span>
+python carla_sync.py <span class="nt">--playback</span> control_log.json <span class="nt">--weather</span> <span class="s2">"WetNoon"</span>
+python carla_sync.py <span class="nt">--playback</span> control_log.json <span class="nt">--weather</span> <span class="s2">"HardRainNoon"</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The test results for each scenario are logged to log/untracked/test_log.txt, creating a comprehensive record of algorithm performance across different conditions.</p>
 </div>
 </div>
 </div>
@@ -1019,7 +1117,7 @@ Later of our Computer Vision Algorithm</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2025-04-07 12:11:53 UTC
+Last updated 2025-04-07 12:37:24 UTC
 </div>
 </div>
 </body>
