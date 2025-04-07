@@ -269,19 +269,17 @@ class DualControl(object):
         self._steer_cache = 0.0
         world.hud.notification("Press 'H' or '?' for help.", seconds=4.0)
 
-        # initialize steering wheel
-        pygame.joystick.init()
+        if self.controller_type != 'keyboard':
+            pygame.joystick.init()
+            joystick_count = pygame.joystick.get_count()
+            if joystick_count < 1:
+                raise ValueError("No controller detected")
 
-        joystick_count = pygame.joystick.get_count()
-        if joystick_count < 1:
-            raise ValueError("No controller detected")
+            self._joystick = pygame.joystick.Joystick(0)
+            self._joystick.init()
 
-        self._joystick = pygame.joystick.Joystick(0)
-        self._joystick.init()
-
-        # Get controller name
-        self._controller_name = self._joystick.get_name()
-        print(f"Detected controller: {self._controller_name}")
+            self._controller_name = self._joystick.get_name()
+            print(f"Detected controller: {self._controller_name}")
 
         if self.controller_type == 'wheel':
             self._parser = ConfigParser()
