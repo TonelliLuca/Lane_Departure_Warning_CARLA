@@ -125,7 +125,7 @@ def setup_mqtt_client():
 
     # Rest of the function remains the same
     mqtt_client.tls_set(cert_reqs=ssl.CERT_REQUIRED, tls_version=ssl.PROTOCOL_TLS)
-    mqtt_client.username_pw_set("***REMOVED***", "***REMOVED***")
+    mqtt_client.username_pw_set("hivemq.webclient.1744018944204", "XwFxL0.5jaTD6><9Pdh,")
     mqtt_client.connect("68194d06420140d29c7cde00549b2f40.s1.eu.hivemq.cloud", 8883)
     mqtt_client.loop_start()
     return mqtt_client
@@ -269,19 +269,17 @@ class DualControl(object):
         self._steer_cache = 0.0
         world.hud.notification("Press 'H' or '?' for help.", seconds=4.0)
 
-        # initialize steering wheel
-        pygame.joystick.init()
+        if self.controller_type != 'keyboard':
+            pygame.joystick.init()
+            joystick_count = pygame.joystick.get_count()
+            if joystick_count < 1:
+                raise ValueError("No controller detected")
 
-        joystick_count = pygame.joystick.get_count()
-        if joystick_count < 1:
-            raise ValueError("No controller detected")
+            self._joystick = pygame.joystick.Joystick(0)
+            self._joystick.init()
 
-        self._joystick = pygame.joystick.Joystick(0)
-        self._joystick.init()
-
-        # Get controller name
-        self._controller_name = self._joystick.get_name()
-        print(f"Detected controller: {self._controller_name}")
+            self._controller_name = self._joystick.get_name()
+            print(f"Detected controller: {self._controller_name}")
 
         if self.controller_type == 'wheel':
             self._parser = ConfigParser()
