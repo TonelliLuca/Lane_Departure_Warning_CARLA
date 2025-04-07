@@ -3,6 +3,8 @@
 === Sensors used
 For this lane departure warning system, we use a RGB camera as the primary sensing device. The camera captures real-time images of the roadway ahead of the vehicle with a resolution of 640x640 pixels. This resolution provides sufficient detail for lane detection while remaining computationally efficient for real-time processing.
 
+==== Camera Positioning
+
 The camera is mounted on the rearview mirror, a location that offers several advantages:
 
 * Unobstructed forward view of the road
@@ -11,11 +13,10 @@ The camera is mounted on the rearview mirror, a location that offers several adv
 
 The exact positioning coordinates are (x=0.6, y=0.0, z=1.41) with a pitch of 0 degrees. This precise placement ensures optimal coverage of the road surface and minimizes distortion while maintaining a practical implementation suitable for mass-production vehicles.
 
-=== Camera Positioning
+.Camera Positioning from Multiple Angles
+image::../resources/png/camera_positions.png[View of Camera Inside the Car, width=600]
 
-image::../resources/png/lateral_view.png[Lateral View of Camera Positioning, width=600]
-image::../resources/png/top_view.png[Top View of Camera Positioning, width=600]
-image::../resources/png/frontal_view.png[Frontal View of Camera Positioning, width=600]
+.Camera View
 image::../resources/png/camera_inside_view.png[View of Camera Inside the Car, width=600]
 
 === Picture Preprocessing
