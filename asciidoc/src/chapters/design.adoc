@@ -58,6 +58,7 @@ This transformation:
 - Creates a uniform representation where lane width is consistent regardless of distance
 - Makes subsequent lane detection calculations more straightforward by converting to a 2D plane
 
+.Perspective Change Visualization
 image::../resources/png/trapezoid_warped.png[Perspective Change Visualization]
 
 ==== Format Conversion for Neural Network
@@ -223,3 +224,76 @@ YOLOPv2 offers several critical advantages for lane departure warning applicatio
 The official implementation of YOLOPv2 is available on GitHub:
 
 link:https://github.com/CAIC-AD/YOLOPv2[YOLOPv2 GitHub Repository]
+
+=== Event Publishing in MQTT Broker
+
+The Lane Departure Warning system utilizes MQTT (Message Queuing Telemetry Transport) protocol to publish events when lane departures are detected. This enables real-time communication between different components of the autonomous driving system and facilitates integration with warning systems, data logging services, and monitoring applications.
+
+==== HiveMQ Cloud Platform
+
+For this project, we use HiveMQ Cloud as our MQTT broker service, which provides:
+
+* *Secure Communication*: TLS/SSL encrypted connections with certificate validation
+* *High Availability*: 99.9% uptime SLA for reliable message delivery
+* *Scalability*: Support for thousands of concurrent connections
+* *Compliance*: MQTT 3.1.1 and MQTT 5.0 protocol support
+* *Global Accessibility*: Low-latency access from anywhere in the world
+
+==== MQTT Client Configuration
+
+The system establishes a secure connection to the HiveMQ Cloud broker using the following configuration:
+
+[source,python]
+----
+def setup_mqtt_client():
+    # Retrieve the username and password from local storage or environment variables.
+    # These credentials are stored locally and are not pushed to GitHub.
+    mqtt_client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION2, client_id="carla_lane_detector")
+    mqtt_client.tls_set(cert_reqs=ssl.CERT_REQUIRED, tls_version=ssl.PROTOCOL_TLS)
+    mqtt_client.username_pw_set(username, password)
+    mqtt_client.connect("hivemqconnectionstring.s1.eu.hivemq.cloud", 8883)
+    mqtt_client.loop_start()
+    return mqtt_client
+----
+
+==== Event Structure and Publishing
+
+When the system detects a lane departure, it constructs and publishes a structured JSON message:
+
+[source,python]
+----
+mqtt_message = {
+    "event": "lane_crossing",
+    "system": "YOLOP",
+    "crossing": crossing,
+    "timestamp": datetime.now().isoformat(),
+}
+
+mqtt_client.publish(
+    topic="carla/lane_detection",
+    payload=json.dumps(mqtt_message),
+    qos=1
+)
+----
+
+The message contains:
+
+* *Event Type*: The specific event being reported ("lane_crossing")
+* *Detection System*: The algorithm that detected the crossing ("YOLOP")
+* *Crossing Status*: Boolean indication of lane boundary warning
+* *Timestamp*: ISO-formatted date and time for event sequencing and correlation
+
+Messages are published to the topic `carla/lane_detection` with Quality of Service (QoS) level 1, ensuring at-least-once delivery guarantee.
+
+==== Benefits for Autonomous Driving Integration
+
+The MQTT-based event publishing architecture offers several advantages for our lane departure warning system:
+
+1. *Real-time Alerting*: Sub-second notification of critical safety events
+2. *System Decoupling*: Detection and response systems can evolve independently
+3. *Distributed Processing*: Events can trigger responses across multiple vehicle systems
+4. *Data Persistence*: Integration with long-term storage for performance analysis
+5. *Standards Compliance*: Following industry standards facilitates integration with other systems
+
+This design allows for flexible extension and integration with various components of autonomous driving systems while maintaining reliable communication channels for safety-critical information.
+
