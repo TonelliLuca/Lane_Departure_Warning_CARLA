@@ -5,7 +5,7 @@ test_commands/recorded/
 __pycache__/
 *.py[cod]
 *$py.class
-
+/analysis/env/
 .idea/
 
 data/weights/yolopv2.pt
