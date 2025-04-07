@@ -617,7 +617,16 @@ pre.rouge .gs {
 <li><a href="#_environmental_testing">4.3. Environmental Testing</a></li>
 </ul>
 </li>
-<li><a href="#_deployment">5. Deployment</a></li>
+<li><a href="#_deployment">5. Deployment</a>
+<ul class="sectlevel2">
+<li><a href="#_system_requirements">5.1. System Requirements</a></li>
+<li><a href="#_environment_setup">5.2. Environment Setup</a></li>
+<li><a href="#_environment_configuration">5.3. Environment Configuration</a></li>
+<li><a href="#_deployment_structure">5.4. Deployment Structure</a></li>
+<li><a href="#_running_the_system">5.5. Running the System</a></li>
+<li><a href="#_troubleshooting">5.6. Troubleshooting</a></li>
+</ul>
+</li>
 <li><a href="#_conclusion">6. Conclusion</a></li>
 </ul>
 </div>
@@ -1507,7 +1516,294 @@ python carla_sync.py <span class="nt">--playback</span> control_log.json <span c
 <h2 id="_deployment">5. Deployment</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Launcher</p>
+<p>This section outlines the deployment process for the lane detection system, covering environment setup, configuration, and execution procedures.</p>
+</div>
+<div class="sect2">
+<h3 id="_system_requirements">5.1. System Requirements</h3>
+<div class="sect3">
+<h4 id="_hardware_requirements">5.1.1. Hardware Requirements</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>NVIDIA GPU (recommended for optimal YOLOP model performance)</p>
+</li>
+<li>
+<p>Minimum 8GB RAM</p>
+</li>
+<li>
+<p>Multicore processor</p>
+</li>
+<li>
+<p>10GB free disk space</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_software_requirements">5.1.2. Software Requirements</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Windows 10/11 or Linux (Ubuntu 18.04+)</p>
+</li>
+<li>
+<p>Python 3.7</p>
+</li>
+<li>
+<p>CARLA 0.9.15 simulator</p>
+</li>
+<li>
+<p>HiveMQ account (for MQTT-based event publishing)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_environment_setup">5.2. Environment Setup</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="bash"><span class="c"># Create a new conda environment</span>
+conda <span class="nb">env </span>create <span class="nt">-f</span> utils/environment.yml
+
+conda activate carla-env</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_environment_configuration">5.3. Environment Configuration</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Create a <code>.env</code> file in the project root with your HiveMQ credentials:
+<code>`
+HIVE_MQ_USERNAME=your_username
+HIVE_MQ_PASSWORD=your_password
+</code>`</p>
+</li>
+<li>
+<p>Ensure CARLA simulator is correctly installed.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_deployment_structure">5.4. Deployment Structure</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code>project_root/
+├── launcher.py                        # Main launcher script
+├── camera_lanes_analysis_async.py     # Main simulation script
+├── camera_lanes_analysis_sync.py      # Synchronous simulation script suite for testing and recording
+├── environment.yml                    # Conda environment configuration
+├── utils/                             # Utility modules
+│   ├── YOLOPModel.py                  # Lane detection model
+│   ├── DetectionLogger.py             # Detection event logging
+│   ├── image_cropper.py               # Image preprocessing
+│   ├── utils.py                       # General utility functions for YOLOPv2
+│   └── carla.py                       # CARLA helpers
+├── log/                               # Log storage
+│   ├── tracked/                       # Performance logs
+│   └── untracked/                     # Test result logs
+├── test_commands/                     # Test scenario files
+│   └── recorded/                      # Recorded control sequences
+├── data/                              # Model and data storage
+│   └── weights/                       # YOLOP model weights
+│       └── yolopv2.pt                 # YOLOP model file
+└── wheel_config.ini                   # Steering wheel configuration</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_running_the_system">5.5. Running the System</h3>
+<div class="paragraph">
+<p>This section describes how to run the lane detection system, including the launcher mechanism and the two operational modes: asynchronous (for normal operation) and synchronous (for testing).</p>
+</div>
+<div class="sect3">
+<h4 id="_system_launcher">5.5.1. System Launcher</h4>
+<div class="paragraph">
+<p>Our system includes a launcher component (<code>launcher.py</code>) that simplifies the startup process by coordinating the launch of both the CARLA simulator and our lane detection application. The launcher handles:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Starting the CARLA simulator with appropriate parameters</p>
+</li>
+<li>
+<p>Waiting for CARLA to fully initialize</p>
+</li>
+<li>
+<p>Launching the selected lane detection script (either asynchronous or synchronous mode)</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The launcher ensures proper sequencing and configuration, reducing errors during startup and making the system more accessible to users without extensive technical knowledge.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_asynchronous_mode">5.5.2. Asynchronous Mode</h4>
+<div class="paragraph">
+<p>The asynchronous mode (<code>camera_lanes_analysis_async.py</code>) is our primary operational script for real-time lane detection. This script:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Provides real-time lane detection with minimal latency</p>
+</li>
+<li>
+<p>Supports multiple controller inputs (steering wheel, Xbox controller, keyboard)</p>
+</li>
+<li>
+<p>Displays real-time visualization of lane detection results</p>
+</li>
+<li>
+<p>Connects to the CARLA simulator and manages all vehicle controls</p>
+</li>
+<li>
+<p>Processes camera feeds using the YOLOP model for lane detection</p>
+</li>
+<li>
+<p>Compares YOLOP detection with CARLA&#8217;s built-in lane invasion detection</p>
+</li>
+<li>
+<p>Sends notifications through MQTT for integration with other systems</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This mode is optimized for real-world performance and offers the most responsive experience when operating the system manually.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="resources/png/launcher_async.png" alt="Launcher in async mode">
+</div>
+<div class="title">Figure 4. Launcher in asynchronous mode</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_synchronous_mode_test_suite">5.5.3. Synchronous Mode (Test Suite)</h4>
+<div class="paragraph">
+<p>The synchronous mode (<code>camera_lanes_analysis_sync.py</code>) is specifically designed for testing and validation. Key features include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Fixed framerate execution for consistent, reproducible results</p>
+</li>
+<li>
+<p>Recording capability that saves control inputs (throttle, brake, steering) to JSON files</p>
+</li>
+<li>
+<p>Playback functionality to replay recorded driving sessions exactly</p>
+</li>
+<li>
+<p>Detailed statistics collection for comparing detection methods</p>
+</li>
+<li>
+<p>Support for different weather conditions through command-line options</p>
+</li>
+<li>
+<p>Logging of test results for later analysis</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The synchronous approach ensures that each frame is fully processed before moving to the next one, maintaining precise timing between simulation steps. This creates a controlled environment ideal for:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Regression testing when modifying the detection algorithm</p>
+</li>
+<li>
+<p>Comparing detection performance across different weather conditions</p>
+</li>
+<li>
+<p>Reproducing specific driving patterns to test edge cases</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="resources/png/launcher_record.png" alt="Launcher in sync mode for recording">
+</div>
+<div class="title">Figure 5. Launcher in synchronous mode for recording</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="resources/png/launcher_test.png" alt="Launcher in sync mode for playback">
+</div>
+<div class="title">Figure 6. Launcher in synchronous mode for playback</div>
+</div>
+<div class="sect4">
+<h5 id="_recording_and_playback">Recording and Playback</h5>
+<div class="paragraph">
+<p>The recording feature saves control inputs in a structured JSON format with timestamps:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="json"><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.45</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"throttle"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.8</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"brake"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"steer"</span><span class="p">:</span><span class="w"> </span><span class="mf">-0.2</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="err">...</span><span class="w">
+</span><span class="p">]</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Files are automatically named with timestamps and stored in the <code>test_commands/recorded</code> directory.</p>
+</div>
+<div class="paragraph">
+<p>To play back a recorded session:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="bash">python camera_lanes_analysis_sync.py <span class="nt">--playback</span> test_commands/recorded/control_log_20230615_143022_001.json <span class="nt">--weather</span> <span class="s2">"Clear Noon"</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This precise recording and playback capability forms the foundation of our testing methodology, ensuring consistent evaluation of detection performance across different conditions.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_troubleshooting">5.6. Troubleshooting</h3>
+<div class="sect3">
+<h4 id="_common_issues">5.6.1. Common Issues</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>CARLA Connection Failure</strong>:
+Ensure CARLA server is running on the specified host and port.</p>
+</li>
+<li>
+<p><strong>Model Initialization Error</strong>:
+Check that YOLOP model files are correctly placed in the expected directory.</p>
+</li>
+<li>
+<p><strong>Controller Not Detected</strong>:
+Verify controller is connected and correctly configured in <code>wheel_config.ini</code>.</p>
+</li>
+<li>
+<p><strong>HiveMQ Connection Failure</strong>:
+Confirm credentials in <code>.env</code> file and network connectivity to HiveMQ cloud.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_log_files">5.6.2. Log Files</h4>
+<div class="paragraph">
+<p>Examine logs in the <code>log/</code> directory for detailed error information:
+- <code>log/tracked/frame_performance_log.txt</code>: Processing performance metrics
+- <code>log/untracked/test_log.txt</code>: Test results and statistics</p>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -1522,7 +1818,7 @@ python carla_sync.py <span class="nt">--playback</span> control_log.json <span c
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2025-04-07 14:44:33 UTC
+Last updated 2025-04-07 14:48:09 UTC
 </div>
 </div>
 </body>
