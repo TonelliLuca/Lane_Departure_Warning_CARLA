@@ -63,6 +63,8 @@ import queue
 import paho.mqtt.client as mqtt
 import json
 import ssl
+import os
+from dotenv import load_dotenv
 
 if sys.version_info >= (3, 0):
 
@@ -114,6 +116,13 @@ except ImportError:
 log_file_path = "./log/tracked/frame_performance_log.txt"
 # Queue to buffer frame data for logging
 log_queue = queue.Queue()
+
+load_dotenv()
+
+username = os.getenv("HIVE_MQ_USERNAME")
+password = os.getenv("HIVE_MQ_PASSWORD")
+
+
 # ==============================================================================
 # -- Global functions ----------------------------------------------------------
 # ==============================================================================
@@ -125,7 +134,7 @@ def setup_mqtt_client():
 
     # Rest of the function remains the same
     mqtt_client.tls_set(cert_reqs=ssl.CERT_REQUIRED, tls_version=ssl.PROTOCOL_TLS)
-    mqtt_client.username_pw_set("hivemq.webclient.1744018944204", "XwFxL0.5jaTD6><9Pdh,")
+    mqtt_client.username_pw_set(username, password)
     mqtt_client.connect("68194d06420140d29c7cde00549b2f40.s1.eu.hivemq.cloud", 8883)
     mqtt_client.loop_start()
     return mqtt_client
