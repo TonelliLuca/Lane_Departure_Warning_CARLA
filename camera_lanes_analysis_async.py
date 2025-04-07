@@ -60,6 +60,9 @@ import re
 import weakref
 import threading
 import queue
+import paho.mqtt.client as mqtt
+import json
+import ssl
 
 if sys.version_info >= (3, 0):
 
@@ -115,6 +118,21 @@ log_queue = queue.Queue()
 # -- Global functions ----------------------------------------------------------
 # ==============================================================================
 
+
+def setup_mqtt_client():
+    # Use the VERSION2 of the Callback API to avoid deprecation warning
+    mqtt_client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION2, client_id="carla_lane_detector")
+
+    # Rest of the function remains the same
+    mqtt_client.tls_set(cert_reqs=ssl.CERT_REQUIRED, tls_version=ssl.PROTOCOL_TLS)
+    mqtt_client.username_pw_set("***REMOVED***", "***REMOVED***")
+    mqtt_client.connect("68194d06420140d29c7cde00549b2f40.s1.eu.hivemq.cloud", 8883)
+    mqtt_client.loop_start()
+    return mqtt_client
+
+
+# Initialize the MQTT client
+mqtt_client = setup_mqtt_client()
 
 def find_weather_presets():
     rgx = re.compile('.+?(?:(?<=[a-z])(?=[A-Z])|(?<=[A-Z])(?=[A-Z][a-z])|$)')
@@ -1041,7 +1059,22 @@ def camera_callback(image):
 
         if result is not None and result.size > 0:
             if crossing != yolop_lane_invasion_detected:
+
                 detection_logger.log_detection("YOLOP", crossing)
+                if crossing:
+                    mqtt_message = {
+                        "event": "lane_crossing",
+                        "system": "YOLOP",
+                        "crossing": crossing,
+                        "timestamp": datetime.now().isoformat(),
+                    }
+
+                    mqtt_client.publish(
+                        topic="carla/lane_detection",
+                        payload=json.dumps(mqtt_message),
+                        qos=1
+                    )
+
             video_output_seg = result
             # Set the global YOLOP flag directly from the crossing result
             yolop_lane_invasion_detected = crossing
@@ -1234,7 +1267,8 @@ def game_loop(args):
 
 
     finally:
-
+        mqtt_client.loop_stop()
+        mqtt_client.disconnect()
         if world is not None:
             world.destroy()
 
