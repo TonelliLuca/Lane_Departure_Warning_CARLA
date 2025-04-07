@@ -97,5 +97,71 @@ if crossing != yolop_lane_invasion_detected:
 def lane_invasion_callback(event):
     detection_logger.log_detection("CARLA", True)
 
+==== Detection Agreement Logic
+An important aspect of our testing framework is the ability to identify when both detection systems agree on a lane crossing event. Since the YOLOP vision-based system and CARLA's ground truth sensor doesn't trigger at exactly the same moment, we implement a time window-based agreement system.
 
-Risultati
+The agreement_window parameter (set to 2 seconds by default) defines the maximum time difference allowed between YOLOP and CARLA detections for them to be considered as referring to the same lane crossing event.
+When calculating statistics, the system groups detections into crossing events and identifies agreements:
+[source,python]
+def get_stats(self):
+crossing_events = []
+current_event = {"start": None, "end": None, "yolop": False, "carla": False}
+sorted_detections = sorted(self.detections, key=lambda x: x[0])
+for timestamp, detector, status, _ in sorted_detections:
+    # Only consider positive crossing detections
+    if not status:
+        continue
+    if current_event["start"] is None:
+        # Start a new event
+        current_event = {
+            "start": timestamp,
+            "end": timestamp,
+            "yolop": detector == "YOLOP",
+            "carla": detector == "CARLA"
+        }
+    elif timestamp - current_event["end"] > self.agreement_window:
+        # This detection is beyond our time window, save the current event and start a new one
+        crossing_events.append(current_event)
+        current_event = {
+            "start": timestamp,
+            "end": timestamp,
+            "yolop": detector == "YOLOP",
+            "carla": detector == "CARLA"
+        }
+    else:
+        # This detection belongs to the current event
+        current_event["end"] = timestamp
+        if detector == "YOLOP":
+            current_event["yolop"] = True
+        else:
+            current_event["carla"] = True
+
+This approach groups detections that occur within the agreement window into a single "crossing event." If both YOLOP and CARLA detect a lane crossing within this time window, it's considered an agreement.
+
+==== Test Results Visualization
+During playback mode, the system displays real-time statistics about detection performance, including:
+
+* Total number of detection events
+* YOLOP-only detections (potential false positives)
+* CARLA-only detections (potentially missed by our system)
+* Confirmed crossings (when both systems agree)
+
+[source,python]
+def update_test_display(test_display):
+    stats = detection_logger.get_stats()
+    cv2.putText(test_display, f"YOLOP only: {stats.get('yolop_only', 0)}",
+                (30, 170), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 128, 0), 1, cv2.LINE_AA)
+    cv2.putText(test_display, f"CARLA only: {stats.get('carla_only', 0)}",
+                (30, 210), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 1, cv2.LINE_AA)
+    cv2.putText(test_display,
+                f"Confirmed Crossings: {stats.get('agreements', 0)}",
+                (30, 250), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 0), 1, cv2.LINE_AA)
+
+=== Environmental Testing
+The system supports testing under various weather conditions using CARLA's weather presets. This allows us to evaluate the robustness of our lane detection algorithm across different lighting and atmospheric conditions:
+[source,bash]
+python carla_sync.py --playback control_log.json --weather "Cloudy Noon"
+python carla_sync.py --playback control_log.json --weather "WetNoon"
+python carla_sync.py --playback control_log.json --weather "HardRainNoon"
+
+The test results for each scenario are logged to log/untracked/test_log.txt, creating a comprehensive record of algorithm performance across different conditions.
