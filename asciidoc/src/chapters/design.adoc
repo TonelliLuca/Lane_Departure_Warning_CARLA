@@ -58,6 +58,7 @@ This transformation:
 - Creates a uniform representation where lane width is consistent regardless of distance
 - Makes subsequent lane detection calculations more straightforward by converting to a 2D plane
 
+.Perspective Change Visualization
 image::../resources/png/trapezoid_warped.png[Perspective Change Visualization]
 
 ==== Format Conversion for Neural Network
