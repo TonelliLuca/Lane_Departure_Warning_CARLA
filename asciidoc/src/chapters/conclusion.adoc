@@ -1,3 +1,10 @@
 == Conclusion
 
 In general we think that the project is a success. We have learned a lot about the
+
+
+[bibliography]
+
+* [[[ldw-study]]] "The effectiveness of lane departure warning systems—A reduction in real-world passenger car injury crashes" https://pubmed.ncbi.nlm.nih.gov/27624313/[Pubmed]
+
+* [[[yolopv2]]] "YOLOPv2 GitHub Repository" link:https://github.com/CAIC-AD/YOLOPv2

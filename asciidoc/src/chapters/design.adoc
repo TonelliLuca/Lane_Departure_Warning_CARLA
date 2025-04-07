@@ -38,6 +38,7 @@ src_points = np.float32([
 
 This trapezoid specifically targets the road area ahead of the vehicle, eliminating irrelevant portions of the image such as the sky, roadside objects, and the vehicle's hood that could interfere with lane detection.
 
+.Trapezoid Cut Visualization
 image::../resources/png/trapezoid_visualization.png[Trapezoid Cut Visualization]
 
 ==== Perspective Transformation
@@ -73,7 +74,7 @@ This standardized preprocessing pipeline ensures that our lane detection system 
 
 === Picture Processing
 
-The image processing pipeline through YOLOPv2 involves several sophisticated steps to detect lane markings and potential lane departures:
+The image processing pipeline through YOLOPv2 involves several sophisticated steps to detect lane markings and potential lane departures.
 
 ==== Neural Network Inference
 Each captured frame from the vehicle-mounted camera undergoes analysis through a YOLOPv2 (You Only Look Once Panoptic) model:
@@ -185,7 +186,7 @@ The system classifies the vehicle's position relative to the lanes into several 
 * **CROSSING: LEFT/RIGHT** - Vehicle is significantly crossing lane boundaries
 * **CROSSING: SBX** - Single box detection indicating probable crossing
 
-This detailed analysis enables the lane departure warning system to accurately detect unintentional lane departures and alert the driver in real-time, enhancing road safety.
+This detailed analysis enables the lane departure warning system to accurately detect unintentional lane departures and alert the driver in real-time.
 
 === Technologies Used
 
@@ -221,23 +222,13 @@ YOLOPv2 offers several critical advantages for lane departure warning applicatio
 4. *Memory Efficiency*: Shared feature extraction reduces computational overhead
 5. *Integration Potential*: The multi-task architecture allows expansion to additional ADAS functions with minimal additional hardware
 
-The official implementation of YOLOPv2 is available on GitHub:
-
-link:https://github.com/CAIC-AD/YOLOPv2[YOLOPv2 GitHub Repository]
-
 === Event Publishing in MQTT Broker
 
 The Lane Departure Warning system utilizes MQTT (Message Queuing Telemetry Transport) protocol to publish events when lane departures are detected. This enables real-time communication between different components of the autonomous driving system and facilitates integration with warning systems, data logging services, and monitoring applications.
 
 ==== HiveMQ Cloud Platform
 
-For this project, we use HiveMQ Cloud as our MQTT broker service, which provides:
-
-* *Secure Communication*: TLS/SSL encrypted connections with certificate validation
-* *High Availability*: 99.9% uptime SLA for reliable message delivery
-* *Scalability*: Support for thousands of concurrent connections
-* *Compliance*: MQTT 3.1.1 and MQTT 5.0 protocol support
-* *Global Accessibility*: Low-latency access from anywhere in the world
+For this project, we use HiveMQ Cloud as our MQTT broker service. HiveMQ Cloud ensures secure communication through TLS/SSL encrypted connections that include proper certificate validation, providing peace of mind in terms of security. Furthermore, it guarantees a high level of availability with a 99.9% uptime service level agreement, which is critical for reliable message delivery. The service is designed to scale, seamlessly supporting thousands of concurrent connections, and adheres to both MQTT 3.1.1 and MQTT 5.0 protocol standards. Its global infrastructure ensures that users have low-latency access from anywhere in the world.
 
 ==== MQTT Client Configuration
 

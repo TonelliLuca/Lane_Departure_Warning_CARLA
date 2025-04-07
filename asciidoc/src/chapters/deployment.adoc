@@ -7,8 +7,7 @@ This section outlines the deployment process for the lane detection system, cove
 #### Hardware Requirements
 * NVIDIA GPU (recommended for optimal YOLOP model performance)
 * Minimum 8GB RAM
-* Multicore processor
-* 10GB free disk space
+* 20GB free disk space
 
 #### Software Requirements
 * Windows 10/11 or Linux (Ubuntu 18.04+)
@@ -28,6 +27,7 @@ conda activate carla-env
 ### Environment Configuration
 
 1. Create a `.env` file in the project root with your HiveMQ credentials:
+
    ```
    HIVE_MQ_USERNAME=your_username
    HIVE_MQ_PASSWORD=your_password
@@ -62,7 +62,7 @@ project_root/
 
 ### Running the System
 
-This section describes how to run the lane detection system, including the launcher mechanism and the two operational modes: asynchronous (for normal operation) and synchronous (for testing).
+This section describes how to run the lane detection system, including the launcher mechanism and the two operational modes: asynchronous (for normal usage) and synchronous (for testing).
 
 #### System Launcher
 
@@ -79,7 +79,7 @@ The launcher ensures proper sequencing and configuration, reducing errors during
 The asynchronous mode (`camera_lanes_analysis_async.py`) is our primary operational script for real-time lane detection. This script:
 
 - Provides real-time lane detection with minimal latency
-- Supports multiple controller inputs (steering wheel, Xbox controller, keyboard)
+- Supports multiple controller inputs (G29 Steering wheel, Xbox One controller, Keyboard)
 - Displays real-time visualization of lane detection results
 - Connects to the CARLA simulator and manages all vehicle controls
 - Processes camera feeds using the YOLOP model for lane detection
@@ -89,7 +89,7 @@ The asynchronous mode (`camera_lanes_analysis_async.py`) is our primary operatio
 This mode is optimized for real-world performance and offers the most responsive experience when operating the system manually.
 
 .Launcher in asynchronous mode
-image::../resources/png/launcher_async.png[Launcher in async mode]
+image::../resources/png/launcher_async.png[Launcher in async mode, width=50%]
 
 #### Synchronous Mode (Test Suite)
 
@@ -102,44 +102,12 @@ The synchronous mode (`camera_lanes_analysis_sync.py`) is specifically designed 
 - Support for different weather conditions through command-line options
 - Logging of test results for later analysis
 
-The synchronous approach ensures that each frame is fully processed before moving to the next one, maintaining precise timing between simulation steps. This creates a controlled environment ideal for:
-
-- Regression testing when modifying the detection algorithm
-- Comparing detection performance across different weather conditions
-- Reproducing specific driving patterns to test edge cases
 
 .Launcher in synchronous mode for recording
-image::../resources/png/launcher_record.png[Launcher in sync mode for recording]
+image::../resources/png/launcher_record.png[Launcher in sync mode for recording, width=50%]
 
 .Launcher in synchronous mode for playback
-image::../resources/png/launcher_test.png[Launcher in sync mode for playback]
-
-##### Recording and Playback
-
-The recording feature saves control inputs in a structured JSON format with timestamps:
-
-```json
-[
-  {
-    "timestamp": 1.45,
-    "throttle": 0.8,
-    "brake": 0.0,
-    "steer": -0.2
-  },
-  ...
-]
-```
-
-Files are automatically named with timestamps and stored in the `test_commands/recorded` directory.
-
-To play back a recorded session:
-
-```bash
-python camera_lanes_analysis_sync.py --playback test_commands/recorded/control_log_20230615_143022_001.json --weather "Clear Noon"
-```
-
-This precise recording and playback capability forms the foundation of our testing methodology, ensuring consistent evaluation of detection performance across different conditions.
-
+image::../resources/png/launcher_test.png[Launcher in sync mode for playback, width=50%]
 
 ### Troubleshooting
 
@@ -160,5 +128,6 @@ This precise recording and playback capability forms the foundation of our testi
 #### Log Files
 
 Examine logs in the `log/` directory for detailed error information:
-- `log/tracked/frame_performance_log.txt`: Processing performance metrics
-- `log/untracked/test_log.txt`: Test results and statistics
+
+* `log/tracked/frame_performance_log.txt`: Processing performance metrics
+* `log/untracked/test_log.txt`: Test results and statistics
