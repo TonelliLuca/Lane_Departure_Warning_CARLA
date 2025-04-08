@@ -188,6 +188,9 @@ The system classifies the vehicle's position relative to the lanes into several 
 
 This detailed analysis enables the lane departure warning system to accurately detect unintentional lane departures and alert the driver in real-time.
 
+.Lane detection in action
+image::../resources/gif/rgb_out_record.gif[Lane detection in action, width=60%]
+
 === Technologies Used
 
 In our project, we employed YOLOPv2, an advanced multi-task learning network designed for panoptic driving perception. This model efficiently integrates three critical tasks in autonomous driving: traffic object detection, drivable area segmentation, and lane detection. By utilizing a shared encoder and task-specific decoders, YOLOPv2 achieves high accuracy and speed, making it suitable for real-time applications.
