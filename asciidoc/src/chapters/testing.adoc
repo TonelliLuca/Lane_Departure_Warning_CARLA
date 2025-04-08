@@ -164,3 +164,50 @@ python carla_sync.py --playback control_log.json --weather "WetNoon"
 python carla_sync.py --playback control_log.json --weather "HardRainNoon"
 
 The test results for each scenario are logged to log/untracked/test_log.txt, creating a comprehensive record of algorithm performance across different conditions.
+
+=== Tests Results
+
+The diagrams below show comparison test results between two lane departure detection systems - YOLOP and CARLA. YOLOP is our vision-based system based on YOLOPv2 that infers lane departures, instead CARLA is the sensor that directly indicates when there is a lane invasion.
+
+We defined various test scenarios, recorded with our recording system and tested with the playback system. These scenarios include:
+
+* short_left_crossing
+* straight
+* drift
+* long
+* 5_crossing
+
+Then, we tested the scenarios with different weather conditions, including:
+* Clear Sunset
+* Cloudy Night
+* Mid Rainy Night (Only for short tests)
+* Mid Rain Sunset
+* Wet Noon
+
+==== Analysis By Test Scenario
+
+.5 Crossing Test
+image::../resources/png/5_crossing_comparison.png[5 Crossing Test]
+
+In the "5_crossing" test, both YOLOP and CARLA systems show perfect detection rates across all weather conditions, with both systems detecting exactly 5 lane departure events in clear sunset, cloudy night, and mid-rain sunset conditions.
+
+.Drift Test
+image::../resources/png/drift_comparison.png[Drift Test]
+
+The "drift" test shows that it is very normal for only YOLOP to detect drifts, as the lanes are not actually crossed. YOLOP registers between 2-4 events depending on weather conditions, with peaks during rainy conditions, while CARLA's lack of detections confirms that no genuine lane crossings occurred.
+
+.Long Test
+image::../resources/png/long_comparison.png[Long Test]
+
+The "long" test shows that our system is quite reliable on detecting a lane invasion event, with a detection rate of 100% across all weather conditions.
+
+.Short Left Crossing Test
+image::../resources/png/short_left_crossing_comparison.png[Short Left Crossing Test]
+
+The "short_left_crossing" test shows that our system is quite reliable on detecting a lane invasion event, with a detection rate of 100% across all weather conditions.
+However, our system shows a significant number of false positives, especially in the Mid Rainy Night condition, where it detects 2 events while CARLA only detects 1. This indicates that our system is more sensitive to lane crossings in adverse weather conditions, which may lead to false alarms.
+
+.Straight Test
+image::../resources/png/straight_comparison.png[Straight Test]
+
+The "straight" test is made to not do any lane invasion or drift at all. The results show that both systems are able to detect the absence of lane crossings, with CARLA showing 0 detections and YOLOP showing false positive detections in rainy conditions. This indicates that our system is not perfect and can still produce false positives even when no lane crossings occur.
