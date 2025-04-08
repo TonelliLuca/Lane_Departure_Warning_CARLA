@@ -19,7 +19,7 @@ This section outlines the deployment process for the lane detection system, cove
 
 ```bash
 # Create a new conda environment
-conda env create -f utils/environment.yml
+conda env create -f environment.yml
 
 conda activate carla-env
 ```
@@ -39,24 +39,25 @@ conda activate carla-env
 
 ```
 project_root/
-├── launcher.py                        # Main launcher script
+├── analysis/                          # Analysis modules
 ├── camera_lanes_analysis_async.py     # Main simulation script
 ├── camera_lanes_analysis_sync.py      # Synchronous simulation script suite for testing and recording
+├── data/                              # Model and data storage
+│   └── weights/                       # YOLOP model weights
+│       └── yolopv2.pt                 # YOLOP model file
 ├── environment.yml                    # Conda environment configuration
-├── utils/                             # Utility modules
-│   ├── YOLOPModel.py                  # Lane detection model
-│   ├── DetectionLogger.py             # Detection event logging
-│   ├── image_cropper.py               # Image preprocessing
-│   ├── utils.py                       # General utility functions for YOLOPv2
-│   └── carla.py                       # CARLA helpers
+├── launcher.py                        # Main launcher script
 ├── log/                               # Log storage
 │   ├── tracked/                       # Performance logs
 │   └── untracked/                     # Test result logs
 ├── test_commands/                     # Test scenario files
 │   └── recorded/                      # Recorded control sequences
-├── data/                              # Model and data storage
-│   └── weights/                       # YOLOP model weights
-│       └── yolopv2.pt                 # YOLOP model file
+├── utils/                             # Utility modules
+│   ├── YOLOPModel.py                  # Lane detection model
+│   ├── carla.py                       # CARLA helpers
+│   ├── DetectionLogger.py             # Detection event logging
+│   ├── image_cropper.py               # Image preprocessing
+│   └── utils.py                       # General utility functions for YOLOPv2
 └── wheel_config.ini                   # Steering wheel configuration
 ```
 
