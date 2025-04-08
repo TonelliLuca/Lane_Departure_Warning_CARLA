@@ -227,7 +227,7 @@ The lane detection model demonstrates efficient real-time performance across mul
  Maximum processing time: 0.0615 seconds (61.5ms)
 ** Typical processing range: 0.045-0.055 seconds
 
-This performance translates to approximately *16-22 frames per second* during steady-state operation, which meets the requirements for real-time lane departure warning systems. The consistent processing time demonstrates the model's stability across varying road conditions and lighting environments.
+This performance translates to approximately *16-22 frames per second* during steady-state operation.
 
 .Processing Time Distribution
 [cols="2,1", options="header"]
@@ -239,3 +239,5 @@ This performance translates to approximately *16-22 frames per second* during st
 |Steady-state maximum |0.0615
 |Steady-state average |~0.0475
 |===
+
+This analysis result are obtained through a laptop with a RTX4070 GPU.
