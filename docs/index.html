@@ -627,7 +627,12 @@ pre.rouge .gs {
 <li><a href="#_troubleshooting">5.6. Troubleshooting</a></li>
 </ul>
 </li>
-<li><a href="#_conclusion">6. Conclusion</a></li>
+<li><a href="#_conclusion">6. Conclusion</a>
+<ul class="sectlevel2">
+<li><a href="#_limitations_and_challenges">6.1. Limitations and Challenges</a></li>
+<li><a href="#_future_work">6.2. Future Work</a></li>
+</ul>
+</li>
 <li><a href="#_bibliography">7. Bibliography</a></li>
 </ul>
 </div>
@@ -1232,7 +1237,7 @@ pre.rouge .gs {
 <h2 id="_testing">4. Testing</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Our ADAS requires rigorous testing to ensure reliability and safety. To facilitate this, we&#8217;ve implemented a comprehensive testing framework with recording and playback capabilities that allow us to reproduce specific driving scenarios consistently.</p>
+<p>Our ADAS requires rigorous testing to ensure reliability and safety. To facilitate this, we&#8217;ve implemented a comprehensive testing framework with recording and playback capabilities that allow us to reproduce specific driving scenarios consistently</p>
 </div>
 <div class="sect2">
 <h3 id="_record_and_playback_mode">4.1. Record and Playback Mode</h3>
@@ -1489,7 +1494,7 @@ python carla_sync.py <span class="nt">--playback</span> control_log.json <span c
 <p>The diagrams below show comparison test results between two lane departure detection systems - YOLOP and CARLA. YOLOP is our vision-based system based on YOLOPv2 that infers lane departures, instead CARLA is the sensor that directly indicates when there is a lane invasion.</p>
 </div>
 <div class="paragraph">
-<p>We defined various test scenarios, recorded with our recording system and tested with the playback system. These scenarios include:</p>
+<p>We defined various test scenarios, recorded with our recording system and tested with the playback system on a multi-lane road that circumnavigates the city in the Town 4 map. These scenarios include:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1722,15 +1727,16 @@ conda activate carla-env</code></pre>
 <p>Create a <code>.env</code> file in the project root with your HiveMQ credentials:</p>
 <div class="literalblock">
 <div class="content">
-<pre>```
-HIVE_MQ_USERNAME=your_username
-HIVE_MQ_PASSWORD=your_password
-```</pre>
+<pre>HIVE_MQ_USERNAME=your_username
+HIVE_MQ_PASSWORD=your_password</pre>
 </div>
 </div>
 </li>
 <li>
 <p>Ensure CARLA simulator is correctly installed.</p>
+</li>
+<li>
+<p><a href="https://github.com/CAIC-AD/YOLOPv2/releases/download/V0.0.1/yolopv2.pt">Download</a> the YOLOP model weights from and place them in the <code>data/weights/</code> directory.</p>
 </li>
 </ol>
 </div>
@@ -1919,7 +1925,63 @@ Confirm credentials in <code>.env</code> file and network connectivity to HiveMQ
 <h2 id="_conclusion">6. Conclusion</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>In general we think that the project is a success. We have learned a lot about the</p>
+<p>Our Lane Departure Warning system implementation successfully demonstrates the viability
+of vision-based approaches for detecting unintentional lane departures in various driving scenarios.
+Throughout this project, we achieved several key objectives:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Successfully implemented a real-time lane detection system using YOLOPv2 with inference times averaging approximately 0.0475 seconds (47.5ms) per frame</p>
+</li>
+<li>
+<p>Developed a comprehensive testing framework with recording and playback capabilities to ensure consistent evaluation</p>
+</li>
+<li>
+<p>Validated our approach against CARLA&#8217;s ground truth across multiple driving scenarios and environmental conditions</p>
+</li>
+<li>
+<p>Established a reliable event publishing system using MQTT for integration with other vehicle systems</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The detection performance analysis demonstrated good agreement between our vision-based approach and CARLA&#8217;s built-in lane invasion detection
+across most test scenarios. Our system particularly good at detecting actual lane crossing events with high reliability,
+though it occasionally exhibited increased sensitivity in adverse weather conditions.</p>
+</div>
+<div class="sect2">
+<h3 id="_limitations_and_challenges">6.1. Limitations and Challenges</h3>
+<div class="paragraph">
+<p>We encountered several challenges during implementation and testing.
+Our system demonstrated higher sensitivity in rainy conditions, resulting in occasional false positives.
+Additionally, we had to exclude the rainy night condition from the long test scenario due to a significant issue where the CARLA sensor failed
+to detect crossings. This sensor failure caused our model to behave unpredictably,
+including skipping frames, making meaningful comparison impossible.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_future_work">6.2. Future Work</h3>
+<div class="paragraph">
+<p>Based on our findings, several avenues for future improvement include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Implementing adaptive detection thresholds based on environmental conditions to reduce false positives in adverse weather</p>
+</li>
+<li>
+<p>Developing a more robust testing methodology less dependent on CARLA&#8217;s built-in sensors</p>
+</li>
+<li>
+<p>Extending the system to handle more complex road scenarios, including construction zones and degraded lane markings</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Overall, this project demonstrates the effectiveness of modern computer vision approaches for lane departure warning systems while highlighting
+areas where further research and development are necessary to achieve production-level reliability across all driving conditions.</p>
+</div>
 </div>
 </div>
 </div>
@@ -1932,7 +1994,10 @@ Confirm credentials in <code>.env</code> file and network connectivity to HiveMQ
 <p><a id="ldw-study"></a>[ldw-study] "The effectiveness of lane departure warning systems—A reduction in real-world passenger car injury crashes" <a href="https://pubmed.ncbi.nlm.nih.gov/27624313/">Pubmed</a></p>
 </li>
 <li>
-<p><a id="yolopv2"></a>[yolopv2] "YOLOPv2 GitHub Repository" <a href="https://github.com/CAIC-AD/YOLOPv2" class="bare">https://github.com/CAIC-AD/YOLOPv2</a> [Github]</p>
+<p><a id="yolopv2"></a>[yolopv2] "YOLOPv2 GitHub Repository" <a href="https://github.com/CAIC-AD/YOLOPv2">Github</a></p>
+</li>
+<li>
+<p><a id="yolopv2-ikomia"></a>[yolopv2-ikomia] "YOLOP v2 Explained: A Deep Dive into Panoptic Driving Perception" <a href="https://www.ikomia.ai/blog/yolop-v2-panoptic-driving-perception">ikomia</a></p>
 </li>
 </ul>
 </div>
@@ -1941,7 +2006,7 @@ Confirm credentials in <code>.env</code> file and network connectivity to HiveMQ
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2025-04-08 14:33:44 UTC
+Last updated 2025-04-08 14:57:07 UTC
 </div>
 </div>
 </body>
