@@ -1038,6 +1038,12 @@ pre.rouge .gs {
 <div class="paragraph">
 <p>This detailed analysis enables the lane departure warning system to accurately detect unintentional lane departures and alert the driver in real-time.</p>
 </div>
+<div class="imageblock">
+<div class="content">
+<img src="resources/gif/rgb_out_record.gif" alt="Lane detection in action" width="60%">
+</div>
+<div class="title">Figure 5. Lane detection in action</div>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -1525,8 +1531,8 @@ python carla_sync.py <span class="nt">--playback</span> control_log.json <span c
 <h3 id="_environment_setup">5.2. Environment Setup</h3>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="bash"><span class="c"># Create a new conda environment</span>
-conda <span class="nb">env </span>create <span class="nt">-f</span> utils/environment.yml
+<pre class="rouge highlight"><code data-lang="anaconda"># Create a new conda environment
+conda env create -f environment.yml
 
 conda activate carla-env</code></pre>
 </div>
@@ -1558,24 +1564,25 @@ HIVE_MQ_PASSWORD=your_password
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight"><code>project_root/
-├── launcher.py                        # Main launcher script
+├── analysis/                          # Analysis modules
 ├── camera_lanes_analysis_async.py     # Main simulation script
 ├── camera_lanes_analysis_sync.py      # Synchronous simulation script suite for testing and recording
+├── data/                              # Model and data storage
+│   └── weights/                       # YOLOP model weights
+│       └── yolopv2.pt                 # YOLOP model file
 ├── environment.yml                    # Conda environment configuration
-├── utils/                             # Utility modules
-│   ├── YOLOPModel.py                  # Lane detection model
-│   ├── DetectionLogger.py             # Detection event logging
-│   ├── image_cropper.py               # Image preprocessing
-│   ├── utils.py                       # General utility functions for YOLOPv2
-│   └── carla.py                       # CARLA helpers
+├── launcher.py                        # Main launcher script
 ├── log/                               # Log storage
 │   ├── tracked/                       # Performance logs
 │   └── untracked/                     # Test result logs
 ├── test_commands/                     # Test scenario files
 │   └── recorded/                      # Recorded control sequences
-├── data/                              # Model and data storage
-│   └── weights/                       # YOLOP model weights
-│       └── yolopv2.pt                 # YOLOP model file
+├── utils/                             # Utility modules
+│   ├── YOLOPModel.py                  # Lane detection model
+│   ├── carla.py                       # CARLA helpers
+│   ├── DetectionLogger.py             # Detection event logging
+│   ├── image_cropper.py               # Image preprocessing
+│   └── utils.py                       # General utility functions for YOLOPv2
 └── wheel_config.ini                   # Steering wheel configuration</code></pre>
 </div>
 </div>
@@ -1644,7 +1651,7 @@ HIVE_MQ_PASSWORD=your_password
 <div class="content">
 <img src="resources/png/launcher_async.png" alt="Launcher in async mode" width="50%">
 </div>
-<div class="title">Figure 5. Launcher in asynchronous mode</div>
+<div class="title">Figure 6. Launcher in asynchronous mode</div>
 </div>
 </div>
 <div class="sect3">
@@ -1678,13 +1685,13 @@ HIVE_MQ_PASSWORD=your_password
 <div class="content">
 <img src="resources/png/launcher_record.png" alt="Launcher in sync mode for recording" width="50%">
 </div>
-<div class="title">Figure 6. Launcher in synchronous mode for recording</div>
+<div class="title">Figure 7. Launcher in synchronous mode for recording</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="resources/png/launcher_test.png" alt="Launcher in sync mode for playback" width="50%">
 </div>
-<div class="title">Figure 7. Launcher in synchronous mode for playback</div>
+<div class="title">Figure 8. Launcher in synchronous mode for playback</div>
 </div>
 </div>
 </div>
@@ -1753,7 +1760,7 @@ Confirm credentials in <code>.env</code> file and network connectivity to HiveMQ
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2025-04-08 13:32:19 UTC
+Last updated 2025-04-08 14:05:28 UTC
 </div>
 </div>
 </body>
