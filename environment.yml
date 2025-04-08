@@ -164,4 +164,5 @@ dependencies:
       - urllib3==1.26.13
       - dotenv==0.9.9
       - python-dotenv==0.21.1
+      - paho-mqtt==2.1.0
 prefix: C:\Users\erag0\anaconda3\envs\carla-env-test
