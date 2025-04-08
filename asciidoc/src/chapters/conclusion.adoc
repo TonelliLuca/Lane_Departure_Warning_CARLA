@@ -37,4 +37,6 @@ areas where further research and development are necessary to achieve production
 
 * [[[ldw-study]]] "The effectiveness of lane departure warning systems—A reduction in real-world passenger car injury crashes" https://pubmed.ncbi.nlm.nih.gov/27624313/[Pubmed]
 
-* [[[yolopv2]]] "YOLOPv2 GitHub Repository" https://github.com/CAIC-AD/YOLOPv2 [Github]
+* [[[yolopv2]]] "YOLOPv2 GitHub Repository" https://github.com/CAIC-AD/YOLOPv2[Github]
+
+* [[[yolopv2-ikomia]]] "YOLOP v2 Explained: A Deep Dive into Panoptic Driving Perception" https://www.ikomia.ai/blog/yolop-v2-panoptic-driving-perception[ikomia]

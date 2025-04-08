@@ -28,12 +28,14 @@ conda activate carla-env
 
 1. Create a `.env` file in the project root with your HiveMQ credentials:
 
-   ```
+
    HIVE_MQ_USERNAME=your_username
    HIVE_MQ_PASSWORD=your_password
-   ```
+
 
 2. Ensure CARLA simulator is correctly installed.
+
+3. https://github.com/CAIC-AD/YOLOPv2/releases/download/V0.0.1/yolopv2.pt[Download] the YOLOP model weights from and place them in the `data/weights/` directory.
 
 ### Deployment Structure
 
