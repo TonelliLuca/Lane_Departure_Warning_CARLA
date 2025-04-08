@@ -1,7 +1,36 @@
 == Conclusion
 
-In general we think that the project is a success. We have learned a lot about the
+Our Lane Departure Warning system implementation successfully demonstrates the viability
+of vision-based approaches for detecting unintentional lane departures in various driving scenarios.
+Throughout this project, we achieved several key objectives:
 
+* Successfully implemented a real-time lane detection system using YOLOPv2 with inference times averaging approximately 0.0475 seconds (47.5ms) per frame
+* Developed a comprehensive testing framework with recording and playback capabilities to ensure consistent evaluation
+* Validated our approach against CARLA's ground truth across multiple driving scenarios and environmental conditions
+* Established a reliable event publishing system using MQTT for integration with other vehicle systems
+
+The detection performance analysis demonstrated good agreement between our vision-based approach and CARLA's built-in lane invasion detection
+across most test scenarios. Our system particularly good at detecting actual lane crossing events with high reliability,
+though it occasionally exhibited increased sensitivity in adverse weather conditions.
+
+=== Limitations and Challenges
+
+We encountered several challenges during implementation and testing.
+Our system demonstrated higher sensitivity in rainy conditions, resulting in occasional false positives.
+Additionally, we had to exclude the rainy night condition from the long test scenario due to a significant issue where the CARLA sensor failed
+to detect crossings. This sensor failure caused our model to behave unpredictably,
+including skipping frames, making meaningful comparison impossible.
+
+=== Future Work
+
+Based on our findings, several avenues for future improvement include:
+
+* Implementing adaptive detection thresholds based on environmental conditions to reduce false positives in adverse weather
+* Developing a more robust testing methodology less dependent on CARLA's built-in sensors
+* Extending the system to handle more complex road scenarios, including construction zones and degraded lane markings
+
+Overall, this project demonstrates the effectiveness of modern computer vision approaches for lane departure warning systems while highlighting
+areas where further research and development are necessary to achieve production-level reliability across all driving conditions.
 
 == Bibliography
 [bibliography]
