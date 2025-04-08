@@ -178,6 +178,7 @@ We defined various test scenarios, recorded with our recording system and tested
 * 5_crossing
 
 Then, we tested the scenarios with different weather conditions, including:
+
 * Clear Sunset
 * Cloudy Night
 * Mid Rainy Night (Only for short tests)
@@ -211,3 +212,30 @@ However, our system shows a significant number of false positives, especially in
 image::../resources/png/straight_comparison.png[Straight Test]
 
 The "straight" test is made to not do any lane invasion or drift at all. The results show that both systems are able to detect the absence of lane crossings, with CARLA showing 0 detections and YOLOP showing false positive detections in rainy conditions. This indicates that our system is not perfect and can still produce false positives even when no lane crossings occur.
+
+==== Performance Analysis
+We logged also the amount of time taken to do the inference of the image via the lane detection system. The results are shown in the following diagram, for the case of the Long Test with the Clear Sunset weather condition.
+
+.Performance Analysis
+image::../resources/png/performance.png[Performance Analysis]
+
+The lane detection model demonstrates efficient real-time performance across multiple frames. Analysis of the processing logs revealed:
+
+* *Initialization overhead*: The first frames showed significantly longer processing times (1.4611s and 0.1936s), representing model initialization and resource allocation
+* *Steady-state performance*:
+ Minimum processing time: 0.0437 seconds (43.7ms)
+ Maximum processing time: 0.0615 seconds (61.5ms)
+** Typical processing range: 0.045-0.055 seconds
+
+This performance translates to approximately *16-22 frames per second* during steady-state operation, which meets the requirements for real-time lane departure warning systems. The consistent processing time demonstrates the model's stability across varying road conditions and lighting environments.
+
+.Processing Time Distribution
+[cols="2,1", options="header"]
+|===
+|Processing Phase |Time (seconds)
+|Initialization (first frame) |1.4611
+|Secondary initialization |0.1936
+|Steady-state minimum |0.0437
+|Steady-state maximum |0.0615
+|Steady-state average |~0.0475
+|===
