@@ -1,6 +1,6 @@
 == Testing
 
-Our ADAS requires rigorous testing to ensure reliability and safety. To facilitate this, we've implemented a comprehensive testing framework with recording and playback capabilities that allow us to reproduce specific driving scenarios consistently.
+Our ADAS requires rigorous testing to ensure reliability and safety. To facilitate this, we've implemented a comprehensive testing framework with recording and playback capabilities that allow us to reproduce specific driving scenarios consistently
 
 === Record and Playback Mode
 ==== Record Mode
@@ -169,7 +169,7 @@ The test results for each scenario are logged to log/untracked/test_log.txt, cre
 
 The diagrams below show comparison test results between two lane departure detection systems - YOLOP and CARLA. YOLOP is our vision-based system based on YOLOPv2 that infers lane departures, instead CARLA is the sensor that directly indicates when there is a lane invasion.
 
-We defined various test scenarios, recorded with our recording system and tested with the playback system. These scenarios include:
+We defined various test scenarios, recorded with our recording system and tested with the playback system on a multi-lane road that circumnavigates the city in the Town 4 map. These scenarios include:
 
 * short_left_crossing
 * straight
