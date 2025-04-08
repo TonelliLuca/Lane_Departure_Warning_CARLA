@@ -101,19 +101,11 @@ for test_name in test_names:
     plt.ylabel('Count')
     plt.title(f'Lane Departure Detection Comparison for Test: {test_name}')
     plt.xticks(indices, weathers, rotation=45, ha='right')
+    # Format y-axis to show integer values only
+    from matplotlib.ticker import MaxNLocator
+    plt.gca().yaxis.set_major_locator(MaxNLocator(integer=True))
     plt.legend()
     plt.tight_layout()
-    
-    # Add values on top of bars
-    def add_labels(bars):
-        for bar in bars:
-            height = bar.get_height()
-            plt.text(bar.get_x() + bar.get_width()/2., height + 0.1,
-                    f'{int(height)}', ha='center', va='bottom')
-    
-    add_labels(yolop_bars)
-    add_labels(carla_bars)
-    add_labels(agreement_bars)
     
     # Save the plot
     plt.savefig(f'{output_dir}/{test_name}_comparison.png')
