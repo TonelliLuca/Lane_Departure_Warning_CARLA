@@ -75,6 +75,6 @@ The lane detection model demonstrates efficient real-time performance:
 - Alessandro Becci - alessandro.becci@studio.unibo.it - [GitHub](https://github.com/stormtroober)
 - Luca Tonelli - luca.tonelli11@studio.unibo.it - [GitHub](https://github.com/TonelliLuca)
 
-[Project Pages](https://tonelliluca.github.io/Lane_Departure_Warning_CARLA/)
+For further reading, [Report](https://tonelliluca.github.io/Lane_Departure_Warning_CARLA/) is available.
 
 University of Bologna - Master Degree in Computer Science and Engineering
