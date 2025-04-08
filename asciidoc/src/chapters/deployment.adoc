@@ -17,7 +17,7 @@ This section outlines the deployment process for the lane detection system, cove
 
 ### Environment Setup
 
-```bash
+```anaconda
 # Create a new conda environment
 conda env create -f environment.yml
 
