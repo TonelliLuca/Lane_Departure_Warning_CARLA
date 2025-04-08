@@ -1,18 +1,23 @@
-???TestName: dritto; Timestamp: 20250405_231805; Weather: Mid Rainy Night; PlaybackIndex: 499; Results: {'events': 5, 'yolop_only': 5, 'carla_only': 0, 'agreements': 0}
-???TestName: dritto; Timestamp: 20250405_231925; Weather: Mid Rain Sunset; PlaybackIndex: 499; Results: {'events': 3, 'yolop_only': 3, 'carla_only': 0, 'agreements': 0}
-???TestName: dritto; Timestamp: 20250405_232029; Weather: Wet Noon; PlaybackIndex: 499; Results: {'events': 1, 'yolop_only': 1, 'carla_only': 0, 'agreements': 0}
-TestName: long_test_2; Timestamp: 20250405_232234; Weather: Clear Sunset; PlaybackIndex: 843; Results: {'events': 6, 'yolop_only': 6, 'carla_only': 5, 'agreements': 5}
-TestName: long_test_2; Timestamp: 20250405_232548; Weather: Cloudy Night; PlaybackIndex: 843; Results: {'events': 7, 'yolop_only': 7, 'carla_only': 5, 'agreements': 5}
-TestName: long_test_2; Timestamp: 20250405_233520; Weather: Mid Rainy Night; PlaybackIndex: 843; Results: {'events': 3, 'yolop_only': 3, 'carla_only': 2, 'agreements': 2}
-TestName: long_test_2; Timestamp: 20250405_233725; Weather: Mid Rain Sunset; PlaybackIndex: 843; Results: {'events': 7, 'yolop_only': 7, 'carla_only': 5, 'agreements': 5}
-TestName: long_test_2; Timestamp: 20250405_233939; Weather: Wet Noon; PlaybackIndex: 843; Results: {'events': 5, 'yolop_only': 5, 'carla_only': 5, 'agreements': 5}
-TestName: sbanda; Timestamp: 20250405_234200; Weather: Clear Sunset; PlaybackIndex: 494; Results: {'events': 3, 'yolop_only': 3, 'carla_only': 0, 'agreements': 0}
-TestName: sbanda; Timestamp: 20250405_234330; Weather: Cloudy Night; PlaybackIndex: 494; Results: {'events': 3, 'yolop_only': 3, 'carla_only': 0, 'agreements': 0}
-TestName: sbanda; Timestamp: 20250405_234456; Weather: Mid Rainy Night; PlaybackIndex: 494; Results: {'events': 4, 'yolop_only': 4, 'carla_only': 0, 'agreements': 0}
-TestName: sbanda; Timestamp: 20250405_234621; Weather: Mid Rain Sunset; PlaybackIndex: 494; Results: {'events': 4, 'yolop_only': 4, 'carla_only': 0, 'agreements': 0}
-TestName: sbanda; Timestamp: 20250405_234740; Weather: Wet Noon; PlaybackIndex: 494; Results: {'events': 2, 'yolop_only': 2, 'carla_only': 0, 'agreements': 0}
-TestName: test_5_crossing; Timestamp: 20250405_235013; Weather: Clear Sunset; PlaybackIndex: 625; Results: {'events': 5, 'yolop_only': 5, 'carla_only': 5, 'agreements': 5}
-TestName: test_5_crossing; Timestamp: 20250405_235140; Weather: Cloudy Night; PlaybackIndex: 616; Results: {'events': 5, 'yolop_only': 5, 'carla_only': 5, 'agreements': 5}
-TestName: test_5_crossing; Timestamp: 20250405_235305; Weather: Mid Rainy Night; PlaybackIndex: 616; Results: {'events': 2, 'yolop_only': 2, 'carla_only': 2, 'agreements': 2}
-TestName: test_5_crossing; Timestamp: 20250405_235440; Weather: Mid Rain Sunset; PlaybackIndex: 637; Results: {'events': 5, 'yolop_only': 5, 'carla_only': 5, 'agreements': 5}
-TestName: test_5_crossing; Timestamp: 20250405_235601; Weather: Wet Noon; PlaybackIndex: 620; Results: {'events': 5, 'yolop_only': 5, 'carla_only': 5, 'agreements': 5}
+TestName: short_left_crossing; Timestamp: 20250405_181224; Weather: Clear Sunset; PlaybackIndex: 391; Results: {'events': 1, 'yolop_only': 1, 'carla_only': 1, 'agreements': 1}
+TestName: short_left_crossing; Timestamp: 20250405_181319; Weather: Cloudy Night; PlaybackIndex: 391; Results: {'events': 1, 'yolop_only': 1, 'carla_only': 1, 'agreements': 1}
+TestName: short_left_crossing; Timestamp: 20250405_182916; Weather: Mid Rainy Night; PlaybackIndex: 391; Results: {'events': 2, 'yolop_only': 2, 'carla_only': 1, 'agreements': 1}
+TestName: short_left_crossing; Timestamp: 20250405_183138; Weather: Mid Rain Sunset; PlaybackIndex: 391; Results: {'events': 1, 'yolop_only': 1, 'carla_only': 1, 'agreements': 1}
+TestName: short_left_crossing; Timestamp: 20250405_183234; Weather: Wet Noon; PlaybackIndex: 391; Results: {'events': 1, 'yolop_only': 1, 'carla_only': 1, 'agreements': 1}
+TestName: straight; Timestamp: 20250405_231530; Weather: Clear Sunset; PlaybackIndex: 499; Results: {'events': 0, 'yolop_only': 0, 'carla_only': 0, 'agreements': 0}
+TestName: straight; Timestamp: 20250405_231655; Weather: Cloudy Night; PlaybackIndex: 499; Results: {'events': 0, 'yolop_only': 0, 'carla_only': 0, 'agreements': 0}
+TestName: straight; Timestamp: 20250405_231805; Weather: Mid Rainy Night; PlaybackIndex: 499; Results: {'events': 5, 'yolop_only': 5, 'carla_only': 0, 'agreements': 0}
+TestName: straight; Timestamp: 20250405_231925; Weather: Mid Rain Sunset; PlaybackIndex: 499; Results: {'events': 3, 'yolop_only': 3, 'carla_only': 0, 'agreements': 0}
+TestName: straight; Timestamp: 20250405_232029; Weather: Wet Noon; PlaybackIndex: 499; Results: {'events': 1, 'yolop_only': 1, 'carla_only': 0, 'agreements': 0}
+TestName: drift; Timestamp: 20250405_234200; Weather: Clear Sunset; PlaybackIndex: 494; Results: {'events': 3, 'yolop_only': 3, 'carla_only': 0, 'agreements': 0}
+TestName: drift; Timestamp: 20250405_234330; Weather: Cloudy Night; PlaybackIndex: 494; Results: {'events': 3, 'yolop_only': 3, 'carla_only': 0, 'agreements': 0}
+TestName: drift; Timestamp: 20250405_234456; Weather: Mid Rainy Night; PlaybackIndex: 494; Results: {'events': 4, 'yolop_only': 4, 'carla_only': 0, 'agreements': 0}
+TestName: drift; Timestamp: 20250405_234621; Weather: Mid Rain Sunset; PlaybackIndex: 494; Results: {'events': 4, 'yolop_only': 4, 'carla_only': 0, 'agreements': 0}
+TestName: drift; Timestamp: 20250405_234740; Weather: Wet Noon; PlaybackIndex: 494; Results: {'events': 2, 'yolop_only': 2, 'carla_only': 0, 'agreements': 0}
+TestName: long; Timestamp: 20250405_232234; Weather: Clear Sunset; PlaybackIndex: 843; Results: {'events': 6, 'yolop_only': 6, 'carla_only': 5, 'agreements': 5}
+TestName: long; Timestamp: 20250405_232548; Weather: Cloudy Night; PlaybackIndex: 843; Results: {'events': 7, 'yolop_only': 7, 'carla_only': 5, 'agreements': 5}
+TestName: long; Timestamp: 20250405_233725; Weather: Mid Rain Sunset; PlaybackIndex: 843; Results: {'events': 7, 'yolop_only': 7, 'carla_only': 5, 'agreements': 5}
+TestName: long; Timestamp: 20250405_233939; Weather: Wet Noon; PlaybackIndex: 843; Results: {'events': 5, 'yolop_only': 5, 'carla_only': 5, 'agreements': 5}
+TestName: 5_crossing; Timestamp: 20250405_235013; Weather: Clear Sunset; PlaybackIndex: 625; Results: {'events': 5, 'yolop_only': 5, 'carla_only': 5, 'agreements': 5}
+TestName: 5_crossing; Timestamp: 20250405_235140; Weather: Cloudy Night; PlaybackIndex: 616; Results: {'events': 5, 'yolop_only': 5, 'carla_only': 5, 'agreements': 5}
+TestName: 5_crossing; Timestamp: 20250405_235440; Weather: Mid Rain Sunset; PlaybackIndex: 637; Results: {'events': 5, 'yolop_only': 5, 'carla_only': 5, 'agreements': 5}
+TestName: 5_crossing; Timestamp: 20250405_235601; Weather: Wet Noon; PlaybackIndex: 620; Results: {'events': 5, 'yolop_only': 5, 'carla_only': 5, 'agreements': 5}
