@@ -2,6 +2,8 @@
 
 A vision-based Lane Departure Warning (LDW) system implemented in the CARLA autonomous driving simulator, using YOLOPv2 for real-time lane detection.
 
+![Lane Detection System in Action](https://github.com/TonelliLuca/Lane_Departure_Warning_CARLA/blob/main/asciidoc/src/resources/gif/rgb_out_record.gif)
+
 ## Features
 
 - Real-time lane detection using YOLOPv2 model
