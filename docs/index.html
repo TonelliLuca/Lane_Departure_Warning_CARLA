@@ -614,6 +614,7 @@ pre.rouge .gs {
 <li><a href="#_record_and_playback_mode">4.1. Record and Playback Mode</a></li>
 <li><a href="#_detection_logging_system">4.2. Detection Logging System</a></li>
 <li><a href="#_environmental_testing">4.3. Environmental Testing</a></li>
+<li><a href="#_tests_results">4.4. Tests Results</a></li>
 </ul>
 </li>
 <li><a href="#_deployment">5. Deployment</a>
@@ -1481,6 +1482,91 @@ python carla_sync.py <span class="nt">--playback</span> control_log.json <span c
 <p>The test results for each scenario are logged to log/untracked/test_log.txt, creating a comprehensive record of algorithm performance across different conditions.</p>
 </div>
 </div>
+<div class="sect2">
+<h3 id="_tests_results">4.4. Tests Results</h3>
+<div class="paragraph">
+<p>The diagrams below show comparison test results between two lane departure detection systems - YOLOP and CARLA. YOLOP is our vision-based system based on YOLOPv2 that infers lane departures, instead CARLA is the sensor that directly indicates when there is a lane invasion.</p>
+</div>
+<div class="paragraph">
+<p>We defined various test scenarios, recorded with our recording system and tested with the playback system. These scenarios include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>short_left_crossing</p>
+</li>
+<li>
+<p>straight</p>
+</li>
+<li>
+<p>drift</p>
+</li>
+<li>
+<p>long</p>
+</li>
+<li>
+<p>5_crossing</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Then, we tested the scenarios with different weather conditions, including:
+* Clear Sunset
+* Cloudy Night
+* Mid Rainy Night (Only for short tests)
+* Mid Rain Sunset
+* Wet Noon</p>
+</div>
+<div class="sect3">
+<h4 id="_analysis_by_test_scenario">4.4.1. Analysis By Test Scenario</h4>
+<div class="imageblock">
+<div class="content">
+<img src="resources/png/5_crossing_comparison.png" alt="5 Crossing Test">
+</div>
+<div class="title">Figure 6. 5 Crossing Test</div>
+</div>
+<div class="paragraph">
+<p>In the "5_crossing" test, both YOLOP and CARLA systems show perfect detection rates across all weather conditions, with both systems detecting exactly 5 lane departure events in clear sunset, cloudy night, and mid-rain sunset conditions.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="resources/png/drift_comparison.png" alt="Drift Test">
+</div>
+<div class="title">Figure 7. Drift Test</div>
+</div>
+<div class="paragraph">
+<p>The "drift" test shows that it is very normal for only YOLOP to detect drifts, as the lanes are not actually crossed. YOLOP registers between 2-4 events depending on weather conditions, with peaks during rainy conditions, while CARLA&#8217;s lack of detections confirms that no genuine lane crossings occurred.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="resources/png/long_comparison.png" alt="Long Test">
+</div>
+<div class="title">Figure 8. Long Test</div>
+</div>
+<div class="paragraph">
+<p>The "long" test shows that our system is quite reliable on detecting a lane invasion event, with a detection rate of 100% across all weather conditions.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="resources/png/short_left_crossing_comparison.png" alt="Short Left Crossing Test">
+</div>
+<div class="title">Figure 9. Short Left Crossing Test</div>
+</div>
+<div class="paragraph">
+<p>The "short_left_crossing" test shows that our system is quite reliable on detecting a lane invasion event, with a detection rate of 100% across all weather conditions.
+However, our system shows a significant number of false positives, especially in the Mid Rainy Night condition, where it detects 2 events while CARLA only detects 1. This indicates that our system is more sensitive to lane crossings in adverse weather conditions, which may lead to false alarms.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="resources/png/straight_comparison.png" alt="Straight Test">
+</div>
+<div class="title">Figure 10. Straight Test</div>
+</div>
+<div class="paragraph">
+<p>The "straight" test is made to not do any lane invasion or drift at all. The results show that both systems are able to detect the absence of lane crossings, with CARLA showing 0 detections and YOLOP showing false positive detections in rainy conditions. This indicates that our system is not perfect and can still produce false positives even when no lane crossings occur.</p>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -1651,7 +1737,7 @@ HIVE_MQ_PASSWORD=your_password
 <div class="content">
 <img src="resources/png/launcher_async.png" alt="Launcher in async mode" width="50%">
 </div>
-<div class="title">Figure 6. Launcher in asynchronous mode</div>
+<div class="title">Figure 11. Launcher in asynchronous mode</div>
 </div>
 </div>
 <div class="sect3">
@@ -1685,13 +1771,13 @@ HIVE_MQ_PASSWORD=your_password
 <div class="content">
 <img src="resources/png/launcher_record.png" alt="Launcher in sync mode for recording" width="50%">
 </div>
-<div class="title">Figure 7. Launcher in synchronous mode for recording</div>
+<div class="title">Figure 12. Launcher in synchronous mode for recording</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="resources/png/launcher_test.png" alt="Launcher in sync mode for playback" width="50%">
 </div>
-<div class="title">Figure 8. Launcher in synchronous mode for playback</div>
+<div class="title">Figure 13. Launcher in synchronous mode for playback</div>
 </div>
 </div>
 </div>
@@ -1760,7 +1846,7 @@ Confirm credentials in <code>.env</code> file and network connectivity to HiveMQ
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2025-04-08 14:05:28 UTC
+Last updated 2025-04-08 14:09:06 UTC
 </div>
 </div>
 </body>
